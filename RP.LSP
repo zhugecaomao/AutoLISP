@@ -1,0 +1,33 @@
+ (defun c:rp ()
+;(IF (= (TYPE F1) 'FILE ) "YES"  (STOP))
+;(IF (= (TYPE F2) 'FILE ) "YES" (STOP))
+   (defun rp1()
+   (setq d (getreal "\n D(12) D(15) D(20) D(25) D(30) D(35) ?"))
+
+   (setq l (getreal "\n How about the return pin longer ?"))
+
+   (setq base (getpoint "\n Where will you put on the return pin ?"))
+   (setq x1 (eval (car base)))
+   (setq y1 (eval (cadr base)))
+
+   (setq b (+ d 5))
+   (setq h 8)
+   (setq b1 (/ b 2))
+   (setq d1 (/ d 2))
+   (if (< l 0) (setq h (* -1 h)))
+
+   (setq p1 (list (- x1 b1) y1))
+   (setq p2 (list (+ x1 b1) y1))
+   (setq p3 (list (+ x1 b1) (+ y1 h)))
+   (setq p4 (list (- x1 b1) (+ y1 h)))
+   (command "pline" p1 "w" "0" "0" p2 p3 p4 p1 "")
+
+   (setq p5 (list (+ x1 d1) (+ y1 h)))
+   (setq p6 (list (+ x1 d1) (+ y1 l)))
+   (setq p7 (list (- x1 d1) (+ y1 l)))
+   (setq p8 (list (- x1 d1) (+ y1 h)))
+   (command "pline" p5 "w" "0" "0" p6 p7 p8 "")
+   (rp1)
+ )
+   (rp1)
+ )

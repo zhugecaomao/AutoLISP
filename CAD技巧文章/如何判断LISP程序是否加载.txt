@@ -1,0 +1,13 @@
+如何判断LISP程序已经执行？
+如何判断LISP程序装载还是没有装载？ 
+判断函数符号，如果是空，则为加载，否则就未加载
+如：
+(defun c:test()
+  (princ "hello")
+  (princ)
+)
+这样判断：
+(if c:test
+  (princ "已加载")
+  (princ "未加载")
+) 

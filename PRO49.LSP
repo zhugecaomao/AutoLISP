@@ -1,0 +1,45 @@
+;***************** BLOCK SLIDE ********************
+
+(DEFUN C:STD ()
+   (SETVAR "CMDECHO" 0)
+   (COMMAND "VSLIDE" "CO")
+   (STD-1)
+   (SETQ XR7 (/ XR 7))
+   (SETQ YR4 XR7)
+      (SETQ PT (GETPOINT "\nPLEASE DIGIT THE CHAR. TABLE : "))
+    (IF (NULL PT) (SETQ JA 4) (PROGN
+          (SETQ IA (FIX (/ (- (NTH 0 PT) XI) XR7)))
+          (SETQ JA (+ (FIX (/ (- (NTH 1 PT) YI) YR4)) 1))))
+          (IF (= JA 1) (SETQ VS (NTH IA
+              (LIST "SE" "WL" "WE" "GP" "PL" "BO" "EX"))))
+          (IF (= JA 2) (SETQ VS (NTH IA
+              (LIST "NO" "OP" "SP" "SC" "KO" "UP" "EX"))))
+          (IF (= JA 3) (SETQ VS (NTH IA
+              (LIST "CP" "RP" "EJ" "LP" "ST" "RL" "EX"))))
+          (IF (= JA 4) (SETQ VS (NTH IA
+              (LIST "EP-1" "OC" "LO" "EX" "EX" "SR" "EX"))))
+         (IF (= VS "SE") (if se (c:se)(progn (load "pro45")(c:se))))
+         (IF (= VS "WL") (if wl (c:wl)(progn (load "pro57")(c:wl))))
+         (IF (= VS "WE") (if we (c:we)(progn (load "pro56")(c:we))))
+         (IF (= VS "GP") (if gp (c:gp)(progn (load "pro22")(c:gp))))
+         (IF (= VS "PL") (if pl (c:pl)(progn (load "pro38")(c:pl))))
+         (IF (= VS "BO") (if bo (c:bo)(progn (load "pro1")(c:bo))))
+         (IF (= VS "NO") (if no (c:no)(progn (load "pro34")(c:no))))
+         (IF (= VS "OP") (if op (c:op)(progn (load "pro37")(c:op))))
+         (IF (= VS "SP") (if sp (c:sp)(progn (load "pro46")(c:sp))))
+         (IF (= VS "SC") (if sc (c:sc)(progn (load "pro42")(c:sc))))
+         (IF (= VS "KO") (if k1 (c:k1)(progn (load "pro24")(c:k1))))
+         (IF (= VS "UP") (if up (c:up)(progn (load "pro52")(c:up))))
+         (IF (= VS "CP") (if cp (c:cp)(progn (load "pro8")(c:cp))))
+         (IF (= VS "RP") (if rp (c:rp)(progn (load "pro40")(c:rp))))
+         (IF (= VS "EJ") (if ej (c:ej)(progn (load "pro15")(c:ej))))
+         (IF (= VS "LP") (if lp (c:lp)(progn (load "pro26")(c:lp))))
+         (IF (= VS "ST") (if st (c:st)(progn (load "pro48")(c:st))))
+         (IF (= VS "RL") (if rl (c:rl)(progn (load "pro39")(c:rl))))
+         (IF (= VS "EP-1") (if ep-1 (c:ep-1)(progn (load "pro16")(c:ep-1))))
+         (IF (= VS "OC") (if oc (c:oc)(progn (load "pro59")(c:oc))))
+         (IF (= VS "LO") (if lo (c:lo)(progn (load "pro60")(c:lo))))
+         (IF (= VS "SR") (if sr (c:sr)(progn (load "pro61")(c:sr))))
+         (IF (= VS "EX")(redraw))
+)
+

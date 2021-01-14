@@ -1,0 +1,34 @@
+'数变编号，加圆圈
+Public Sub bh()
+ThisDrawing.Utility.Prompt "请选择要加圆圈的文本" + vbCrLf
+Dim sset As AcadSelectionSet
+Dim gp(0) As Integer
+Dim data(0) As Variant
+If ThisDrawing.SelectionSets.Count <> 0 Then
+For i = 0 To ThisDrawing.SelectionSets.Count - 1
+Set sset = ThisDrawing.SelectionSets.Item(i)
+sset.Delete
+Next
+Else
+End If
+Set sset = ThisDrawing.SelectionSets.Add("ss")
+AcadApplication.Visible = True
+gp(0) = 0
+data(0) = "*Text"
+123: sset.SelectOnScreen gp, data
+Dim min As Variant
+Dim max As Variant
+Dim o(0 To 2) As Double
+Dim cir As AcadCircle
+If sset.Count < 1 Then
+MsgBox "没选文本"
+GoTo 123
+End If
+For i = 0 To sset.Count - 1
+sset(i).GetBoundingBox min, max
+o(0) = (min(0) + max(0)) / 2
+o(1) = (min(1) + max(1)) / 2
+o(2) = 0
+ThisDrawing.ModelSpace.AddCircle o, 4.5
+Next
+End Sub 

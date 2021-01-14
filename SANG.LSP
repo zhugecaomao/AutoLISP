@@ -1,0 +1,10 @@
+(defun c:sang ()
+(prompt "select angle base line")
+(setq bas (car (entsel)))
+(setq p1 (cdr (assoc 10 (entget bas))))
+(setq p2 (cdr (assoc 11 (entget bas))))
+(setq ang (angle p1 p2))
+(setvar "snapang" ang)
+(princ)
+)
+

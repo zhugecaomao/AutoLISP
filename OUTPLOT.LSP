@@ -1,0 +1,22 @@
+(DEFUN c:outplot ()
+(SETQ DW (GETVAR "DWGNAME"))
+(setq file (strcat "File:" (getvar "dwgprefix") DW))
+(setq x (getvar "cdate"))
+(setq x (rtos x 2 0))
+(setq date (strcat "Date:" (substr x 5 2) "-" (substr x 7 2) "-" (substr x 3 2)))
+(setq 1dsc (getvar "dimscale"))
+(if (>= 1dsc 1)(progn
+(setq dsc (rtos 1dsc 2 1))
+(setq sca (strcat "Scale:1/" dsc ))))
+(if (< 1dsc 1)
+(progn
+(setq t1sca (/ 1 1dsc))
+(setq tsca (rtos t1sca 2 1))
+(setq sca (strcat "Scale:" tsca "/1"))
+))
+(setq data (strcat file ".DWG, " sca ", " date))
+(setq ins (append (list (* 5 (getvar "dimscale"))) (list (* 2 (getvar "dimscale")))))
+(command "text" ins "" "0" data)
+(PRINC)
+)
+

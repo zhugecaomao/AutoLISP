@@ -1,0 +1,26 @@
+;;;      功    能: 连接多义线
+;;;
+(DEFUN C:Jjj (/ l1 ls1) (princ "连接多义线命令 :")
+       (setq l1 (car (entsel "\n 选择一条用于连接的线 :")))
+       (while (= l1 nil)
+           (princ "\n没有选中")
+           (setq l1 (car (entsel "\n 选择一条用于连接的线 :")))
+       )
+       (prompt "\n 选择需要连接的多义线:")
+       (setq ls1 (ssget))
+       (setvar "cmdecho" 0)
+           (setq e0 (entget l1))
+           (setq e (dxf 0 e0))
+           (if (/= e "LWPOLYLINE")
+               (progn
+                   (COMMAND "PEDIT" l1 "Y" "J" ls1 "" "X")
+               )
+           )
+          (if (= e "LWPOLYLINE")
+              (progn
+                  (COMMAND "PEDIT" l1 "J" ls1 "" "X")
+              )
+          )
+       (setvar "cmdecho" 1)
+(PRINC)
+)

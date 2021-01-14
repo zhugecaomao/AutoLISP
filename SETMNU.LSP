@@ -1,0 +1,4 @@
+(DEFUN C:SETMNU()
+  (COMMAND "SETVER" "MENUCTL" "0")
+)
+

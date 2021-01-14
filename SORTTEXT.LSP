@@ -1,0 +1,15 @@
+(defun c:sorttext ()
+(setq s (getint "Wont sorting star number : "))
+(setq d 0)
+(repeat 10
+(setq a (entsel))
+(setq a1 (entget (car a )))
+(setq a2 (assoc 1 a1 ))
+(setq c (+ s d))
+(setq d (+ d 1))
+(setq b (subst (cons 1 (itoa c)) a2 a1))
+(entmod b)
+)
+(princ)
+)
+

@@ -1,0 +1,7 @@
+(defun C:CONFIG()
+  (setvar "cmdecho" 1)
+  (command "tablet" "cfg" "0" "")
+  (COMMAND "VSLIDE" "/acad/hon/SLD/CONFIG")
+  (command "tablet" "cfg" "4" "25" "9" "11" "16" "9" "4" "13" "25" "Y")(redraw)
+  (setvar "cmdecho" 0)
+)

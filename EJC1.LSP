@@ -1,0 +1,12 @@
+(DEFUN EJC1()(NULL P1)
+  (REPEAT 100
+    (SETQ P1 (GETPOINT"\nINSERT POINT:"))
+    (SETQ D (GETDIST P1"DIAMETER:"))
+    (IF (= D NIL)
+        (SETQ D D1)
+    )
+    (COMMAND "INSERT" "_CENTER1" P1 D D 0)
+(SETQ D1 D)
+   )
+)
+

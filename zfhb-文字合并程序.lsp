@@ -1,0 +1,97 @@
+;文字合并程序
+; this program is make letter together
+(defun c:zfhb()
+  (command "osnap" "off")
+  (setq kg1 (getint"\n合并字符间空格数0~10<0>:"))
+  (if (= kg1 nil)(setq kg11 ""))
+  (if (= kg1 0)(setq kg11 ""))
+  (if (= kg1 1)(setq kg11 " "))
+  (if (= kg1 2)(setq kg11 "  "))
+  (if (= kg1 3)(setq kg11 "   "))
+  (if (= kg1 4)(setq kg11 "    ")) 
+  (if (= kg1 5)(setq kg11 "     "))
+  (if (= kg1 6)(setq kg11 "      "))
+  (if (= kg1 7)(setq kg11 "       "))
+  (if (= kg1 8)(setq kg11 "        ")) 
+  (if (= kg1 9)(setq kg11 "         "))    
+  (if (= kg1 10)(setq kg11 "          "))
+  (setq zzz "")
+  (princ "\n选择字符串:")
+  (setq s (ssget))
+  (setq n (sslength s))
+  (setq k 0 )(setq cgm 0)
+  (setq fxx nil)
+  (setq fyy nil)
+  (setq fzz nil)
+  (setq pxx1 nil)
+  (setq pyy1 nil)
+
+  (while (< k n)
+      (setq name (ssname s k))
+      (setq a (entget name))
+      (setq bhz (assoc '0 a))
+      (setq bhz (cdr bhz))
+      (if (= bhz "TEXT") (progn
+        (if (= k 0) (progn
+            (setq b (assoc '0 a))
+            (setq b (cdr b))
+            (setq h0 (assoc '40 a))
+            (setq h0 (cdr h0))
+            (setq ag1 (assoc '50 a))
+            (setq ag1 (cdr ag1))
+	    (setq ag1 (* ag1 180) ag1 (/ ag1 pi))
+            ))
+        (setq nam1 (assoc '-1 a))
+        (setq nam1 (cdr nam1))
+        (setq xxx (assoc '10 a))
+        (setq xy (cdr xxx))
+        (setq xx (car xy) yy (cdr xy) yy (car yy))
+        (setq tx1 (assoc '1 a))
+        (setq tx1 (cdr tx1))
+        
+
+        (setq lxx (list xx tx1))
+        (setq lyy (list yy tx1))
+        (setq lxx (list lxx))
+        (setq lyy (list lyy))
+        (setq fxx (append fxx lxx))
+        (setq fyy (append fyy lyy))
+        (setq pxx (list xx) pyy (list yy))
+        (setq pxx1 (append pxx1 pxx) pyy1 (append pyy1 pyy))
+        (entdel nam1)
+        (setq cgm (+ cgm 1))
+     ))
+     (setq k (+ k 1))
+  )
+
+    (setq pxx1 (vl-sort pxx1 '<))
+    (setq pyy1 (vl-sort pyy1 '<))
+    (setq px (car pxx1) py (car pyy1))
+    (setq p1 (list px py))
+    (if (= ag1 0.0)(progn
+        (setq fzz (vl-sort fxx
+                  (function (lambda (e1 e2)
+                            (< (car e1) (car e2))))))
+	))
+    (if (> ag1 0)(progn
+        (setq fzz (vl-sort fyy
+                  (function (lambda (e1 e2)
+                            (< (car e1) (car e2))))))
+	))
+
+
+
+		    
+        (setq nn 0)
+        (while (< nn cgm)
+	     (setq zz1 (car fzz))
+	     (setq zz1 (cdr zz1) zz1 (car zz1))
+	     (setq zzz (strcat zzz kg11 zz1))
+	     (setq fzz (cdr fzz))
+	     (setq nn (+ nn 1))
+        )
+
+  (command "text" p1 h0 ag1 zzz)
+  (command "osnap" "int,mid,nea,cen,per,tan")
+)
+

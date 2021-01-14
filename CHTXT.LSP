@@ -1,0 +1,21 @@
+(VMON)
+;(IF (= (TYPE F1) 'FILE ) "YES"  (STOP))
+;(IF (= (TYPE F2) 'FILE ) "YES" (STOP))
+;-----------------
+;Replace the old string with new string
+(DEFUN C:CHTXT (/ AB1 AB2)
+  (SETQ AB1 (ENTGET (CAR (ENTSEL "\nSelect old text..."))))
+  (IF (CDR (ASSOC 1 AB1))
+    (PROGN
+      (MENUCMD "S=LDER")
+      (SETQ AB2 (GETSTRING T "\nEnter new text:"))
+      (SETQ AB1 (SUBST (CONS 1 AB2) (ASSOC 1 AB1) AB1))
+      (IF (NULL (ASSOC 62 AB1))
+          (SETQ AB1 (CONS (CONS 62 4) AB1))
+          (SETQ AB1 (SUBST (CONS 62 3) (ASSOC 62 AB1) AB1))
+      )
+      (ENTMOD AB1)
+    )
+    (PROMPT "\007\007\007\nNot succeed...Try again !")
+  ) (PRINC)
+)

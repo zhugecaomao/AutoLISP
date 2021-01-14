@@ -1,0 +1,94 @@
+求一lisp程序读取TXT文件中的数据！
+
+PAD-NO. PAD-NAME PAD-IDX PAD-IDY PAD-LENGTHX PAD-LENGTHY
+1 COM73 -4568.4 -773.4 45 75
+2 COM74 -4503.6 -773.4 45 75
+3 COM75 -4438.8 -773.4 45 75
+4 COM76 -4374 -773.4 45 75
+5 COM77 -4309.2 -773.4 45 75
+6 COM78 -4244.4 -773.4 45 75
+7 COM79 -4179.6 -773.4 45 75
+;;以上是文件格式
+  (princ "\nexample : [d:\\ylsp\\ic\\SSD1820\\SSD1820.TXT]")
+  (setq file0 (getstring "\nfile's name and path :")
+ file1 (open file0 "r")
+  )
+  (while (not file1)
+    (setq file0 (getstring "\nCann't find the file! file's name and path :")
+   file1 (open file0 "r")
+    )
+  )
+  (princ "\nWait ..........")
+  (data-pro file1)
+;;return pad-list
+
+(defun data-pro (file1     /        first-line pad-no     padf1 pad-name   pad-idx    pad-idy  pad-lenx
+   pad-leny   pad-list1  repc1   repc2      repf1 repf2    repf2t     text1  text-list1
+   text-list2 pad-lenxy
+  )
+  (read-line file1)
+  (setq repc1 0
+ pad-list1 nil
+  )
+  (while (setq first-line (read-line file1))
+    (setq repf1 1
+   text-list1
+    nil
+    )
+    (while (<= repf1 (strlen first-line))
+      (setq padf1 (substr first-line repf1 1))
+      (if (not (or (equal (ascii padf1) 32)
+     (equal (ascii padf1) 0)
+     (equal (ascii padf1) 9)
+        )
+   )
+ (progn
+   (setq repf2  (1+ repf1)
+  repf2t t
+   )
+   (while (and (setq padf2 (substr first-line repf2 1)) repf2t)
+     (if (or (equal (ascii padf2) 32)
+      (equal (ascii padf2) 0)
+      (equal (ascii padf2) 9)
+  )
+       (setq text1  (substr first-line repf1 (- repf2 repf1))
+      repf2t nil
+      repf1  repf2
+       )
+     )
+     (setq repf2 (1+ repf2))
+   )
+ )
+      )
+      (setq text-list1 (cons text1 text-list1)
+     repf1      (1+ repf1)
+      )
+    )
+    (setq text-list1 (reverse text-list1)
+   pad-list1  (cons text-list1 pad-list1)
+   repc1      (1+ repc1)
+    )
+  )
+  (setq repc2 0
+ pad-list2 nil
+ pad-lenxy nil
+  )
+  (repeat (length pad-list1)
+    (setq pad-no   (atoi (nth 0 (nth repc2 pad-list1)))
+   pad-name (nth 1 (nth repc2 pad-list1))
+   pad-idx  (atof (nth 2 (nth repc2 pad-list1)))
+   pad-idy  (atof (nth 3 (nth repc2 pad-list1)))
+   pad-lenx (atof (nth 4 (nth repc2 pad-list1)))
+   pad-leny (atof (nth 5 (nth repc2 pad-list1)))
+    )
+    (setq text-list2 (list pad-no pad-name pad-idx pad-idy pad-lenx pad-leny)
+   pad-list2  (cons text-list2 pad-list2)
+   pad-lenxy  (append (list pad-leny pad-lenx) pad-lenxy)
+   repc2      (1+ repc2)
+    )
+  )
+  (setq pad-lenxy-min (car (vl-sort pad-lenxy '<)))
+  (close file1)
+  (princ)
+)
+

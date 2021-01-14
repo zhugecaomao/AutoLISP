@@ -1,0 +1,6 @@
+(DEFUN C:V8()
+  (SETQ TX1 (GETSTRING"\nINPUT STRING:"))
+  (SETQ TX2 (STRCAT "%%P" TX1))
+  (COMMAND "TEXT" "\\" "\\" "\\" TX2)
+)
+

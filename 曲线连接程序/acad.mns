@@ -1,0 +1,4505 @@
+//
+//      AutoCAD 菜单文件 - C:\Program Files\AutoCAD 2002\SUPPORT\acad.mnu
+//
+
+***MENUGROUP=ACAD
+
+***BUTTONS1
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,5),GRIP_),$P0=ACAD.GRIPS $P0=*);
+$P0=SNAP $p0=* 
+^C^C
+^B
+^O
+^G
+^D
+^E
+^T
+
+***BUTTONS2
+$P0=SNAP $p0=* 
+
+***AUX1
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,5),GRIP_),$P0=ACAD.GRIPS $P0=*);
+$P0=SNAP $p0=* 
+^C^C
+^B
+^O
+^G
+^D
+^E
+^T
+
+***AUX2
+$P0=SNAP $p0=* 
+$P0=SNAP $p0=* 
+
+***AUX3
+$P0=SNAP $p0=* 
+
+***AUX4
+$P0=SNAP $p0=* 
+
+***POP0
+**SNAP
+               [对象捕捉光标菜单(&O)]
+ID_Tracking    [临时追踪点(&K)]_tt 
+ID_From        [自(&F)]_from 
+ID_MnPointFi   [->点过滤器(&T)]
+ID_PointFilx     [.X].X 
+ID_PointFily     [.Y].Y 
+ID_PointFilz     [.Z].Z 
+                 [--]
+ID_PointFixy     [.XY].XY 
+ID_PointFixz     [.XZ].XZ 
+ID_PointFiyz     [<-.YZ].YZ 
+               [--]
+ID_OsnapEndp   [端点(&E)]_endp 
+ID_OsnapMidp   [中点(&M)]_mid 
+ID_OsnapInte   [交点(&I)]_int 
+ID_OsnapAppa   [外观交点(&A)]_appint 
+ID_OsnapExte   [延长线(&X)]_ext 
+               [--]
+ID_OsnapCent   [圆心(&C)]_cen 
+ID_OsnapQuad   [象限点(&Q)]_qua 
+ID_OsnapTang   [切点(&G)]_tan 
+               [--]
+ID_OsnapPerp   [垂足(&P)]_per 
+ID_OsnapPara   [平行线(&L)]_par 
+ID_OsnapNode   [节点(&D)]_nod 
+ID_OsnapInse   [插入点(&S)]_ins 
+ID_OsnapNear   [最近点(&R)]_nea 
+ID_OsnapNone   [无(&N)]_non 
+               [--]
+ID_Osnap       [对象捕捉设置(&O)...]'_+dsettings 2 
+
+***POP1
+**FILE
+ID_MnFile      [文件(&F)]
+ID_New         [新建(&N)...	Ctrl+N]^C^C_new 
+ID_Open        [打开(&O)...	Ctrl+O]^C^C_open 
+ID_DWG_CLOSE   [关闭(&C)]^C^C_close 
+ID_PartialOp   [$(if,$(eq,$(getvar,fullopen),0),,~)局部加载(&L)]^C^C_partiaload 
+               [--]
+ID_Save        [保存(&S)	Ctrl+S]^C^C_qsave 
+ID_Saveas      [另存为(&A)...]^C^C_saveas 
+ID_ETransmit   [电子传递(&T)...]^C^C_etransmit 
+ID_Publish     [网上发布(&W)...]^C^C_publishtoweb 
+ID_Export      [输出(&E)...]^C^C_export 
+               [--]
+ID_PlotSetup   [页面设置(&G)...]^C^C_pagesetup 
+ID_PlotMgr     [打印机管理器(&M)...]^C^C_plottermanager 
+ID_PlotStyMgr  [打印样式管理器(&Y)...]^C^C_stylesmanager 
+ID_Preview     [打印预览(&V)]^C^C_preview 
+ID_Print       [打印(&P)...	Ctrl+P]^C^C_plot 
+               [--]
+ID_MnDrawing   [->图形实用程序(&U)]
+ID_Audit         [核查(&A)]^C^C_audit 
+ID_Recover       [修复(&R)...]^C^C_recover 
+                 [--]
+ID_BupdateA      [更新块图标(&U)]^C^C_blockicon 
+                 [--]
+ID_Purge         [<-清理(&P)...]^C^C_purge 
+ID_SendMail    [发送(&D)...]
+ID_Props       [图形属性(&I)...]^C^C_dwgprops 
+               [--]
+ID_MRU         [绘图历史]
+               [--]
+ID_APP_EXIT    [退出(&X)]^C^C_quit 
+
+***POP2
+**EDIT
+ID_MnEdit      [编辑(&E)]
+ID_U           [放弃(&U)	Ctrl+Z]_u 
+ID_Redo        [重做(&R)	Ctrl+Y]^C^C_redo 
+               [--]
+ID_Cutclip     [剪切(&T)	Ctrl+X]^C^C_cutclip 
+ID_Copyclip    [复制(&C)	Ctrl+C]^C^C_copyclip 
+ID_Copybase    [带基点复制(&B)]^C^C_copybase 
+ID_Copylink    [复制链接(&L)]^C^C_copylink 
+ID_Pasteclip   [粘贴(&P)	Ctrl+V]^C^C_pasteclip 
+ID_Pastebloc   [粘贴为块(&K)]^C^C_pasteblock 
+ID_Pastehlnk   [粘贴为超级链接(&H)]^C^C_pasteashyperlink 
+ID_Pasteorig   [粘贴到原坐标(&D)]^C^C_pasteorig 
+ID_Pastesp     [选择性粘贴(&S)...]^C^C_pastespec 
+               [--]
+ID_Erase       [清除(&A)	Del]^C^C_erase 
+ID_SelAll      [全部选择(&L)	Ctrl+A]^C^C_ai_selall 
+               [--]
+ID_Links       [OLE 链接(&O)...]^C^C_olelinks 
+               [--]
+ID_TextFind    [查找(&F)...]^C^C_find 
+
+***POP3
+**VIEW
+ID_MnView      [视图(&V)]
+ID_Redrawall   [重画(&R)]'_redrawall 
+ID_Regen       [重生成(&G)]^C^C_regen 
+ID_Regenall    [全部重生成(&A)]^C^C_regenall 
+               [--]
+ID_MnZoom      [->缩放(&Z)]
+ID_ZoomRealt     [实时(&R)]'_zoom ;
+                 [--]
+ID_ZoomPrevi     [上一个(&P)]'_zoom _p 
+ID_ZoomWindo     [窗口(&W)]'_zoom _w 
+ID_ZoomDynam     [动态(&D)]'_zoom _d 
+ID_ZoomScale     [比例(&S)]'_zoom _s 
+ID_ZoomCente     [中心点(&C)]'_zoom _c 
+                 [--]
+ID_ZoomIn        [放大(&I)]'_zoom 2x 
+ID_ZoomOut       [缩小(&O)]'_zoom .5x 
+                 [--]
+ID_ZoomAll       [全部(&A)]'_zoom _all 
+ID_ZoomExten     [<-范围(&E)]'_zoom _e 
+ID_MnPan       [->平移(&P)]
+ID_Pan           [实时(&T)]'_pan 
+ID_PanPick       [定点(&P)]'_-pan 
+                 [--]
+ID_PanLeft       [左(&L)]^P'_-pan (trans (list (* -0.2 (getvar "viewsize")) 0) 0 1) ;^P
+ID_PanRight      [右(&R)]^P'_-pan (trans (list (* 0.2 (getvar "viewsize")) 0) 0 1) ;^P
+ID_PanUp         [上(&U)]^P'_-pan (trans (list 0 (* 0.2 (getvar "viewsize"))) 0 1) ;^P
+ID_PanDown       [<-下(&D)]^P'_-pan (trans (list 0 (* -0.2 (getvar "viewsize"))) 0 1) ;^P
+ID_Dsviewer    [鸟瞰视图(&W)]'_dsviewer 
+               [--]
+ID_MnTiledVi   [->视口(&V)]
+ID_Ai_tiledv     [命名视口(&N)...]^C^C_+vports 1 
+                 [--]
+ID_VportsSav     [新建视口(&E)...]^C^C_+vports 0 
+ID_VportsSin     [一个视口(&1)]^C^C$M=$(if,$(eq,$(getvar,tilemode),1),^C^C_-vports _si,^C^C_-vports) 
+ID_Vports2       [两个视口(&2)]^C^C_-vports _2 
+ID_Vports3       [三个视口(&3)]^C^C_-vports _3 
+ID_Vports4       [四个视口(&4)]^C^C_-vports _4 
+ID_VportsRes     [$(if,$(eq,$(getvar,tilemode),1),~)多边形视口(&P)]^C^C_-vports _p 
+ID_VportsDel     [$(if,$(eq,$(getvar,tilemode),1),~)对象(&O)]^C^C_-vports _o 
+                 [--]
+ID_VportsJoi     [<-$(if,$(eq,$(getvar,tilemode),0),~)合并(&J)]^C^C_-vports _j 
+ID_Ddview      [命名视图(&N)...]^C^C_view 
+ID_MnViewpoi   [->$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),~,)三维视图(&3)]
+ID_Ddvpoint      [视点预置(&I)...]^C^C_ddvpoint 
+ID_VpointTri     [视点(&V)]^C^C_vpoint ;
+ID_MnPlanView    [->平面视图(&P)]
+ID_PlanCurre       [当前 UCS(&C)]^C^C_plan ;
+ID_PlanWorld       [世界 UCS(&W)]^C^C_plan _w 
+ID_PlanUCS         [<-命名 UCS(&N)]^C^C_plan _u 
+                 [--]
+ID_VpointTop     [俯视(&T)]^C^C_-view _top 
+ID_VpointBot     [仰视(&B)]^C^C_-view _bottom 
+ID_VpointLef     [左视(&L)]^C^C_-view _left 
+ID_VpointRig     [右视(&R)]^C^C_-view _right 
+ID_VpointFro     [主视(&F)]^C^C_-view _front 
+ID_VpointBac     [后视(&K)]^C^C_-view _back 
+                 [--]
+ID_VpointSW      [西南等轴测(&S)]^C^C_-view _swiso 
+ID_VpointSE      [东南等轴测(&E)]^C^C_-view _seiso 
+ID_VpointNE      [东北等轴测(&N)]^C^C_-view _neiso 
+ID_VpointNW      [<-西北等轴测(&W)]^C^C_-view _nwiso 
+ID_3dorbit     [$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),~,)三维动态观察器(&B)]'_3dorbit 
+               [--]
+ID_Hide        [消隐(&H)]^C^C_hide 
+ID_MnPersShad  [->$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),~,)着色(&S)]
+ID_2doptim       [二维线框(&2)]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _2) 
+ID_Wireframe     [三维线框(&3)]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _3) 
+ID_Hidden        [消隐(&H)]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _h) 
+ID_Flat          [平面着色(&F)]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _f) 
+ID_Gouraud       [体着色(&G)]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _g) 
+ID_FlatEdges     [带边框平面着色(&T)]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _l) 
+ID_GourEdges     [<-带边框体着色(&S)]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _o) 
+ID_MnRender    [->$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),~,)渲染(&E)]
+ID_Render        [渲染(&R)...]^C^C_render 
+                 [--]
+ID_Scene         [场景(&S)...]^C^C_scene 
+ID_Light         [光源(&L)...]^C^C_light 
+ID_Rmat          [材质(&M)...]^C^C_rmat 
+ID_Matlib        [材质库(&Y)...]^C^C_matlib 
+ID_Setuv         [贴图(&A)...]^C^C_setuv 
+                 [--]
+ID_Backgroun     [背景(&B)...]^C^C_background 
+ID_Fog           [雾化(&F)...]^C^C_fog 
+ID_Lsnew         [新建配景(&N)...]^C^C_lsnew 
+ID_Lsedit        [编辑配景(&E)...]^C^C_lsedit 
+ID_Lslib         [配景库(&C)...]^C^C_lslib 
+                 [--]
+ID_Rpref         [渲染配置(&P)...]^C^C_rpref 
+ID_Stats         [<-统计信息(&T)...]^C^C_stats 
+               [--]
+ID_MnDisplay   [->显示(&L)]
+ID_MnUCSicon     [->UCS 图标(&U)]
+ID_UcsiconOn       [$(if,$(and,$(getvar,ucsicon),1),!.)开(&O)]$M=$(if,$(and,$(getvar,ucsicon),1),^C^C_ucsicon _off,^C^C_ucsicon _on) 
+ID_UcsiconOr       [$(if,$(and,$(getvar,ucsicon),2),!.)原点(&R)]$M=$(if,$(and,$(getvar,ucsicon),2),^C^C_ucsicon _no,^C^C_ucsicon _or) 
+ID_UcsiconPr       [<-特性(&P)...]^C^C_ucsicon _p 
+ID_MnAttribu     [->属性显示(&A)]
+ID_AttdispNo       [$(if,$(eq,$(getvar,attmode),1),!.)普通(&N)]'_attdisp _n 
+                   [--]
+ID_AttdispOn       [$(if,$(eq,$(getvar,attmode),2),!.)开(&O)]'_attdisp _on 
+ID_AttdispOf       [<-$(if,$(eq,$(getvar,attmode),0),!.)关(&F)]'_attdisp _off 
+                 [--]
+ID_Textscr       [<-文本窗口(&T)	F2]'_textscr 
+ID_Toolbar     [工具栏(&O)...]^C^C_toolbar 
+
+***POP4
+**INSERT
+ID_MnInsert    [插入(&I)]
+ID_Ddinsert    [块(&B)...]^C^C_insert 
+ID_Xattach     [外部参照(&X)...]^C^C_xattach 
+ID_Imageatta   [光栅图像(&I)...]^C^C_imageattach 
+               [--]
+ID_MnLayout    [->布局(&L)]
+ID_NewLayout     [新建布局(&N)]^C^C_layout _new 
+ID_TmplLayou     [来自样板的布局(&T)...]^C^C_layout _template 
+ID_LayoutWiz     [<-布局向导(&W)]^C^C_layoutwizard 
+               [--]
+ID_3dsin       [3D Studio(&3)...]^C^C_3dsin 
+ID_Acisin      [ACIS 文件(&A)...]^C^C_acisin 
+ID_Dxbin       [图形交换二进制(&E)...]^C^C_dxbin 
+ID_Wmfin       [Windows 图元文件(&W)...]^C^C_wmfin 
+ID_Insertobj   [OLE 对象(&O)...]^C^C_insertobj 
+ID_MARKUP      [圈阅标记(&U)...]^C^C_rmlin 
+               [--]
+ID_Xref        [外部参照管理器(&R)...]^C^C_xref 
+ID_Image       [图像管理器(&M)...]^C^C_image 
+               [--]
+ID_Hyperlink   [超级链接(&H)...	Ctrl+K]^C^C_hyperlink 
+
+***POP5
+**FORMAT
+ID_MnFormat    [格式(&O)]
+ID_Layer       [图层(&L)...]'_layer 
+ID_Ddcolor     [颜色(&C)...]'_color 
+ID_Linetype    [线型(&N)...]'_linetype 
+ID_Linewt      [线宽(&W)...]'_lweight 
+               [--]
+ID_Style       [文字样式(&S)...]'_style 
+ID_Ddim        [标注样式(&D)...]'_dimstyle 
+ID_PlotStyle   [$(if,$(eq,$(getvar,pstylemode),1),~,)打印样式(&Y)...]^C^C_plotstyle 
+ID_Ddptype     [点样式(&P)...]'_ddptype 
+ID_Mlstyle     [多线样式(&M)...]^C^C_mlstyle 
+               [--]
+ID_Units       [单位(&U)...]'_units 
+ID_Thickness   [厚度(&T)]'_thickness 
+ID_Limits      [图形界限(&A)]'_limits 
+               [--]
+ID_Ddrename    [重命名(&R)...]^C^C_rename 
+
+***POP6
+**TOOLS
+ID_MnTools     [工具(&T)]
+ID_Today       [今日(&T)]^C^C_Today 
+ID_PointA      [Autodesk Point A(&A)]^C^C_^C^C_browser http://pointa.autodesk.com 
+ID_MeetNow     [现在开会(&M)]^C^C_MeetNow 
+ID_MnCadStd    [->CAD 标准(&S)]
+ID_Standards     [配置(&C)...]^C^C_standards 
+ID_CheckStan     [检查(&K)...]^C^C_checkstandards 
+ID_LayTrans      [<-图层转换器(&L)...]^C^C_laytrans 
+               [--]
+ID_Spell       [拼写检查(&E)]'_spell 
+ID_Qselect     [快速选择(&K)...]^C^C_qselect 
+ID_MnOrder     [->显示顺序(&O)]
+ID_DrawordeF     [前置(&F)]^C^C^P(ai_draworder "_f") ^P
+ID_DrawordeB     [后置(&B)]^C^C^P(ai_draworder "_b") ^P
+                 [--]
+ID_DrawordeA     [置于对象之上(&A)]^C^C^P(ai_draworder "_a") ^P
+ID_DrawordeU     [<-置于对象之下(&U)]^C^C^P(ai_draworder "_u") ^P
+ID_Inquiry     [->查询(&Q)]
+ID_Dist          [距离(&D)]'_dist 
+ID_Area          [面积(&A)]^C^C_area 
+ID_Massprop      [面域/质量特性(&M)]^C^C_massprop 
+                 [--]
+ID_List          [列表显示(&L)]^C^C_list 
+ID_Id            [点坐标(&I)]'_id 
+                 [--]
+ID_Time          [时间(&T)]'_time 
+ID_Status        [状态(&S)]'_status 
+ID_Setvar        [<-设置变量(&V)]'_setvar 
+               [--]
+ID_EAttExt     [属性提取(&X)...]^C^C_eattext 
+ID_Modify      [$(if,$(and,$(getvar,opmstate),1),!.)特性(&I)	Ctrl+1]$M=$(if,$(and,$(getvar,opmstate),1),^C^C_propertiesclose,^C^C_properties) 
+ID_Content     [$(if,$(and,$(getvar,adcstate),1),!.)AutoCAD 设计中心(&G)	Ctrl+2]$M=$(if,$(and,$(getvar,adcstate),1),'_adcclose,'_adcenter) 
+ID_dbConnect   [$(if,$(and,$(getvar,dbcstate),1),!.)数据库连接(&D)	Ctrl+6]$M=$(if,$(and,$(getvar,dbcstate),1),^C^C_dbcClose,^C^C_dbConnect) 
+               [--]
+ID_Appload     [加载应用程序(&L)...]^C^C_appload 
+ID_Script      [运行脚本(&R)...]'_script 
+ID_VBAMacro    [->宏(&A)]
+ID_VBARun        [宏(&M)...	Alt+F8]^C^C_vbarun 
+ID_VBALoad       [加载工程(&L)...]^C^C_vbaload 
+ID_VBAMan        [VBA 管理器(&V)...]^C^C_vbaman 
+                 [--]
+ID_VBAIDE        [<-Visual Basic 编辑器(&B) 	Alt+F11]^C^C_vbaide 
+ID_AutoLisp    [->AutoLISP(&S)]
+ID_AULPLoad      [加载(&L)...]^C^C_appload 
+ID_AULPIDE       [<-Visual LISP 编辑器(&V)]^C^C_vlide 
+               [--]
+ID_MnImage     [->显示图像(&Y)]
+ID_Replay        [查看(&V)...]^C^C_replay 
+ID_Saveimg       [<-保存(&S)...]^C^C_saveimg 
+               [--]
+ID_Dducs       [命名 UCS(&U)...]^C^C_+ucsman 0 
+ID_UcsOrtho    [->正交 UCS(&H)]
+ID_Dducsp        [预置(&P)...]^C^C_+ucsman 1 
+ID_UcsTop        [俯视(&T)]^C^C_ucs _g _t 
+ID_UcsBottom     [仰视(&B)]^C^C_ucs _g _b 
+ID_UcsLeft       [左视(&L)]^C^C_ucs _g _l 
+ID_UcsRight      [右视(&R)]^C^C_ucs _g _r 
+ID_UcsFront      [主视(&F)]^C^C_ucs _g _f 
+ID_UcsBack       [<-后视(&K)]^C^C_ucs _g _ba 
+ID_UcsMove     [移动 UCS(&V)]^C^C_ucs _move 
+ID_MnUCS       [->新建 UCS(&W)]
+ID_UcsWorld      [世界(&W)]^C^C_ucs _w 
+ID_UcsObject     [对象(&O)]^C^C_ucs _ob 
+ID_UcsFace       [面(&F)]^C^C_ucs _fa 
+ID_UcsView       [视图(&V)]^C^C_ucs _v 
+                 [--]
+ID_UcsOrigin     [原点(&N)]^C^C_ucs _o 
+ID_UcsZAxVec     [Z 轴矢量(&A)]^C^C_ucs _zaxis 
+ID_Ucs3point     [三点(&3)]^C^C_ucs _3 
+                 [--]
+ID_UcsXAxRot     [&X]^C^C_ucs _x 
+ID_UcsYAxRot     [&Y]^C^C_ucs _y 
+ID_UcsZAxRot     [&Z]^C^C_ucs _z 
+                 [--]
+ID_UcsApply      [<-应用(&P)]^C^C_ucs _apply 
+               [--]
+ID_Wizard      [->向导(&Z)]
+ID_Publish       [网上发布(&W)...]^C^C_publishtoweb 
+                 [--]
+ID_AddPlotter    [添加打印机(&P)...]^C^C^P(if(startapp "addplwiz.exe")(princ)) ^P
+ID_AddPlStyle    [添加打印样式表(&S)....]^C^C^P(if(startapp "styshwiz.exe")(princ)) ^P
+ID_PenSetting    [$(if,$(eq,$(getvar,pstylemode),1),添加颜色相关打印样式表(&D)...,添加命名打印样式表(&N)...)]^C^C_r14penwizard 
+                 [--]
+ID_CreateLayout   [创建布局(&C)...]^C^C_layoutwizard 
+ID_ImpPlotSet    [<-输入打印设置(&I)...]^C^C_pcinwizard 
+ID_Ddrmodes    [草图设置(&F)...]'_dsettings 
+ID_MnTablet    [->数字化仪(&B)]
+ID_TabletOn      [$(if,$(getvar,tabmode),!.)开(&O)]^C^C_tablet _on 
+ID_TabletOff     [$(if,$(eq,$(getvar,tabmode),0),!.)关(&F)]^C^C_tablet _off 
+                 [--]
+ID_TabletCal     [校准(&C)]^C^C_tablet _cal 
+ID_TabletCfg     [<-配置(&N)]^C^C_tablet _cfg 
+ID_Customize   [->自定义(&C)]
+ID_Menuload      [菜单(&M)...]^C^C_menuload 
+ID_CToolbar      [工具栏(&T)...]^C^C_+customize 1 
+ID_CKeyboard     [<-键盘(&K)...]^C^C_+customize 3 
+ID_Preferenc   [选项(&N)...]^C^C_options 
+
+***POP7
+**DRAW
+ID_MnDraw      [绘图(&D)]
+ID_Line        [直线(&L)]^C^C_line 
+ID_Ray         [射线(&R)]^C^C_ray 
+ID_Xline       [构造线(&T)]^C^C_xline 
+ID_Mline       [多线(&M)]^C^C_mline 
+               [--]
+ID_Pline       [多段线(&P)]^C^C_pline 
+ID_3dpoly      [三维多段线(&3)]^C^C_3dpoly 
+ID_Polygon     [正多边形(&Y)]^C^C_polygon 
+ID_Rectang     [矩形(&G)]^C^C_rectang 
+               [--]
+ID_MnArc       [->圆弧(&A)]
+ID_Arc3point     [三点(&P)]^C^C_arc 
+                 [--]
+ID_ArcStCeEn     [起点、圆心、端点(&S)]^C^C_arc \_c 
+ID_ArcStCeAn     [起点、圆心、角度(&T)]^C^C_arc \_c \_a 
+ID_ArcStCeLe     [起点、圆心、长度(&A)]^C^C_arc \_c \_l 
+                 [--]
+ID_ArcStEnAg     [起点、端点、角度(&N)]^C^C_arc \_e \_a 
+ID_ArcStEnDi     [起点、端点、方向(&D)]^C^C_arc \_e \_d 
+ID_ArcStEnRa     [起点、端点、半径(&R)]^C^C_arc \_e \_r 
+                 [--]
+ID_ArcCeStEn     [圆心、起点、端点(&C)]^C^C_arc _c 
+ID_ArcCeStAn     [圆心、起点、角度(&E)]^C^C_arc _c \\_a 
+ID_ArcCeStLe     [圆心、起点、长度(&L)]^C^C_arc _c \\_l 
+                 [--]
+ID_ArcContin     [<-继续(&O)]^C^C_arc ;
+ID_MnCircle    [->圆(&C)]
+ID_CircleRad     [圆心、半径(&R)]^C^C_circle 
+ID_CircleDia     [圆心、直径(&D)]^C^C_circle \_d 
+                 [--]
+ID_Circle2pt     [两点(&2)]^C^C_circle _2p 
+ID_Circle3pt     [三点(&3)]^C^C_circle _3p 
+                 [--]
+ID_CircleTTR     [相切、相切、半径(&T)]^C^C_circle _ttr 
+ID_CircleTTT     [<-相切、相切、相切(&A)]^C^C_circle _3p _tan \_tan \_tan \
+ID_Donut       [圆环(&D)]^C^C_donut 
+ID_Spline      [样条曲线(&S)]^C^C_spline 
+ID_MnEllipse   [->椭圆(&E)]
+ID_EllipseCe     [中心点(&C)]^C^C_ellipse _c 
+ID_EllipseAx     [轴、端点(&E)]^C^C_ellipse 
+                 [--]
+ID_EllipseAr     [<-圆弧(&A)]^C^C_ellipse _a 
+               [--]
+ID_MnBlock     [->块(&K)]
+ID_Bmake         [创建(&M)...]^C^C_block 
+                 [--]
+ID_Base          [基点(&B)]'_base 
+ID_Attdef        [<-定义属性(&D)...]^C^C_attdef 
+ID_MnPoint     [->点(&O)]
+ID_PointSing     [单点(&S)]^C^C_point 
+ID_PointMult     [多点(&P)]*^C^C_point 
+                 [--]
+ID_Divide        [定数等分(&D)]^C^C_divide 
+ID_Measure       [<-定距等分(&M)]^C^C_measure 
+               [--]
+ID_Bhatch      [图案填充(&H)...]^C^C_bhatch 
+ID_Boundary    [边界(&B)...]^C^C_boundary 
+ID_Region      [面域(&N)]^C^C_region 
+               [--]
+ID_MnText      [->文字(&X)]
+ID_Mtext         [多行文字(&M)...]^C^C_mtext 
+ID_Dtext         [<-单行文字(&S)]^C^C_dtext 
+               [--]
+ID_MnSurface   [->曲面(&F)]
+ID_Solid         [二维填充(&2)]^C^C_solid 
+ID_3dface        [三维面(&F)]^C^C_3dface 
+ID_3dsurface     [三维曲面(&3)...]$I=ACAD.image_3dobjects $I=ACAD.* 
+                 [--]
+ID_Edge          [边(&E)]^C^C_edge 
+ID_3dmesh        [三维网格(&M)]^C^C_3dmesh 
+                 [--]
+ID_Revsurf       [旋转曲面(&S)]^C^C_revsurf 
+ID_Tabsurf       [平移曲面(&T)]^C^C_tabsurf 
+ID_Rulesurf      [直纹曲面(&R)]^C^C_rulesurf 
+ID_Edgesurf      [<-边界曲面(&D)]^C^C_edgesurf 
+ID_MnSolids    [->实体(&I)]
+ID_Box           [长方体(&B)]^C^C_box 
+ID_Sphere        [球体(&S)]^C^C_sphere 
+ID_Cylinder      [圆柱体(&C)]^C^C_cylinder 
+ID_Cone          [圆锥体(&O)]^C^C_cone 
+ID_Wedge         [楔体(&W)]^C^C_wedge 
+ID_Torus         [圆环体(&T)]^C^C_torus 
+                 [--]
+ID_Extrude       [拉伸(&X)]^C^C_extrude 
+ID_Revolve       [旋转(&R)]^C^C_revolve 
+                 [--]
+ID_Slice         [剖切(&L)]^C^C_slice 
+ID_Section       [截面(&E)]^C^C_section 
+ID_Interfere     [干涉(&I)]^C^C_interfere 
+                 [--]
+ID_MnSetup       [->设置(&U)]
+ID_Soldraw         [图形(&D)]^C^C_soldraw 
+ID_Solview         [视图(&V)]^C^C_solview 
+ID_Solprof         [<-<-轮廓(&P)]^C^C_solprof 
+ID_105CJP_ZBBZ.VLX          [大地坐标(&ZB)]^C^C_CJP_ZBBZ
+                            [--]
+ID_CurveLink                    [曲线连接]^C^C_CL
+                                         [--]
+
+
+***POP8
+**DIMENSION
+ID_MnDimensi   [标注(&N)]
+ID_QDim        [快速标注(&Q)]^C^C_qdim 
+               [--]
+ID_Dimlinear   [线性(&L)]^C^C_dimlinear 
+ID_Dimaligne   [对齐(&G)]^C^C_dimaligned 
+ID_Dimordina   [坐标(&O)]^C^C_dimordinate 
+               [--]
+ID_Dimradius   [半径(&R)]^C^C_dimradius 
+ID_Dimdiamet   [直径(&D)]^C^C_dimdiameter 
+ID_Dimangula   [角度(&A)]^C^C_dimangular 
+               [--]
+ID_Dimbaseli   [基线(&B)]^C^C_dimbaseline 
+ID_Dimcontin   [连续(&C)]^C^C_dimcontinue 
+               [--]
+ID_Leader      [引线(&E)]^C^C_qleader 
+ID_Tolerance   [公差(&T)...]^C^C_tolerance 
+ID_Dimcenter   [圆心标记(&M)]^C^C_dimcenter 
+               [--]
+ID_Dimedito    [倾斜(&Q)]^C^C_dimedit _o 
+ID_MnAlign     [->对齐文字(&X)]
+ID_DimteditH     [默认(&H)]^C^C_dimedit _h 
+ID_DimteditA     [角度(&A)]^C^C_dimtedit \_a 
+                 [--]
+ID_DimteditL     [左(&L)]^C^C_dimtedit \_l 
+ID_DimteditC     [中(&C)]^C^C_dimtedit \_c 
+ID_DimteditR     [<-右(&R)]^C^C_dimtedit \_r 
+               [--]
+ID_Ddim        [样式(&S)...]'_dimstyle 
+ID_Dimoverri   [替代(&V)]^C^C_dimoverride 
+ID_DimstyleA   [更新(&U)]^C^C_-dimstyle _apply 
+ID_Dimreasso   [重新关联标注(&N)]^C^C_dimreassociate 
+
+***POP9
+**MODIFY
+ID_MnModify    [修改(&M)]
+ID_Ai_propch   [特性(&P)]^C^C_properties 
+ID_Matchprop   [特性匹配(&M)]'_matchprop 
+ID_MnObject    [->对象(&O)]
+ID_MnExterna     [->外部参照(&E)]
+ID_Xbind           [绑定(&B)...]^C^C_xbind 
+ID_Xclipfram       [<-$(if,$(eq,$(getvar,xclipframe),1),!.)边框(&F)]$M=$(if,$(eq,$(getvar,xclipframe),1),^C^C_xclipframe 0,^C^C_xclipframe 1) 
+ID_MnImage       [->图像(&I)]
+ID_Imageadju       [调整(&A)...]^C^C_imageadjust 
+ID_Imagequal       [质量(&Q)]^C^C_imagequality 
+ID_Transpare       [透明(&T)]^C^C_transparency 
+                   [--]
+ID_Imagefram       [<-边框(&F)]^C^C_imageframe 
+                 [--]
+ID_Hatchedit     [图案填充(&H)...]^C^C_hatchedit 
+ID_Pedit         [多段线(&P)]^C^C_pedit 
+ID_Splinedit     [样条曲线(&S)]^C^C_splinedit 
+ID_Mledit        [多线(&M)...]^C^C_mledit 
+ID_MnAttribu     [->属性(&A)]
+ID_EAttEdit        [单个(&S)...]^C^C_eattedit 
+ID_AtteditGlo      [全局(&G)]^C^C_-attedit 
+ID_BattMan         [<-块属性管理器(&B)...]^C^C_battman 
+ID_Blockdsc      [块说明(&B)...]^C^C_block 
+ID_MnText        [->文字(&T)]
+ID_Ddedit          [编辑(&E)...]^C^C_ddedit 
+ID_Scaletext       [比例(&S)]^C^C_scaletext 
+ID_Justifyte       [<-<-对正(&J)]^C^C_justifytext 
+ID_Clip        [->剪裁(&C)]
+ID_ImageClip     [图像(&I)]^C^C_imageclip 
+ID_XrefClip      [外部参照(&X)]^C^C_xclip 
+ID_VportClip     [<-视口(&V)]^C^C_vpclip 
+               [--]
+ID_Refedit     [->在位编辑外部参照和块(&B)]
+ID_RefEditor     [编辑参照(&E)]^C^C_refedit;
+ID_RefAdd        [$(if,$(eq,$(getvar,refeditname),""),~,)添加到工作集(&A)]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert);^P,$(if,$(and,$(=,$(getvar,tilemode),0),$(=,$(getvar,cvport),1)),^C^C_refset;,^C^C_refset _add;))^Z
+ID_RefRemove     [$(if,$(eq,$(getvar,refeditname),""),~,)从工作集删除(&R)]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert);^P,$(if,$(and,$(=,$(getvar,tilemode),0),$(=,$(getvar,cvport),1)),^C^C_refset;,^C^C_refset _rem;))^Z
+ID_RefSave       [$(if,$(eq,$(getvar,refeditname),""),~,)保存参照编辑(&S)]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert)^P,^C^C_refclose _sav) 
+ID_RefDscrd      [<-$(if,$(eq,$(getvar,refeditname),""),~,)放弃参照编辑(&D)]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert)^P,^C^C_refclose _disc) 
+               [--]
+ID_Erase       [删除(&E)]^C^C_erase 
+ID_Copy        [复制(&Y)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_copy,^C^C_copy) 
+ID_Mirror      [镜像(&I)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_mirror,^C^C_mirror) 
+ID_Offset      [偏移(&S)]^C^C_offset 
+ID_Array       [阵列(&A)...]^C^C_array 
+               [--]
+ID_Move        [移动(&V)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_move,^C^C_move) 
+ID_Rotate      [旋转(&R)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_rotate,^C^C_rotate) 
+ID_Scale       [缩放(&L)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_scale,^C^C_scale) 
+ID_Stretch     [拉伸(&H)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_stretch,^C^C_stretch) 
+ID_Lengthen    [拉长(&G)]^C^C_lengthen 
+               [--]
+ID_Trim        [修剪(&T)]^C^C_trim 
+ID_Extend      [延伸(&D)]^C^C_extend 
+ID_Break       [打断(&K)]^C^C_break 
+ID_Chamfer     [倒角(&C)]^C^C_chamfer 
+ID_Fillet      [圆角(&F)]^C^C_fillet 
+               [--]
+ID_Mn3dopera   [->三维操作(&3)]
+ID_3darray       [三维阵列(&3)]^C^C_3darray 
+ID_Mirror3d      [三维镜像(&M)]^C^C_mirror3d 
+ID_Rotate3d      [三维旋转(&R)]^C^C_rotate3d 
+                 [--]
+ID_Align         [<-对齐(&L)]^C^C_align 
+ID_SolidsEdi   [->实体编辑(&N)]
+ID_Union         [并集(&U)]^C^C_union 
+ID_Subtract      [差集(&S)]^C^C_subtract 
+ID_Intersect     [交集(&I)]^C^C_intersect 
+                 [--]
+ID_FaceExtru     [拉伸面(&E)]^C^C_solidedit _face _extrude 
+ID_FaceMove      [移动面(&M)]^C^C_solidedit _face _move 
+ID_FaceOffse     [偏移面(&O)]^C^C_solidedit _face _offset 
+ID_FaceDel       [删除面(&D)]^C^C_solidedit _face _delete 
+ID_FaceRotat     [旋转面(&A)]^C^C_solidedit _face _rotate 
+ID_FaceTaper     [倾斜面(&T)]^C^C_solidedit _face _taper 
+ID_FaceColor     [着色面(&C)]^C^C_solidedit _face _color 
+ID_FaceCopy      [复制面(&F)]^C^C_solidedit _face _copy 
+                 [--]
+ID_EdgeColor     [着色边(&L)]^C^C_solidedit _edge _color 
+ID_EdgeCopy      [复制边(&G)]^C^C_solidedit _edge _copy 
+                 [--]
+ID_Imprint       [压印(&I)]^C^C_solidedit _body _imprint 
+ID_BodyCln       [清除(&N)]^C^C_solidedit _body _clean 
+ID_Separate      [分割(&S)]^C^C_solidedit _body _separate 
+ID_Shell         [抽壳(&H)]^C^C_solidedit _body _shell 
+ID_BodyChk       [<-检查(&K)]^C^C_solidedit _body _check 
+               [--]
+ID_Explode     [分解(&X)]^C^C_explode 
+
+***POP10
+**WINDOW
+ID_MnWindow    [窗口(&W)]
+ID_DWG_CLOSE   [关闭(&O)]^C^C_close 
+ID_WINDOW_CLOSEALL [全部关闭(&L)]^C^C_closeall 
+               [--]
+ID_WINDOW_CASCADE [层叠(&C)]^C^C_syswindows;_cascade 
+ID_WINDOW_TILE_HORZ [水平平铺(&H)]^C^C_syswindows;_hor 
+ID_WINDOW_TILE_VERT [垂直平铺(&T)]^C^C_syswindows;_vert 
+ID_WINDOW_ARRANGE [排列图标(&A)]^C^C_syswindows;_arrange 
+
+***POP11
+**HELP
+ID_MnHelp      [帮助(&H)]
+ID_Help        [帮助(&H)	F1]'_help 
+ID_ASSIST      [实时助手(&A)]'_ASSIST 
+ID_DevHelp     [开发人员帮助(&D)]^C^C^P(help "acad_dev" "") ^P
+ID_Support     [支持助手(&S)]^C^C^P(help "acad" "asa") ^P
+ID_ProdSupp    [Point A 上的产品支持(&P)]^C^C^Pai_product_support ^P
+               [--]
+ID_WhatsNew    [新特性(&W)]^C^C^P(progn (help "acadwnew")(princ)) ^P
+ID_LAssist     [学习助手(&L)]^C^C^P(if (findfile "alalink.exe") (progn (princ)(startapp "alalink.exe") (princ)) (la_support_assistance_alert)) ^P
+ID_AUGI        [Autodesk 国际用户组(&U)]^C^C^P(command "_browser" (findfile "augi.htm")) ^P
+               [--]
+ID_BuyOnline   [联机购买(&B)]^C^C_buyonline 
+               [--]
+ID_About       [关于(&O)]'_about 
+
+***POP500
+**GRIPS
+               [夹点光标菜单(&G)]
+ID_Enter       [确认(&E)];
+               [--]
+ID_GripMove    [移动(&M)]_move 
+ID_GripMirro   [镜像(&I)]_mirror 
+ID_GripRotat   [旋转(&R)]_rotate 
+ID_GripScale   [缩放(&L)]_scale 
+ID_GripStret   [拉伸(&S)]_stretch 
+               [--]
+ID_GripBase    [基点(&B)]_base 
+ID_GripCopy    [复制(&C)]_copy 
+ID_GripRefer   [$(if,$(or,$(eq,$(getvar,cmdnames),GRIP_SCALE),$(eq,$(getvar,cmdnames),GRIP_ROTATE)),,~)参照(&F)]_reference 
+ID_GripUndo    [放弃(&U)]_u 
+               [--]
+ID_Modify      [特性(&P)]^C^C_properties 
+ID_GotoURL     [转至 URL(&G)...]^C^C_gotourl 
+               [--]
+ID_GripExit    [退出(&X)]_exit 
+
+***POP501
+**CMDEFAULT
+               [默认模式的上下文菜单]
+ID_CMNonLast   [重复%s(&R)]^C^C;
+               [--]
+ID_Cutclip     [剪切(&T)]^C^C_cutclip 
+ID_Copyclip    [复制(&C)]^C^C_copyclip 
+ID_Copybase    [带基点复制(&B)]^C^C_copybase 
+ID_Pasteclip   [粘贴(&P)]^C^C_pasteclip 
+ID_Pastebloc   [粘贴为块(&K)]^C^C_pasteblock 
+ID_Pasteorig   [粘贴到原坐标(&D)]^C^C_pasteorig 
+               [--]
+ID_U           [放弃(&U)]^C^C_u 
+ID_Redo        [重做(&D)]^C^C_redo 
+ID_Pan         [平移(&A)]'_pan 
+ID_ZoomRealt   [缩放(&Z)]'_zoom ;
+               [--]
+ID_Filter      [快速选择(&Q)...]^C^C_qselect 
+ID_TextFind    [查找(&F)...]^C^C_find 
+ID_Preferenc   [选项(&O)...]^C^C_options 
+
+***POP502
+**CMEDIT
+               [编辑模式的上下文菜单]
+ID_CMSelLast   [重复%s(&R)]^C^C;
+               [--]
+ID_Cutclip     [剪切(&T)]^C^C_cutclip 
+ID_Copyclip    [复制(&C)]^C^C_copyclip 
+ID_Copybase    [带基点复制(&B)]^C^C_copybase 
+ID_Pasteclip   [粘贴(&P)]^C^C_pasteclip 
+ID_Pastebloc   [粘贴为块(&K)]^C^C_pasteblock 
+ID_Pasteorig   [粘贴到原坐标(&D)]^C^C_pasteorig 
+               [--]
+ID_Erase       [删除(&E)]^C^C_erase 
+ID_Move        [移动(&M)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_move,^C^C_move) 
+ID_Copy        [复制选择(&Y)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_copy,^C^C_copy) 
+ID_Scale       [缩放(&L)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_scale,^C^C_scale) 
+ID_Rotate      [旋转(&O)]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_rotate,^C^C_rotate) 
+               [--]
+ID_Deselectall [全部不选(&A)]^C^C^P(ai_deselect) ^P
+               [--]
+ID_Filter      [快速选择(&Q)...]^C^C_qselect 
+ID_TextFind    [查找(&F)...]^C^C_find 
+ID_Ai_propch   [特性(&S)]^C^C_properties 
+
+***POP503
+**CMCOMMAND
+               [命令模式的上下文菜单]
+ID_Enter       [确认(&E)];
+ID_Cancel      [取消(&C)]^C
+               [--]
+ID_Pan         [$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),ZOOM),~,)平移(&P)]'_pan 
+ID_ZoomRealt   [$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),ZOOM),~,)缩放(&Z)]'_zoom ;
+
+***POP504
+**OBJECTS_DIMENSION
+               [标注对象的上下文菜单]
+ID_DimText     [->标注文字位置(&X)]
+ID_DimAbove      [在尺寸线上(&A)]^C^C_ai_dim_textabove 
+ID_DimTxtCen     [置中(&C)]^C^C_ai_dim_textcenter 
+ID_DimHome       [默认位置(&H)]^C^C_ai_dim_texthome 
+ID_DimTxtMove2   [单独移动文字(&M)]^C^C_aidimtextmove _2 
+ID_DimTxtMove1   [与引线一起移动(&L)]^C^C_aidimtextmove _1 
+ID_DimTxtMove0   [<-与尺寸线一起移动(&D)]^C^C_aidimtextmove _0 
+ID_DimPrec     [->精度(&R)]
+ID_DimPrec0      [0]^C^C_aidimprec _0 
+ID_DimPrec1      [0.0]^C^C_aidimprec _1 
+ID_DimPrec2      [0.00]^C^C_aidimprec _2 
+ID_DimPrec3      [0.000]^C^C_aidimprec _3 
+ID_DimPrec4      [0.0000]^C^C_aidimprec _4 
+ID_DimPrec5      [0.00000]^C^C_aidimprec _5 
+ID_DimPrec6      [<-0.000000]^C^C_aidimprec _6 
+ID_DimSty1     [->标注样式(&D)]
+ID_DimSty2       [另存为新样式(&S)...]^C^C_aidimstyle _S 
+                 [--]
+ID_DimSty3       [标注样式 MRU1]^C^C_aidimstyle _1 
+ID_DimSty4       [标注样式 MRU2]^C^C_aidimstyle _2 
+ID_DimSty5       [标注样式 MRU3]^C^C_aidimstyle _3 
+ID_DimSty6       [标注样式 MRU4]^C^C_aidimstyle _4 
+ID_DimSty7       [标注样式 MRU5]^C^C_aidimstyle _5 
+ID_DimSty8       [标注样式 MRU6]^C^C_aidimstyle _6 
+ID_DimSty9       [<-其他(&O)...]^C^C_aidimstyle _O 
+
+***POP505
+**OBJECT_VIEWPORT
+               [视口对象的上下文菜单]
+ID_VpClip      [视口剪裁(&V)]^C^C_vpclip 
+ID_Vport_disp  [->显示视口对象(&D)]
+ID_Vport_dispon   [是(&Y)]^C^C_-vports _on _p;;
+ID_Vport_dispoff   [<-否(&N)]^C^C_-vports _off _p;;
+ID_Vport_lock  [->显示锁定(&L)]
+ID_Vport_lockon   [是(&Y)]^C^C_-vports _lock _on _p;;
+ID_Vport_lockoff   [<-否(&N)]^C^C_-vports _lock _off _p;;
+ID_Vport_hide  [->消隐出图(&H)]
+ID_Vport_hideon   [是(&Y)]^C^C_-vports _hide _on _p;;
+ID_Vport_hideoff   [<-否(&N)]^C^C_-vports _hide _off _p;;
+
+***POP506
+**OBJECTS_XREF
+               [外部参照对象的上下文菜单]
+ID_Xclip       [外部参照剪裁(&I)]^C^C_xclip 
+ID_XRef        [外部参照管理器(&N)...]^C^C_xref 
+
+***POP507
+**OBJECT_MTEXT
+               [多行文字对象的上下文菜单]
+ID_Mtedit      [编辑多行文字(&I)...]^C^C_mtedit 
+
+***POP508
+**OBJECT_TEXT
+               [文字对象的上下文菜单]
+ID_Ddedit      [编辑文字(&I)...]^C^C_ddedit 
+
+***POP509
+**OBJECT_HATCH
+               [图案填充对象的上下文菜单]
+ID_Hatchedit   [编辑图案填充(&H)...]^C^C_hatchedit 
+
+***POP510
+**OBJECT_LWPOLYLINE
+               [多段线对象的上下文菜单]
+ID_Pedit       [编辑多段线(&I)]^C^C_pedit 
+
+***POP511
+**OBJECT_SPLINE
+               [样条曲线对象的上下文菜单]
+ID_Splinedit   [编辑样条曲线(&I)]^C^C_splinedit 
+
+***POP512
+**OBJECT_POLYLINE
+               [多段线对象的上下文菜单]
+ID_Pedit       [编辑多段线(&I)]^C^C_pedit 
+
+***TOOLBARS
+**TB_DIMENSION
+**标注
+ID_TbDimensi   [_Toolbar("标注", _Floating, _Hide, 100, 130, 1)]
+ID_Dimlinear   [_Button("线性标注", "ICON_16_DIMLIN", "ICON_16_DIMLIN")]^C^C_dimlinear 
+ID_Dimaligne   [_Button("对齐标注", "ICON_16_DIMALI", "ICON_16_DIMALI")]^C^C_dimaligned 
+ID_Dimordina   [_Button("坐标标注", "ICON_16_DIMORD", "ICON_16_DIMORD")]^C^C_dimordinate 
+               [--]
+ID_Dimradius   [_Button("半径标注", "ICON_16_DIMRAD", "ICON_16_DIMRAD")]^C^C_dimradius 
+ID_Dimdiamet   [_Button("直径标注", "ICON_16_DIMDIA", "ICON_16_DIMDIA")]^C^C_dimdiameter 
+ID_Dimangula   [_Button("角度标注", "ICON_16_DIMANG", "ICON_16_DIMANG")]^C^C_dimangular 
+               [--]
+ID_QDim        [_Button("快速标注", "ICON_16_QDIM", "ICON_16_QDIM")]^C^C_qdim 
+ID_Dimbaseli   [_Button("基线标注", "ICON_16_DIMBAS", "ICON_16_DIMBAS")]^C^C_dimbaseline 
+ID_Dimcontin   [_Button("连续标注", "ICON_16_DIMCON", "ICON_16_DIMCON")]^C^C_dimcontinue 
+               [--]
+ID_Leader      [_Button("快速引线", "ICON_16_QLEADER", "ICON_16_QLEADER")]^C^C_qleader 
+ID_Tolerance   [_Button("公差", "ICON_16_TOLERA", "ICON_16_TOLERA")]^C^C_tolerance 
+ID_Dimcenter   [_Button("圆心标记", "ICON_16_DIMCEN", "ICON_16_DIMCEN")]^C^C_dimcenter 
+               [--]
+ID_Dimedit     [_Button("编辑标注", "ICON_16_DIMNEW", "ICON_16_DIMNEW")]^C^C_dimedit 
+ID_Dimtedit    [_Button("编辑标注文字", "ICON_16_DIMRED", "ICON_16_DIMRED")]^C^C_dimtedit 
+ID_DimUpdate   [_Button("标注更新", "ICON_16_DIMUPD", "ICON_16_DIMUPD")]^C^C_-dimstyle _apply 
+               [--]
+               [_Control(_DimStyle)]
+ID_Ddim        [_Button("标注样式", "ICON_16_DIMSTY", "ICON_16_DIMSTY")]'_dimstyle 
+
+**TB_DRAW
+**绘图
+ID_TbDraw      [_Toolbar("绘图", _Left, _Show, 0, 0, 1)]
+ID_Line        [_Button("直线", "ICON_16_LINE", "ICON_16_LINE")]^C^C_line 
+ID_Xline       [_Button("构造线", "ICON_16_XLINE", "ICON_16_XLINE")]^C^C_xline 
+ID_Mline       [_Button("多线", "ICON_16_MLINE", "ICON_16_MLINE")]^C^C_mline 
+ID_Pline       [_Button("多段线", "ICON_16_PLINE", "ICON_16_PLINE")]^C^C_pline 
+ID_Polygon     [_Button("正多边形", "ICON_16_POLYGO", "ICON_16_POLYGO")]^C^C_polygon 
+ID_Rectang     [_Button("矩形", "ICON_16_RECTAN", "ICON_16_RECTAN")]^C^C_rectang 
+ID_Arc         [_Button("圆弧", "ICON_16_ARC3PT", "ICON_16_ARC3PT")]^C^C_arc 
+ID_Circle      [_Button("圆", "ICON_16_CIRRAD", "ICON_16_CIRRAD")]^C^C_circle 
+ID_Spline      [_Button("样条曲线", "ICON_16_SPLINE", "ICON_16_SPLINE")]^C^C_spline 
+ID_Ellipse     [_Button("椭圆", "ICON_16_ELLAE", "ICON_16_ELLAE")]^C^C_ellipse 
+ID_EllipseAr   [_Button("椭圆弧", "ICON_16_ELLARC", "ICON_16_ELLARC")]^C^C_ellipse _a 
+ID_TbInsert    [_Flyout("块", ICON_16_BLOCK, ICON_16_BLOCK, _OtherIcon, ACAD.TB_INSERT)]
+ID_Bmake       [_Button("创建块", "ICON_16_BLOCK", "ICON_16_BLOCK")]^C^C_block 
+ID_Point       [_Button("点", "ICON_16_POINT", "ICON_16_POINT")]*^C^C_point 
+ID_Bhatch      [_Button("图案填充", "ICON_16_BHATCH", "ICON_16_BHATCH")]^C^C_bhatch 
+ID_Region      [_Button("面域", "ICON_16_REGION", "ICON_16_REGION")]^C^C_region 
+ID_Mtext       [_Button("多行文字", "ICON_16_MTEXT", "ICON_16_MTEXT")]^C^C_mtext 
+
+**TB_INQUIRY
+**查询
+ID_TbInquiry   [_Toolbar("查询", _Floating, _Hide, 100, 170, 1)]
+ID_Dist        [_Button("距离", "ICON_16_DIST", "ICON_16_DIST")]'_dist 
+ID_Area        [_Button("面积", "ICON_16_AREA", "ICON_16_AREA")]^C^C_area 
+ID_Massprop    [_Button("面域/质量特性", "ICON_16_MASSPR", "ICON_16_MASSPR")]^C^C_massprop 
+               [--]
+ID_List        [_Button("列表", "ICON_16_LIST", "ICON_16_LIST")]^C^C_list 
+ID_Id          [_Button("点坐标", "ICON_16_ID", "ICON_16_ID")]'_id 
+
+**TB_INSERT
+**插入
+ID_TbInsert    [_Toolbar("插入", _Floating, _Hide, 100, 190, 1)]
+ID_Ddinsert    [_Button("插入块", "ICON_16_DINSER", "ICON_16_DINSER")]^C^C_insert 
+               [--]
+ID_Xref        [_Button("外部参照", "ICON_16_XREATT", "ICON_16_XREATT")]^C^C_xref 
+ID_Image       [_Button("图像", "ICON_16_IMAGE", "ICON_16_IMAGE")]^C^C_image 
+               [--]
+ID_Import      [_Button("输入", "ICON_16_IMPORT", "ICON_16_IMPORT")]^C^C_import 
+               [--]
+ID_Insertobj   [_Button("OLE 对象", "ICON_16_INSOLE", "ICON_16_INSOLE")]^C^C_insertobj 
+
+**TB_LAYOUTS
+**布局
+ID_TbLayouts   [_Toolbar("布局", _Floating, _Hide, 100, 350, 1)]
+ID_LayNew      [_Button("新建布局", "ICON_16_LAYNEW", "ICON_16_LAYNEW")]^C^C_layout _n 
+ID_LayTemp     [_Button("来自样板的布局", "ICON_16_LAYTEM", "ICON_16_LAYTEM")]^C^C_layout _t 
+ID_PlotSetup   [_Button("页面设置", "ICON_16_PLTSET", "ICON_16_PLTSET")]^C^C_pagesetup 
+ID_VpDialog    [_Button("显示“视口”对话框", "ICON_16_VPDLG", "ICON_16_VPDLG")]^C^C_vports 
+
+**TB_MODIFY
+**修改
+ID_TbModify    [_Toolbar("修改", _Left, _Show, 1, 0, 1)]
+ID_Erase       [_Button("删除", "ICON_16_ERASE", "ICON_16_ERASE")]^C^C_erase 
+ID_Copy        [_Button("复制对象", "ICON_16_COPYOB", "ICON_16_COPYOB")]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_copy,^C^C_copy) 
+ID_Mirror      [_Button("镜像", "ICON_16_MIRROR", "ICON_16_MIRROR")]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_mirror,^C^C_mirror) 
+ID_Offset      [_Button("偏移", "ICON_16_OFFSET", "ICON_16_OFFSET")]^C^C_offset 
+ID_Array       [_Button("阵列", "ICON_16_ARRREC", "ICON_16_ARRREC")]^C^C_array 
+ID_Move        [_Button("移动", "ICON_16_MOVE", "ICON_16_MOVE")]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_move,^C^C_move) 
+ID_Rotate      [_Button("旋转", "ICON_16_ROTATE", "ICON_16_ROTATE")]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_rotate,^C^C_rotate) 
+ID_Scale       [_Button("缩放", "ICON_16_SCALE", "ICON_16_SCALE")]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_scale,^C^C_scale) 
+ID_Stretch     [_Button("拉伸", "ICON_16_STRETC", "ICON_16_STRETC")]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_stretch,^C^C_stretch) 
+ID_Lengthen    [_Button("拉长", "ICON_16_LENGTH", "ICON_16_LENGTH")]^C^C_lengthen 
+ID_Trim        [_Button("修剪", "ICON_16_TRIM", "ICON_16_TRIM")]^C^C_trim 
+ID_Extend      [_Button("延伸", "ICON_16_EXTEND", "ICON_16_EXTEND")]^C^C_extend 
+ID_BreakSele   [_Button("打断于点", "ICON_16_BREAKATPT", "ICON_16_BREAKATPT")]^C^C_break \f \@ 
+ID_Break       [_Button("打断", "ICON_16_BRE2PT", "ICON_16_BRE2PT")]^C^C_break 
+ID_Chamfer     [_Button("倒角", "ICON_16_CHAMFE", "ICON_16_CHAMFE")]^C^C_chamfer 
+ID_Fillet      [_Button("圆角", "ICON_16_FILLET", "ICON_16_FILLET")]^C^C_fillet 
+ID_Explode     [_Button("分解", "ICON_16_EXPLOD", "ICON_16_EXPLOD")]^C^C_explode 
+
+**TB_MODIFY_II
+**TB_修改_II
+ID_TbModifII   [_Toolbar("修改 II", _Floating, _Hide, 100, 270, 1)]
+ID_Draworder   [_Button("显示顺序", "ICON_16_DRWORD", "ICON_16_DRWORD")]^C^C_draworder 
+               [--]
+ID_Hatchedit   [_Button("编辑图案填充", "ICON_16_HATEDI", "ICON_16_HATEDI")]^C^C_hatchedit 
+ID_Pedit       [_Button("编辑多段线", "ICON_16_PEDIT", "ICON_16_PEDIT")]^C^C_pedit 
+ID_Splinedit   [_Button("编辑样条曲线", "ICON_16_SPLEDI", "ICON_16_SPLEDI")]^C^C_splinedit 
+ID_Mledit      [_Button("编辑多线", "ICON_16_MLEDIT", "ICON_16_MLEDIT")]^C^C_mledit 
+               [--]
+ID_EAttEdit    [_Button("编辑属性", "ICON_16_ATTEDI", "ICON_16_ATTEDI")]^C^C_eattedit 
+ID_BattMan     [_Button("块属性管理器", "ICON_16_BATTMAN", "ICON_16_BATTMAN")]^C^C_BattMan 
+ID_AttSync     [_Button("同步属性", "ICON_16_ATTSYNC", "ICON_16_ATTSYNC")]^C^C_AttSync 
+ID_EAttExt     [_Button("属性提取", "ICON_16_EATTEXT", "ICON_16_EATTEXT")]^C^C_EAttExt 
+
+**TB_OBJECT_PROPERTIES
+**对象特性
+ID_TbObjectP   [_Toolbar("对象特性", _Top, _Show, 0, 1, 1)]
+ID_Ai_molc     [_Button("将对象的图层置为当前", "ICON_16_MOLC", "ICON_16_MOLC")]^C^C_ai_molc 
+ID_Layer       [_Button("图层", "ICON_16_LAYERS", "ICON_16_LAYERS")]'_layer 
+               [_Control(_Layer)]
+ID_LayerP      [_Button("上一个图层", "ICON_16_LAYERP", "ICON_16_LAYERP")]^C^C_LayerP 
+               [--]
+               [_Control(_Color)]
+               [--]
+               [_Control(_Linetype)]
+               [--]
+               [_Control(_Lineweight)]
+               [--]
+               [_Control(_PlotStyle)]
+
+**TB_OBJECT_SNAP
+**对象捕捉
+ID_TbOsnap     [_Toolbar("对象捕捉", _Floating, _Hide, 100, 210, 1)]
+ID_Tracking    [_Button("临时追踪点", "ICON_16_OSNTMP", "ICON_16_OSNTMP")]_tt 
+ID_From        [_Button("捕捉自", "ICON_16_OSNFRO", "ICON_16_OSNFRO")]_from 
+               [--]
+ID_OsnapEndp   [_Button("捕捉到端点", "ICON_16_OSNEND", "ICON_16_OSNEND")]_endp 
+ID_OsnapMidp   [_Button("捕捉到中点", "ICON_16_OSNMID", "ICON_16_OSNMID")]_mid 
+ID_OsnapInte   [_Button("捕捉到交点", "ICON_16_OSNINT", "ICON_16_OSNINT")]_int 
+ID_OsnapAppa   [_Button("捕捉到外观交点", "ICON_16_OSNAPP", "ICON_16_OSNAPP")]_appint 
+ID_OsnapExte   [_Button("捕捉到延长线", "ICON_16_OSNEXT", "ICON_16_OSNEXT")]_ext 
+               [--]
+ID_OsnapCent   [_Button("捕捉到圆心", "ICON_16_OSNCEN", "ICON_16_OSNCEN")]_cen 
+ID_OsnapQuad   [_Button("捕捉到象限点", "ICON_16_OSNQUA", "ICON_16_OSNQUA")]_qua 
+ID_OsnapTang   [_Button("捕捉到切点", "ICON_16_OSNTAN", "ICON_16_OSNTAN")]_tan 
+               [--]
+ID_OsnapPerp   [_Button("捕捉到垂足", "ICON_16_OSNPER", "ICON_16_OSNPER")]_per 
+ID_OsnapPara   [_Button("捕捉到平行线", "ICON_16_OSNPAR", "ICON_16_OSNPAR")]_par 
+ID_OsnapInse   [_Button("捕捉到插入点", "ICON_16_OSNINS", "ICON_16_OSNINS")]_ins 
+ID_OsnapNode   [_Button("捕捉到节点", "ICON_16_OSNNOD", "ICON_16_OSNNOD")]_nod 
+               [--]
+ID_OsnapNear   [_Button("捕捉到最近点", "ICON_16_OSNNEA", "ICON_16_OSNNEA")]_nea 
+ID_OsnapNone   [_Button("无捕捉", "ICON_16_OSNNON", "ICON_16_OSNNON")]_non 
+               [--]
+ID_Osnap       [_Button("对象捕捉设置", "ICON_16_OSNAP", "ICON_16_OSNAP")]'_+dsettings 2 
+
+**TB_ORBIT
+**三维动态观察器
+ID_TbOrbit     [_Toolbar("三维动态观察器", _Floating, _Hide, 100, 350, 1)]
+ID_3dpan       [_Button("三维平移", "ICON_16_3DPAN", "ICON_16_3DPAN")]'_3dpan 
+ID_3dzoom      [_Button("三维缩放", "ICON_16_3DZOOM", "ICON_16_3DZOOM")]'_3dzoom 
+ID_3dorbit     [_Button("三维动态观察", "ICON_16_3DORBIT", "ICON_16_3DORBIT")]'_3dorbit 
+ID_3dcorbit    [_Button("三维连续观察", "ICON_16_3DCORBIT", "ICON_16_3DCORBIT")]'_3dcorbit 
+ID_3dswivel    [_Button("三维旋转", "ICON_16_3DSWIVEL", "ICON_16_3DSWIVEL")]'_3dswivel 
+ID_3ddistanc   [_Button("三维调整距离", "ICON_16_3DDISTANCE", "ICON_16_3DDISTANCE")]'_3ddistance 
+ID_3dclip      [_Button("三维调整剪裁平面", "ICON_16_3DCLIP", "ICON_16_3DCLIP")]'_3dclip 
+ID_3dclipfr    [_Button("前向剪裁开/关", "ICON_16_3DCLIPFR", "ICON_16_3DCLIPFR")]^C^C_dview _all  _cl$M=$(if,$(and,$(getvar,viewmode),2),$(if,$(and,$(getvar,viewmode),4), _off _cl _b _on^M^M, _off^M^M), _f $(getvar,frontz)^M^M)^Z
+ID_3dclipbk    [_Button("后向剪裁开/关", "ICON_16_3DCLIPBK", "ICON_16_3DCLIPBK")]^C^C_dview _all  _cl _b$M=$(if,$(and,$(getvar,viewmode),4), _off^M^M, _on^M^M)^Z
+               [--]
+               [_Control(_View)]
+
+**TB_SHADING
+**着色
+ID_TbShading   [_Toolbar("着色", _Floating, _Hide, 100, 390, 1)]
+ID_2doptim     [_Button("二维线框", "ICON_16_2DOPTIM", "ICON_16_2DOPTIM")]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _2) 
+ID_Wireframe   [_Button("三维线框", "ICON_16_WIREFRAME", "ICON_16_WIREFRAME")]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _3) 
+ID_Hidden      [_Button("消隐", "ICON_16_HIDDEN", "ICON_16_HIDDEN")]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _h) 
+ID_Flat        [_Button("平面着色", "ICON_16_FLAT", "ICON_16_FLAT")]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _f) 
+ID_Gouraud     [_Button("体着色", "ICON_16_GOURAUD", "ICON_16_GOURAUD")]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _g) 
+ID_FlatEdges   [_Button("带边框平面着色", "ICON_16_FLATEDGES", "ICON_16_FLATEDGES")]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _l) 
+ID_GourEdges   [_Button("带边框体着色", "ICON_16_GOUREDGES", "ICON_16_GOUREDGES")]$M=$(if,$(and,$(eq,$(getvar,tilemode),0),$(eq,$(getvar,cvport),1)),^C^C_shademode,^C^C_shademode _o) 
+
+**TB_REFEDIT
+**参照编辑
+ID_TbRefedit   [_Toolbar("参照编辑", _Floating, _Hide, 100, 170, 1)]
+ID_RefEditor   [_Button("编辑块或外部参照", "ICON_16_REFED_EDIT", "ICON_16_REFED_EDIT")]^C^C_refedit;
+               [--]
+               [_Control(_Refblkname)]
+               [--]
+ID_RefAdd      [_Button("向工作集添加对象", "ICON_16_REFED_ADD", "ICON_16_REFED_ADD")]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert);^P,$(if,$(and,$(=,$(getvar,tilemode),0),$(=,$(getvar,cvport),1)),^C^C_refset;,^C^C_refset _add;))^Z
+ID_RefRemove   [_Button("从工作集删除对象", "ICON_16_REFED_RMV", "ICON_16_REFED_RMV")]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert);^P,$(if,$(and,$(=,$(getvar,tilemode),0),$(=,$(getvar,cvport),1)),^C^C_refset;,^C^C_refset _rem;))^Z
+ID_RefDscrd    [_Button("放弃对参照的修改", "ICON_16_REFED_DISC", "ICON_16_REFED_DISC")]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert)^P,^C^C_refclose _disc) 
+ID_RefSave     [_Button("将修改保存到参照", "ICON_16_REFED_SAVE", "ICON_16_REFED_SAVE")]$M=$(if,$(eq,$(getvar,refeditname),""),^C^C^P(ai_refedit_alert)^P,^C^C_refclose _sav) 
+
+**TB_REFERENCE
+**参照
+ID_TbReferen   [_Toolbar("参照", _Floating, _Hide, 100, 370, 1)]
+ID_Xref        [_Button("外部参照", "ICON_16_XREATT", "ICON_16_XREATT")]^C^C_xref 
+ID_Xattach     [_Button("附着外部参照", "ICON_16_XATTAC", "ICON_16_XATTAC")]^C^C_xattach 
+ID_Xclip       [_Button("外部参照剪裁", "ICON_16_XRECLI", "ICON_16_XRECLI")]^C^C_xclip 
+ID_Xbind       [_Button("外部参照绑定", "ICON_16_XBIND", "ICON_16_XBIND")]^C^C_xbind 
+ID_Xclipfram   [_Button("外部参照剪裁边框", "ICON_16_XCLIPFRAME", "ICON_16_XCLIPFRAME")]$M=$(if,$(eq,$(getvar,xclipframe),1),^C^C_xclipframe 0,^C^C_xclipframe 1) 
+               [--]
+ID_Image       [_Button("图像", "ICON_16_IMAGE", "ICON_16_IMAGE")]^C^C_image 
+ID_ImageAtta   [_Button("附着图像", "ICON_16_IMGATT", "ICON_16_IMGATT")]^C^C_imageattach 
+ID_Imageclip   [_Button("图像剪裁", "ICON_16_IMGCLP", "ICON_16_IMGCLP")]^C^C_imageclip 
+ID_Imageadju   [_Button("图像调整", "ICON_16_IMGADJ", "ICON_16_IMGADJ")]^C^C_imageadjust 
+ID_Imagequal   [_Button("图像质量", "ICON_16_IMGQUA", "ICON_16_IMGQUA")]^C^C_imagequality 
+ID_Transpare   [_Button("图像透明", "ICON_16_TRANSP", "ICON_16_TRANSP")]^C^C_transparency 
+ID_Imagefram   [_Button("图像边框", "ICON_16_IMGFRAME", "ICON_16_IMGFRAME")]^C^C_imageframe 
+
+**TB_RENDER
+**渲染
+ID_TbRender    [_Toolbar("渲染", _Floating, _Hide, 100, 230, 1)]
+ID_Hide        [_Button("消隐", "ICON_16_HIDE", "ICON_16_HIDE")]^C^C_hide 
+               [--]
+ID_Render      [_Button("渲染", "ICON_16_RENDER", "ICON_16_RENDER")]^C^C_render 
+               [--]
+ID_Scene       [_Button("场景", "ICON_16_SCENE", "ICON_16_SCENE")]^C^C_scene 
+ID_Light       [_Button("光源", "ICON_16_LIGHT", "ICON_16_LIGHT")]^C^C_light 
+ID_Rmat        [_Button("材质", "ICON_16_RMAT", "ICON_16_RMAT")]^C^C_rmat 
+ID_Matlib      [_Button("材质库", "ICON_16_MATLIB", "ICON_16_MATLIB")]^C^C_matlib 
+ID_Setuv       [_Button("贴图", "ICON_16_SETUV", "ICON_16_SETUV")]^C^C_setuv 
+               [--]
+ID_Backgroun   [_Button("背景", "ICON_16_BACKGR", "ICON_16_BACKGR")]^C^C_background 
+ID_Fog         [_Button("雾化", "ICON_16_FOG", "ICON_16_FOG")]^C^C_fog 
+ID_Lsnew       [_Button("新建配景", "ICON_16_LSNEW", "ICON_16_LSNEW")]^C^C_lsnew 
+ID_Lsedit      [_Button("编辑配景", "ICON_16_LSEDIT", "ICON_16_LSEDIT")]^C^C_lsedit 
+ID_Lslib       [_Button("配景库", "ICON_16_LSLIB", "ICON_16_LSLIB")]^C^C_lslib 
+               [--]
+ID_Rpref       [_Button("渲染系统配置", "ICON_16_RPREF", "ICON_16_RPREF")]^C^C_rpref 
+ID_Stats       [_Button("统计信息", "ICON_16_STATS", "ICON_16_STATS")]^C^C_stats 
+
+**TB_SOLIDS
+**实体
+ID_TbSolids    [_Toolbar("实体", _Floating, _Hide, 100, 250, 1)]
+ID_Box         [_Button("长方体", "ICON_16_BOX", "ICON_16_BOX")]^C^C_box 
+ID_Sphere      [_Button("球体", "ICON_16_SPHERE", "ICON_16_SPHERE")]^C^C_sphere 
+ID_Cylinder    [_Button("圆柱体", "ICON_16_CYLIND", "ICON_16_CYLIND")]^C^C_cylinder 
+ID_Cone        [_Button("圆锥体", "ICON_16_CONE", "ICON_16_CONE")]^C^C_cone 
+ID_Wedge       [_Button("楔体", "ICON_16_WEDGE", "ICON_16_WEDGE")]^C^C_wedge 
+ID_Torus       [_Button("圆环", "ICON_16_TORUS", "ICON_16_TORUS")]^C^C_torus 
+               [--]
+ID_Extrude     [_Button("拉伸", "ICON_16_EXTRUD", "ICON_16_EXTRUD")]^C^C_extrude 
+ID_Revolve     [_Button("旋转", "ICON_16_REVOLV", "ICON_16_REVOLV")]^C^C_revolve 
+               [--]
+ID_Slice       [_Button("剖切", "ICON_16_SLICE", "ICON_16_SLICE")]^C^C_slice 
+ID_Section     [_Button("切割", "ICON_16_SECTIO", "ICON_16_SECTIO")]^C^C_section 
+ID_Interfere   [_Button("干涉", "ICON_16_INTERF", "ICON_16_INTERF")]^C^C_interfere 
+               [--]
+ID_Soldraw     [_Button("设置图形", "ICON_16_SOLDR", "ICON_16_SOLDR")]^C^C_soldraw 
+ID_Solview     [_Button("设置视图", "ICON_16_SOLVW", "ICON_16_SOLVW")]^C^C_solview 
+ID_Solprof     [_Button("设置轮廓", "ICON_16_SOLPR", "ICON_16_SOLPR")]^C^C_solprof 
+
+**TB_SOLIDS2
+**实体编辑
+ID_TbSolids2   [_Toolbar("实体编辑", _Floating, _Hide, 100, 250, 1)]
+ID_Union       [_Button("并集", "ICON_16_UNION", "ICON_16_UNION")]^C^C_union 
+ID_Subtract    [_Button("差集", "ICON_16_SUBTRA", "ICON_16_SUBTRA")]^C^C_subtract 
+ID_Intersect   [_Button("交集", "ICON_16_INTERS", "ICON_16_INTERS")]^C^C_intersect 
+               [--]
+ID_FaceExtru   [_Button("拉伸面", "ICON_16_EXTRUD", "ICON_16_EXTRUD")]^C^C_solidedit _face _extrude 
+ID_FaceMove    [_Button("移动面", "ICON_16_MOVEFACE", "ICON_16_MOVEFACE")]^C^C_solidedit _face _move 
+ID_FaceOffse   [_Button("偏移面", "ICON_16_OFFSETFACE", "ICON_16_OFFSETFACE")]^C^C_solidedit _face _offset 
+ID_FaceDel     [_Button("删除面", "ICON_16_DELFACE", "ICON_16_DELFACE")]^C^C_solidedit _face _delete 
+ID_FaceRotat   [_Button("旋转面", "ICON_16_ROTATEFACE", "ICON_16_ROTATEFACE")]^C^C_solidedit _face _rotate 
+ID_FaceTaper   [_Button("倾斜面", "ICON_16_TAPER", "ICON_16_TAPER")]^C^C_solidedit _face _taper 
+ID_FaceCopy    [_Button("复制面", "ICON_16_COPYFACE", "ICON_16_COPYFACE")]^C^C_solidedit _face _copy 
+ID_FaceColor   [_Button("着色面", "ICON_16_COLORFACE", "ICON_16_COLORFACE")]^C^C_solidedit _face _color 
+               [--]
+ID_EdgeCopy    [_Button("复制边", "ICON_16_COPYEDGE", "ICON_16_COPYEDGE")]^C^C_solidedit _edge _copy 
+ID_EdgeColor   [_Button("着色边", "ICON_16_COLOREDGE", "ICON_16_COLOREDGE")]^C^C_solidedit _edge _color 
+               [--]
+ID_Imprint     [_Button("压印", "ICON_16_IMPRINT", "ICON_16_IMPRINT")]^C^C_solidedit _body _imprint 
+ID_BodyCln     [_Button("清除", "ICON_16_CLEAN", "ICON_16_CLEAN")]^C^C_solidedit _body _clean 
+ID_Separate    [_Button("分割", "ICON_16_SEPARATE", "ICON_16_SEPARATE")]^C^C_solidedit _body _separate 
+ID_Shell       [_Button("抽壳", "ICON_16_SHELL", "ICON_16_SHELL")]^C^C_solidedit _body _shell 
+ID_BodyChk     [_Button("检查", "ICON_16_CHECK", "ICON_16_CHECK")]^C^C_solidedit _body _check 
+
+**TB_STANDARD
+**标准
+ID_TbStandar   [_Toolbar("标准", _Top, _Show, 0, 0, 1)]
+ID_New         [_Button("新建", "ICON_16_NEW", "ICON_16_NEW")]^C^C_new 
+ID_Open        [_Button("打开", "ICON_16_OPEN", "ICON_16_OPEN")]^C^C_open 
+ID_Save        [_Button("保存", "ICON_16_SAVE", "ICON_16_SAVE")]^C^C_qsave 
+               [--]
+ID_Print       [_Button("打印", "ICON_16_PRINT", "ICON_16_PRINT")]^C^C_plot 
+ID_Preview     [_Button("打印预览", "ICON_16_PREVIEW", "ICON_16_PREVIEW")]^C^C_preview 
+ID_TextFind    [_Button("查找和替换", "ICON_16_TEXTFIND", "ICON_16_TEXTFIND")]^C^C_find 
+               [--]
+ID_Cutclip     [_Button("剪切到剪贴板", "ICON_16_CUT", "ICON_16_CUT")]^C^C_cutclip 
+ID_Copyclip    [_Button("复制到剪贴板", "ICON_16_COPY", "ICON_16_COPY")]^C^C_copyclip 
+ID_Pasteclip   [_Button("从剪贴板粘贴", "ICON_16_PASTE", "ICON_16_PASTE")]^C^C_pasteclip 
+ID_Matchprop   [_Button("特性匹配", "ICON_16_MATCH", "ICON_16_MATCH")]'_matchprop 
+               [--]
+ID_U           [_Button("放弃", "ICON_16_UNDO", "ICON_16_UNDO")]^C^C_u 
+ID_Redo        [_Button("重做", "ICON_16_REDO", "ICON_16_REDO")]^C^C_redo 
+               [--]
+ID_Today       [_Button("今日", "ICON_16_TODAY", "ICON_16_TODAY")]^C^C_Today 
+ID_PointA      [_Button("Autodesk Point A", "ICON_16_WHISTLER", "ICON_16_WHISTLER")]^C^C_browser http://pointa.autodesk.com 
+ID_MeetNow     [_Button("现在开会", "ICON_16_MEETNOW", "ICON_16_MEETNOW")]^C^C_MeetNow 
+ID_Publish     [_Button("网上发布", "ICON_16_PUBWEB", "ICON_16_PUBWEB")]^C^C_PublishToWeb 
+ID_Etransmit   [_Button("电子传递", "ICON_16_ETRANSMIT", "ICON_16_ETRANSMIT")]^C^C_etransmit 
+ID_Hyperlink   [_Button("附着超级链接", "ICON_16_URL", "ICON_16_URL")]^C^C_hyperlink 
+               [--]
+ID_TbOsnap     [_Flyout("对象捕捉", ICON_16_OSNAP, ICON_16_OSNAP, _OtherIcon, ACAD.TB_OBJECT_SNAP)]
+ID_TbUcs       [_Flyout("UCS", ICON_16_UCS, ICON_16_UCS, _OtherIcon, ACAD.TB_UCS)]
+               [--]
+ID_TbViewpoi   [_Flyout("视点", ICON_16_DDVIEW, ICON_16_DDVIEW, _OtherIcon, ACAD.TB_VIEWPOINT)]
+               [--]
+ID_3dorbit     [_Button("三维动态观察器", "ICON_16_3DORBIT", "ICON_16_3DORBIT")]'_3dorbit 
+ID_Pan         [_Button("实时平移", "ICON_16_RTPAN", "ICON_16_RTPAN")]'_pan 
+ID_ZoomRealt   [_Button("实时缩放", "ICON_16_RTZOOM", "ICON_16_RTZOOM")]'_zoom ;
+ID_TbZoom      [_Flyout("缩放", ICON_16_ZOOM, ICON_16_ZOOM, _OtherIcon, ACAD.TB_ZOOM)]
+ID_ZoomPrevi   [_Button("缩放上一个", "ICON_16_ZOOPRE", "ICON_16_ZOOPRE")]'_zoom _p 
+               [--]
+ID_Content     [_Button("AutoCAD 设计中心", "ICON_16_OPTCONTENTX", "ICON_16_OPTCONTENTX")]$M=$(if,$(and,$(getvar,adcstate),1),'_adcclose,'_adcenter) 
+ID_Ai_propch   [_Button("特性", "ICON_16_MODIFY", "ICON_16_MODIFY")]$M=$(if,$(and,$(getvar,opmstate),1),^C^C_propertiesclose,^C^C_properties) 
+               [--]
+ID_Help        [_Button("帮助", "ICON_16_HELP", "ICON_16_HELP")]'_help 
+ID_ASSIST      [_Button("实时助手", "ICON_16_ASSIST", "ICON_16_ASSIST")]'_ASSIST 
+
+**TB_STANDARDS
+**TB_CAD_标准
+ID_TbCadStd    [_Toolbar("CAD 标准", _Floating, _Hide, 100, 380, 1)]
+ID_Standards   [_Button("配置标准", "ICON_16_CONFIGSTD", "ICON_16_CONFIGSTD")]^C^C_Standards 
+ID_CheckStan   [_Button("检查标准", "ICON_16_CHECKSTD", "ICON_16_CHECKSTD")]^C^C_CheckStandards 
+ID_LayTrans    [_Button("图层转换", "ICON_16_LAYTRANS", "ICON_16_LAYTRANS")]^C^C_LayTrans 
+
+**TB_SURFACES
+**曲面
+ID_TbSurface   [_Toolbar("曲面", _Floating, _Hide, 100, 290, 1)]
+ID_Solid       [_Button("二维填充", "ICON_16_SOLID", "ICON_16_SOLID")]^C^C_solid 
+ID_3dface      [_Button("三维面", "ICON_16_3DFACE", "ICON_16_3DFACE")]^C^C_3dface 
+               [--]
+ID_Ai_box      [_Button("长方体表面", "ICON_16_SURBOX", "ICON_16_SURBOX")]^C^C_ai_box 
+ID_Ai_wedge    [_Button("楔体表面", "ICON_16_SURWED", "ICON_16_SURWED")]^C^C_ai_wedge 
+ID_Ai_pyrami   [_Button("棱锥面", "ICON_16_SURPYR", "ICON_16_SURPYR")]^C^C_ai_pyramid 
+ID_Ai_cone     [_Button("圆锥面", "ICON_16_SURCON", "ICON_16_SURCON")]^C^C_ai_cone 
+ID_Ai_sphere   [_Button("球面", "ICON_16_SURSPH", "ICON_16_SURSPH")]^C^C_ai_sphere 
+ID_Ai_dome     [_Button("上半球面", "ICON_16_SURDOM", "ICON_16_SURDOM")]^C^C_ai_dome 
+ID_Ai_dish     [_Button("下半球面", "ICON_16_SURDIS", "ICON_16_SURDIS")]^C^C_ai_dish 
+ID_Ai_torus    [_Button("圆环面", "ICON_16_SURTOR", "ICON_16_SURTOR")]^C^C_ai_torus 
+               [--]
+ID_Edge        [_Button("边", "ICON_16_EDGE", "ICON_16_EDGE")]^C^C_edge 
+ID_3dmesh      [_Button("三维网格", "ICON_16_3DMESH", "ICON_16_3DMESH")]^C^C_3dmesh 
+               [--]
+ID_Revsurf     [_Button("旋转曲面", "ICON_16_REVSUR", "ICON_16_REVSUR")]^C^C_revsurf 
+ID_Tabsurf     [_Button("平移曲面", "ICON_16_TABSUR", "ICON_16_TABSUR")]^C^C_tabsurf 
+ID_Rulesurf    [_Button("直纹曲面", "ICON_16_RULESU", "ICON_16_RULESU")]^C^C_rulesurf 
+ID_Edgesurf    [_Button("边界曲面", "ICON_16_EDGESU", "ICON_16_EDGESU")]^C^C_edgesurf 
+
+**TB_TEXT
+**文字
+ID_TbText      [_Toolbar("文字", _Floating, _Hide, 100, 320, 1)]
+ID_Mtext       [_Button("多行文字", "ICON_16_MTEXT", "ICON_16_MTEXT")]^C^C_mtext 
+ID_Dtext       [_Button("单行文字", "ICON_16_SINGLE_DTEXT", "ICON_16_SINGLE_DTEXT")]^C^C_dtext 
+ID_Ddedit      [_Button("编辑文字", "ICON_16_TEXEDI", "ICON_16_TEXEDI")]^C^C_ddedit 
+ID_TextFind    [_Button("查找和替换", "ICON_16_TEXTFIND", "ICON_16_TEXTFIND")]^C^C_find 
+ID_Style       [_Button("文字样式", "ICON_16_TXTSTYLE", "ICON_16_TXTSTYLE")]'_style 
+ID_Scaletext   [_Button("缩放文字", "ICON_16_SCALETXT", "ICON_16_SCALETXT")]^C^C_scaletext 
+ID_Justifyte   [_Button("对正文字", "ICON_16_JUSTIFYTXT", "ICON_16_JUSTIFYTXT")]^C^C_justifytext 
+ID_Spacetran   [_Button("在空间之间转换距离", "ICON_16_SPACETRANS", "ICON_16_SPACETRANS")]'_spacetrans 
+
+**TB_UCS
+**UCS
+ID_TbUcs       [_Toolbar("UCS", _Floating, _Hide, 100, 310, 1)]
+ID_Ucs         [_Button("UCS", "ICON_16_UCS", "ICON_16_UCS")]^C^C_ucs 
+ID_Dducs       [_Button("显示 UCS 对话框", "ICON_16_DDUCS", "ICON_16_DDUCS")]^C^C_+ucsman 0 
+               [--]
+ID_UcsPrevio   [_Button("上一个 UCS", "ICON_16_UCSPRE", "ICON_16_UCSPRE")]^C^C_ucs _p 
+               [--]
+ID_UcsWorld    [_Button("世界 UCS", "ICON_16_UCSW", "ICON_16_UCSW")]^C^C_ucs _w 
+ID_UcsObject   [_Button("对象 UCS", "ICON_16_UCSOBJ", "ICON_16_UCSOBJ")]^C^C_ucs _ob 
+ID_UcsFace     [_Button("面 UCS", "ICON_16_UCSFACE", "ICON_16_UCSFACE")]^C^C_ucs _fa 
+ID_UcsView     [_Button("视图 UCS", "ICON_16_UCSVIE", "ICON_16_UCSVIE")]^C^C_ucs _v 
+               [--]
+ID_UcsOrigin   [_Button("原点 UCS", "ICON_16_UCSORI", "ICON_16_UCSORI")]^C^C_ucs _o 
+ID_UcsZAxVec   [_Button("Z 轴矢量 UCS", "ICON_16_UCSZAV", "ICON_16_UCSZAV")]^C^C_ucs _zaxis 
+ID_Ucs3point   [_Button("三点 UCS", "ICON_16_UCS3PT", "ICON_16_UCS3PT")]^C^C_ucs _3 
+               [--]
+ID_UcsXAxRot   [_Button("X 轴旋转 UCS", "ICON_16_UCSXAR", "ICON_16_UCSXAR")]^C^C_ucs _x 
+ID_UcsYAxRot   [_Button("Y 轴旋转 UCS", "ICON_16_UCSYAR", "ICON_16_UCSYAR")]^C^C_ucs _y 
+ID_UcsZAxRot   [_Button("Z 轴旋转 UCS", "ICON_16_UCSZAR", "ICON_16_UCSZAR")]^C^C_ucs _z 
+               [--]
+ID_UcsApply    [_Button("应用 UCS", "ICON_16_UCSAPPLY", "ICON_16_UCSAPPLY")]^C^C_ucs _apply 
+
+**TB_UCSII
+**TB_UCS_II
+ID_TbUcsName   [_Toolbar("UCS II", _Floating, _Hide, 100, 300, 1)]
+ID_Dducs       [_Button("显示 UCS 对话框", "ICON_16_DDUCS", "ICON_16_DDUCS")]^C^C_+ucsman 0 
+ID_UcsMove     [_Button("移动 UCS 原点", "ICON_16_UCSMOVE", "ICON_16_UCSMOVE")]^C^C_ucs _move 
+               [--]
+               [_Control(_UCSManager)]
+
+**TB_VIEWPOINT
+**视图
+ID_TbViewpoi   [_Toolbar("视图", _Floating, _Hide, 100, 330, 1)]
+ID_Ddview      [_Button("命名视图", "ICON_16_DDVIEW", "ICON_16_DDVIEW")]^C^C_view 
+               [--]
+ID_VpointTop   [_Button("俯视图", "ICON_16_VIETOP", "ICON_16_VIETOP")]^C^C_-view _top 
+ID_VpointBot   [_Button("仰视图", "ICON_16_VIEBOT", "ICON_16_VIEBOT")]^C^C_-view _bottom 
+ID_VpointLef   [_Button("左视图", "ICON_16_VIELEF", "ICON_16_VIELEF")]^C^C_-view _left 
+ID_VpointRig   [_Button("右视图", "ICON_16_VIERIG", "ICON_16_VIERIG")]^C^C_-view _right 
+ID_VpointFro   [_Button("主视图", "ICON_16_VIEFRO", "ICON_16_VIEFRO")]^C^C_-view _front 
+ID_VpointBac   [_Button("后视图", "ICON_16_VIEBAC", "ICON_16_VIEBAC")]^C^C_-view _back 
+               [--]
+ID_VpointSW    [_Button("西南等轴测视图", "ICON_16_VIESWI", "ICON_16_VIESWI")]^C^C_-view _swiso 
+ID_VpointSE    [_Button("东南等轴测视图", "ICON_16_VIESEI", "ICON_16_VIESEI")]^C^C_-view _seiso 
+ID_VpointNE    [_Button("东北等轴测视图", "ICON_16_VIENEI", "ICON_16_VIENEI")]^C^C_-view _neiso 
+ID_VpointNW    [_Button("西北等轴测视图", "ICON_16_VIENWI", "ICON_16_VIENWI")]^C^C_-view _nwiso 
+               [--]
+ID_Camera      [_Button("相机", "ICON_16_CAMERA", "ICON_16_CAMERA")]^C^C_camera 
+
+**TB_VIEWPORTS
+**视口
+ID_TbVpCreat   [_Toolbar("视口", _Floating, _Hide, 100, 350, 1)]
+ID_VpDialog    [_Button("显示“视口”对话框", "ICON_16_VPDLG", "ICON_16_VPDLG")]^C^C_vports 
+ID_VpSingle    [_Button("单个视口", "ICON_16_VPONE", "ICON_16_VPONE")]$M=$(if,$(eq,$(getvar,tilemode),1),^C^C_-vports _si,^C^C_-vports) 
+ID_VpPoly      [_Button("多边形视口", "ICON_16_VPPOLY", "ICON_16_VPPOLY")]$M=$(if,$(eq,$(getvar,tilemode),0),^C^C_-vports _p,^C^C^P(ai_viewports_alert)^P) 
+ID_VpConvert   [_Button("将对象转换为视口", "ICON_16_VPOBJ", "ICON_16_VPOBJ")]$M=$(if,$(eq,$(getvar,tilemode),0),^C^C_-vports _o,^C^C^P(ai_viewports_alert)^P) 
+ID_VpClip      [_Button("剪裁现有视口", "ICON_16_VPCLIP", "ICON_16_VPCLIP")]^C^C_vpclip 
+               [--]
+               [_Control(_ViewportScale)]
+
+**TB_WEB
+**WEB
+ID_TbWeb       [_Toolbar("Web", _Floating, _Hide, 100, 380, 1)]
+ID_HlnkBack    [_Button("后退", "ICON_16_HLNK_BACK", "ICON_16_HLNK_BACK")]'_hyperlinkBack 
+ID_HlnkFwd     [_Button("前进", "ICON_16_HLNK_FWD", "ICON_16_HLNK_FWD")]'_hyperlinkFwd 
+ID_HlnkStop    [_Button("停止浏览", "ICON_16_HLNK_STOP", "ICON_16_HLNK_STOP")]'_hyperlinkStop 
+ID_Browser     [_Button("浏览 Web", "ICON_16_WEB", "ICON_16_WEB")]^C^C_browser ;
+
+**TB_ZOOM
+**缩放
+ID_TbZoom      [_Toolbar("缩放", _Floating, _Hide, 100, 350, 1)]
+ID_ZoomWindo   [_Button("窗口缩放", "ICON_16_ZOOWIN", "ICON_16_ZOOWIN")]'_zoom _w 
+ID_ZoomDynam   [_Button("动态缩放", "ICON_16_ZOODYN", "ICON_16_ZOODYN")]'_zoom _d 
+ID_ZoomScale   [_Button("比例缩放", "ICON_16_ZOOSCA", "ICON_16_ZOOSCA")]'_zoom _s 
+ID_ZoomCente   [_Button("中心缩放", "ICON_16_ZOOCEN", "ICON_16_ZOOCEN")]'_zoom _c 
+               [--]
+ID_ZoomIn      [_Button("放大", "ICON_16_ZOOIN", "ICON_16_ZOOIN")]'_zoom 2x 
+ID_ZoomOut     [_Button("缩小", "ICON_16_ZOOOUT", "ICON_16_ZOOOUT")]'_zoom .5x 
+               [--]
+ID_ZoomAll     [_Button("全部缩放", "ICON_16_ZOOALL", "ICON_16_ZOOALL")]'_zoom _all 
+ID_ZoomExten   [_Button("范围缩放", "ICON_16_ZOOEXT", "ICON_16_ZOOEXT")]'_zoom _e 
+
+
+***IMAGE
+**IMAGE_3DOBJECTS
+[三维对象]
+[acad(Box3d,长方体表面)]^C^C_ai_box 
+[acad(Pyramid,棱锥面)]^C^C_ai_pyramid 
+[acad(Wedge,楔体表面)]^C^C_ai_wedge 
+[acad(Dome,上半球面)]^C^C_ai_dome 
+[acad(Sphere,球面)]^C^C_ai_sphere 
+[acad(Cone,圆锥面)]^C^C_ai_cone 
+[acad(Torus,圆环面)]^C^C_ai_torus 
+[acad(Dish,下半球面)]^C^C_ai_dish 
+[acad(Mesh,网格)]^C^C_ai_mesh 
+
+**IMAGE_POLY
+[设置样条曲线拟合变量]
+[acad(pm-quad,二次拟合网格)]'_surftype 5 
+[acad(pm-cubic,三次拟合网格)]'_surftype 6 
+[acad(pm-bezr,Bezier 拟合网格)]'_surftype 8 
+[acad(pl-quad,二次拟合多段线)]'_splinetype 5 
+[acad(pl-cubic,三次拟合多段线)]'_splinetype 6 
+
+**IMAGE_VPORTI
+[平铺视口布局]
+[acad(vport-1,一个)]^C^C(ai_tiledvp 1 nil) 
+[acad(vport-3v,三个:  垂直)]^C^C(ai_tiledvp 3 "_V") 
+[acad(vport-3h,三个:  水平)]^C^C(ai_tiledvp 3 "_H") 
+[acad(vport-4,四个:  相等)]^C^C(ai_tiledvp 4 nil) 
+[acad(vport-2v,两个:  垂直)]^C^C(ai_tiledvp 2 "_V") 
+[acad(vport-3r,三个:  右)]^C^C(ai_tiledvp 3 "_R") 
+[acad(vport-3l,三个:  左)]^C^C(ai_tiledvp 3 "_L") 
+[acad(vport-4l,四个:  左)]^C^C(ai_tiledvp 4 "_L") 
+[acad(vport-2h,两个:  水平)]^C^C(ai_tiledvp 2 "_H") 
+[acad(vport-3a,三个:  上)]^C^C(ai_tiledvp 3 "_A") 
+[acad(vport-3b,三个:  下)]^C^C(ai_tiledvp 3 "_B") 
+[acad(vport-4r,四个:  右)]^C^C(ai_tiledvp 4 "_R") 
+
+
+***SCREEN
+**S
+[AutoCAD ]^C^C^P(ai_rootmenus) ^P
+[* * * * ]$S=ACAD.OSNAP 
+[文件    ]$S=ACAD.01_FILE 
+[编辑    ]$S=ACAD.02_EDIT 
+[视图 1  ]$S=ACAD.03_VIEW1 
+[视图 2  ]$S=ACAD.04_VIEW2 
+[插入    ]$S=ACAD.05_INSERT 
+[格式    ]$S=ACAD.06_FORMAT 
+[工具 1  ]$S=ACAD.07_TOOLS1 
+[工具 2  ]$S=ACAD.08_TOOLS2 
+[绘图 1  ]$S=ACAD.09_DRAW1 
+[绘图 2  ]$S=ACAD.10_DRAW2 
+[标注    ]$S=ACAD.11_DIMENSION 
+[修改 1  ]$S=ACAD.12_MODIFY1 
+[修改 2  ]$S=ACAD.13_MODIFY2 
+
+[帮助    ]$S=ACAD.14_HELP 
+
+
+
+
+
+
+
+[助手    ]$S=ACAD.ASSIST 
+[上一个  ]$S=ACAD. 
+
+**SNAP_TO 28
+[端点    ]_endp 
+[中点    ]_mid 
+[交点    ]_int 
+[外观交点]_appint 
+
+[圆心    ]_cen 
+[象限点  ]_qua 
+[切点    ]_tan 
+
+[垂足    ]_per 
+[节点    ]_nod 
+[插入点  ]_ins 
+
+[最近点  ]_nea 
+[无      ]_non 
+
+[追踪    ]_tt 
+[自      ]_from 
+
+
+
+**ASSIST 3
+[最后一个]_l 
+[上一个  ]_p 
+[全部    ]_all 
+[多边框选]_cp 
+[多边窗口]_wp 
+[栏选    ]_f 
+[编组    ]_g 
+[添加    ]_a 
+[删除    ]_r 
+[放弃    ]_u 
+[过滤器  ]_'filter 
+[.x ].x 
+[.y ].y 
+[.z ].z 
+[.xy ].xy 
+[.xz ].xz 
+[.yz ].yz 
+[对象捕捉]'_+dsettings 2 
+[绘图模式]'_+dsettings 0 
+[图层    ]'_layer 
+[编组    ]^C^C_group 
+[对象捕捉]$S=ACAD.OSNAP 
+**GRIP_EDIT 3
+[夹点    ]
+[编辑   ]
+
+[移动    ]_mo 
+[镜像    ]_mi 
+[旋转    ]_ro 
+[缩放    ]_sc 
+[拉伸    ]_st 
+
+[基点    ]_b 
+[复制    ]_c 
+[参照    ]_r 
+[放弃    ]_u 
+
+[特性检查]^C^C_properties 
+[转至 URL]^C^C_gotourl 
+
+[退出    ]_x 
+[取消    ]^C
+
+
+
+**01_FILE 3
+[新建    ]^C^C_new 
+[打开    ]^C^C_open 
+
+[保存    ]^C^C_qsave 
+[另存为  ]^C^C_saveas 
+[输出    ]^C^C_export 
+
+[配置    ]^C^C_config 
+[打印    ]^C^C_plot 
+
+[核查    ]^C^C_audit 
+[修复    ]^C^C_recover 
+[清理    ]^C^C_-purge 
+
+[退出    ]^C^C_quit 
+
+
+
+
+
+
+
+**02_EDIT 3
+[放弃    ]^C^C_u 
+[重做    ]^C^C_redo 
+
+[剪切         ]^C^C_cutclip 
+[复制         ]^C^C_copyclip 
+[复制基点]^C^C_copybase 
+[复制链接 ]^C^C_copylink 
+
+[粘贴        ]^C^C_pasteclip 
+[粘贴为块]^C^C_pasteblock 
+[粘贴原点]^C^C_pasteorig 
+[选择粘贴 ]^C^C_pastespec 
+
+[OLE 链接]^C^C_olelinks 
+
+
+
+
+
+
+
+
+**03_VIEW1 3
+[重画    ]'_redraw 
+[全部重画]'_redrawall 
+[重生成  ]^C^C_regen 
+[全重生成]^C^C_regenall 
+
+[缩放    ]'_zoom 
+[平移    ]'_pan 
+[鸟瞰视图]'_dsviewer 
+
+[平铺模式]^C^C_tilemode 
+[模型空间]^C^C_mspace 
+[图纸空间]^C^C_pspace 
+
+[视口    ]^C^C_-vports 
+[生成视图]^C^C_mview 
+
+[动态视图]^C^C_view 
+[动态视点]^C^C_ddvpoint 
+[平面    ]^C^C_plan 
+[视点    ]^C^C_vpoint 
+[三维观察]'_3dorbit 
+
+**04_VIEW2 3
+[消隐    ]^C^C_hide 
+[着色    ]^C^C_shademode 
+
+[渲染    ]^C^C_render 
+[场景    ]^C^C_scene 
+[光源    ]^C^C_light 
+[贴图    ]^C^C_setuv 
+[背景    ]^C^C_background 
+[雾化    ]^C^C_fog 
+[新建配景]^C^C_lsnew 
+[编辑配景]^C^C_lsedit 
+[配景库  ]^C^C_lslib 
+[材质    ]^C^C_rmat 
+[材质库  ]^C^C_matlib 
+[渲染配置]^C^C_rpref 
+[统计信息]^C^C_stats 
+
+[UCS 图标]^C^C_ucsicon 
+[属性显示]'_attdisp 
+
+[文本窗口]'_textscr 
+[工具栏  ]^C^C_toolbar 
+**05_INSERT 3
+[动态插入]^C^C_insert 
+
+[外部参照]^C^C_xref 
+[图像    ]^C^C_image 
+
+[输入 3DS]^C^C_3dsin 
+[输入ACIS]^C^C_acisin 
+[输入 DXB]^C^C_dxbin 
+[输入 WMF]^C^C_wmfin 
+[输入 PS ]^C^C_psin 
+
+[插入对象]^C^C_insertobj 
+
+
+
+
+
+
+
+
+
+
+**06_FORMAT 3
+[图层    ]'_layer 
+[颜色    ]'_color 
+[线型    ]'_linetype 
+
+[样式    ]'_style 
+[标注设置]'_dimstyle 
+[点样式  ]'_ddptype 
+[多线样式]^C^C_mlstyle 
+
+[单位    ]'_units 
+[厚度    ]'_thickness 
+[界限    ]'_limits 
+
+[重命名  ]^C^C_rename 
+
+
+
+
+
+
+
+
+**07_TOOLS1 3
+[拼写    ]'_spell 
+[绘图顺序]^C^C_draworder 
+
+[距离    ]'_dist 
+[面积    ]^C^C_area 
+[质量特性]^C^C_massprop 
+
+[列表显示]^C^C_list 
+[点坐标  ]'_id 
+
+[时间    ]'_time 
+[状态    ]'_status 
+[设置变量]'_setvar 
+
+[加载程序]^C^C_appload 
+[脚本    ]'_script 
+
+[保存图像]^C^C_saveimg 
+[重放    ]^C^C_replay 
+
+
+
+**08_TOOLS2 3
+[对象捕捉]'_+dsettings 2 
+[栅格    ]'_+dsettings 0 
+[极轴    ]'_+dsettings 1 
+
+[预置 UCS]^C^C_+ucsman 1 
+[UCS 管理]^C^C_+ucsman 0 
+[UCS     ]^C^C_ucs 
+
+[夹点    ]^C^C_+options 7 
+[选择    ]^C^C_+options 7 
+[编组    ]^C^C_group 
+
+[数字化仪]^C^C_tablet 
+[菜单加载]^C^C_menuload 
+[选项     ]^C^C_options 
+
+
+
+
+
+
+
+**09_DRAW1 3
+[直线    ]^C^C_line 
+[射线    ]^C^C_ray 
+[构造线  ]^C^C_xline 
+[多线    ]^C^C_mline 
+
+[多段线  ]^C^C_pline 
+[3D多段线]^C^C_3dpoly 
+[正多边形]^C^C_polygon 
+[矩形    ]^C^C_rectang 
+
+[圆弧    ]^C^C_arc 
+[圆      ]^C^C_circle 
+[圆环    ]^C^C_donut 
+
+[样条曲线]^C^C_spline 
+[椭圆    ]^C^C_ellipse 
+
+
+
+
+
+
+**10_DRAW2 3
+[创建块  ]^C^C_block 
+[基点    ]'_base 
+[属性定义]^C^C_attdef 
+
+[点      ]*^C^C_point 
+[定数等分]^C^C_divide 
+[定距等分]^C^C_measure 
+
+[域内填充]^C^C_bhatch 
+[边界    ]^C^C_boundary 
+
+[面域    ]^C^C_region 
+
+[多行文字]^C^C_mtext 
+[动态文字]^C^C_dtext 
+
+[曲面    ]$S=ACAD.3D 
+[实体    ]$S=ACAD.101_SOLIDS 
+
+
+
+
+**101_SOLIDS 3
+[长方体  ]^C^C_box 
+[球体    ]^C^C_sphere 
+[圆柱体  ]^C^C_cylinder 
+[圆锥体  ]^C^C_cone 
+[楔体    ]^C^C_wedge 
+[圆环体  ]^C^C_torus 
+
+[拉伸    ]^C^C_extrude 
+[旋转    ]^C^C_revolve 
+
+[剖切    ]^C^C_slice 
+[截面    ]^C^C_section 
+[干涉    ]^C^C_interfere 
+
+[绘制实体]^C^C_soldraw 
+[实体视图]^C^C_solview 
+[实体轮廓]^C^C_solprof 
+
+
+
+
+
+**11_DIMENSION 3
+[线性    ]^C^C_dimlinear 
+[对齐    ]^C^C_dimaligned 
+[坐标    ]^C^C_dimordinate 
+
+[直径    ]^C^C_dimdiameter 
+[半径    ]^C^C_dimradius 
+[角度    ]^C^C_dimangular 
+
+[基线    ]^C^C_dimbaseline 
+[连续    ]^C^C_dimcontinue 
+
+[引线    ]^C^C_qleader 
+[公差    ]^C^C_tolerance 
+[圆心    ]^C^C_dimcenter 
+
+[编辑标注]^C^C_dimedit 
+[标注文字]^C^C_dimtedit 
+
+[标注设置]'_dimstyle 
+[标注样式]^C^C_-dimstyle 
+[更新    ]^C^C_dim _update 
+
+**12_MODIFY1 3
+[特性    ]^C^C_properties 
+[特性匹配]'_matchprop 
+[参照绑定]^C^C_xbind 
+[图像调整]^C^C_imageadjust 
+[图像质量]^C^C_imagequality 
+[透明    ]^C^C_transparency 
+[图像边框]^C^C_imageframe 
+[参照剪裁]^C^C_xclip 
+[图像剪裁]^C^C_imageclip 
+[填充图案]^C^C_hatchedit 
+[编辑多段]^C^C_pedit 
+[编辑样条]^C^C_splinedit 
+[编辑多线]^C^C_mledit 
+[属性编辑 ]^C^C_attedit 
+[-改属性  ]^C^C_-attedit 
+[文字编辑]^C^C_ddedit 
+
+[删除    ]^C^C_erase 
+[复制    ]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_copy,^C^C_copy) 
+[镜像    ]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_mirror,^C^C_mirror) 
+[偏移    ]^C^C_offset 
+[阵列    ]^C^C_-array 
+**13_MODIFY2 3
+[参照编辑]^C^C_refedit;
+
+[移动    ]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_move,^C^C_move) 
+[旋转    ]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_rotate,^C^C_rotate) 
+[缩放    ]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_scale,^C^C_scale) 
+[拉伸    ]$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),grip),_stretch,^C^C_stretch) 
+[拉长    ]^C^C_lengthen 
+[修剪    ]^C^C_trim 
+[延伸    ]^C^C_extend 
+[打断    ]^C^C_break 
+[倒角    ]^C^C_chamfer 
+[圆角    ]^C^C_fillet 
+
+[三维阵列]^C^C_3darray 
+[三维镜像]^C^C_mirror3d 
+[三维旋转]^C^C_rotate3d 
+[对齐    ]^C^C_align 
+
+[并集    ]^C^C_union 
+[差集]^C^C_subtract 
+[交集    ]^C^C_intersect 
+[分解    ]^C^C_explode 
+**14_HELP 3
+[帮助    ]'_help 
+
+[新特性  ]^P(help "acad" "whatsnew") ^P
+[浏览器  ]^C^C_browser ;
+
+[关于    ]'_about 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**3D 3
+[填充    ]^C^C_solid 
+[三维面  ]^C^C_3dface 
+[三维对象]$I=ACAD.image_3dobjects $I=ACAD.* 
+
+[边      ]^C^C_edge 
+[三维网格]^C^C_3dmesh 
+
+
+[旋转曲面]^C^C_revsurf 
+[平移曲面]^C^C_tabsurf 
+[直纹曲面]^C^C_rulesurf 
+[边界曲面]^C^C_edgesurf 
+
+[Surftb1:]'_surftab1 
+[Surftb2:]'_surftab2 
+[多段变量]$I=ACAD.image_poly $I=* 
+
+
+
+
+
+
+**3DARRAY 3
+[三维阵列]^C^C_3darray 
+
+[矩形    ]_r 
+[环形    ]_p 
+
+[是      ]_y 
+[否      ]_n 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**3DFACE 3
+[三维面  ]^C^C_3dface 
+
+[不可见  ]_i 
+
+[显示边  ]^P(setvar "splframe" 1)(ai_showedge_alert) ^P
+[隐藏边  ]^P(setvar "splframe" 0)(ai_hideedge_alert) ^P
+
+[边      ]^C^C_edge 
+[特性    ]^C^C_properties 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**3DPOLY 3
+[3D多段线]^C^C_3dpoly 
+
+[闭合    ]_c 
+[放弃    ]_u 
+
+[@]@\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**ARC 3
+[圆弧    ]^C^C_arc 
+
+[三点    ]\\
+[起,中,端]\_c \
+[起,中,角]\_c \_a 
+[起,中,长]\_c \_l 
+[起,端,角]\_e \_a 
+[起,端,向]\_e \_d 
+[起,端,半]\_e \_r 
+[中,起,端]_c \\
+[中,起,角]_c \\_a 
+[中,起,长]_c \\_l 
+
+[弧继续  ]^C^C_arc ;
+[线继续  ]^C^C_line ;
+
+
+
+
+
+
+
+**AREA 3
+[面积    ]^C^C_area 
+
+[对象    ]_o 
+[添加    ]_a 
+[差集    ]_s 
+
+[边界    ]^C^C_boundary 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**ARRAY 3
+[阵列    ]^C^C_-array 
+
+
+
+[矩形    ]_r 
+[环形    ]_p 
+
+[是      ]_y 
+[否      ]_n 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**ATTDISP 3
+[属性显示]'_attdisp 
+
+[普通    ]_n 
+[开      ]_on 
+[关      ]_off 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**ATTEDIT 3
+[-改属性 ]^C^C_-attedit 
+
+[属性编辑]^C^C_attedit 
+
+[是      ]_y 
+[否      ]_n 
+
+[值      ]_v 
+[位置    ]_p 
+[高度    ]_h 
+[角度    ]_a 
+[样式    ]_s 
+[图层    ]_l 
+[颜色    ]_c 
+[下一个  ]_n 
+
+[颜色    ](acad_colordlg 256) 
+
+
+
+
+
+**AUDIT 3
+[核查    ]^C^C_audit 
+
+[是      ]_y 
+[否      ]_n 
+
+[核查当前]'_auditctl 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**BREAK 3
+[打断    ]^C^C_break 
+
+[第一    ]_f 
+[@]@\
+
+[选第二点]\\
+[选择点  ]\@\
+[选择两点]\_first \
+[选第一点]\_first \@\
+
+
+
+
+
+
+
+
+
+
+
+
+
+**CHAMFER 3
+[倒角    ]^C^C_chamfer 
+
+[多段线  ]_p 
+[距离    ]_d \\_chamfer 
+[距离 = 0]_d 0 0 _chamfer 
+[角度    ]_a \\ _chamfer 
+
+[修剪    ]_t 
+[不修剪  ]_n 
+
+[方法    ]_m 
+[距离    ]_d 
+[角度    ]_a 
+
+
+
+
+
+
+
+
+
+**CIRCLE 3
+[圆      ]^C^C_circle 
+
+[圆心半径]\\
+
+[圆心直径]\_d 
+
+[两点    ]_2p \
+[三点    ]_3p \\
+
+[切 切 半]_ttr 
+[切 切 切]_3p _tan \_tan \_tan \
+
+[复制半径]^C^C_circlerad '_cal rad;
+
+
+
+
+
+
+
+
+
+**COPY 3
+[复制    ]^C^C_copy 
+
+
+
+[重复执行]_m 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIMALIGNED 3
+[对齐标注]^C^C_dimaligned 
+
+[文字    ]_t 
+[角度    ]_a 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIMANGULAR 3
+[角度标注]^C^C_dimangular 
+
+[文字    ]_t 
+[角度    ]_a 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIMEDIT 3
+[编辑标注]^C^C_dimedit 
+
+[默认    ]_h 
+[新建    ]_n 
+[旋转    ]_r 
+[倾斜    ]_o 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIMLINEAR 3
+[线性标注]^C^C_dimlinear 
+
+[水平    ]_h 
+[垂直    ]_v 
+
+[文字    ]_t 
+[角度    ]_a 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIMORDINATE 3
+[坐标标注]^C^C_dimordinate 
+
+[X 基准  ]_x 
+[Y 基准  ]_y 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIMOVERRIDE 3
+[标注替代]^C^C_dimoverride 
+
+[清除    ]_c 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIMTEDIT 3
+[标注文字]^C^C_dimtedit 
+
+[左      ]_l 
+[右      ]_r 
+[默认    ]_h 
+[角度    ]_a 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DIVIDE 3
+[定数等分]^C^C_divide 
+
+[块      ]_b 
+
+[是      ]_y 
+[否      ]_n 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DRAWORDER 3
+[绘图顺序]^C^C_draworder 
+
+[上      ]_a 
+[下      ]_u 
+
+[前      ]_f 
+[后    ]_b 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**DTEXT 3
+[动态文字]^C^C_dtext 
+[多行文字]^C^C_mtext 
+
+[样式    ]_s 
+
+[对正    ]_j 
+[对齐    ]_a 
+[中心    ]_c 
+[布满    ]_f 
+[中央    ]_m 
+[右      ]_r 
+[左上    ]_tl 
+[中上    ]_tc 
+[右上    ]_tr 
+[左中    ]_ml 
+[正中    ]_mc 
+[右中    ]_mr 
+[左下    ]_bl 
+[中下    ]_bc 
+[右下    ]_br 
+
+[样式    ]'_style 
+**DVIEW 3
+[三维观察  ]'_3dorbit 
+
+[动态写块]^C^C_dview ;
+
+[相机    ]_ca 
+[目标    ]_ta 
+[距离    ]_d 
+[点      ]_po 
+[平移    ]_pa 
+[缩放    ]_z 
+[扭曲    ]_tw 
+[剪裁    ]_cl 
+[消隐    ]_h 
+[关      ]_off 
+[放弃    ]_u 
+[退出    ]_x 
+
+[后      ]_b 
+[前      ]_f 
+
+[关      ]_off 
+
+**ELLIPSE 3
+[椭圆    ]^C^C_ellipse 
+
+[圆弧    ]_a 
+[中心    ]_c 
+[旋转    ]_r 
+
+
+
+
+[多段椭圆]'_pellipse 
+
+
+
+
+
+
+
+
+
+
+
+
+**ERASE 3
+[删除    ]^C^C_erase 
+
+[恢复    ]^C^C_oops 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**EXTEND 3
+[延伸    ]^C^C_extend 
+
+[边      ]_e 
+[延伸   ]_e 
+[不延伸 ]_n 
+
+[投影    ]_p 
+[无     ]_n 
+[UCS    ]_u 
+[视图   ]_v 
+
+[放弃    ]_u 
+
+
+
+
+
+
+
+
+
+
+**EXTRUDE 3
+[拉伸    ]^C^C_extrude 
+
+[路径    ]_p 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**FILLET 3
+[圆角    ]^C^C_fillet 
+
+[多段线  ]_p 
+
+[半径    ]_r 
+[半径 0  ]_r 0 
+
+[修剪    ]_t 
+[不修剪  ]_n 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**IMAGECLIP 3
+[图像剪裁]^C^C_imageclip 
+
+[新建   ];
+[开     ]_on 
+[关     ]_off 
+[删除    ]_d 
+
+
+[正多边形]_p 
+[矩形    ];
+
+
+
+
+
+
+
+
+
+
+
+
+**IMAGEQUALITY 3
+[图像质量]^C^C_imagequality 
+
+[高      ]_h 
+[草稿    ]_d 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**LEADER 3
+[引线    ]^C^C_qleader 
+
+[格式    ]_f 
+[放弃    ]_u 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**LENGTHEN 3
+[拉长    ]^C^C_lengthen 
+
+[差值    ]_de 
+[百分比  ]_p 
+[总数    ]_t 
+[动态    ]_dy 
+
+[角度    ]_a 
+[长度    ]_l 
+[放弃    ]_u 
+
+
+
+
+
+
+
+
+
+
+
+
+**LINE 3
+[直线    ]^C^C_line 
+
+[一条线  ]^C^C_line \\;
+
+[继续    ];
+[放弃    ]_u 
+[闭合    ]_c 
+[@]@\
+
+[弧继续  ]^C^C_arc ;
+
+
+
+
+
+
+
+
+
+
+
+
+**MATCHPROP 3
+[特性匹配]'_matchprop 
+
+[设置    ]_s 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**MEASURE 3
+[定距等分]^C^C_measure 
+
+[块      ]_b 
+
+[是      ]_y 
+[否      ]_n 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**MIRROR 3
+[镜像    ]^C^C_mirror 
+
+[三维镜像]^C^C_mirror3d 
+
+[是      ]_y 
+[否      ]_n 
+
+[镜像文字]'_mirrtext 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**MIRROR3D 3
+[三维镜像]^C^C_mirror3d 
+
+[图元    ]_e 
+[Z 轴    ]_z 
+[视图    ]_v 
+[XY      ]_xy 
+[YZ      ]_yz 
+[ZX      ]_zx 
+[三点    ]_3 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**MLINE 3
+[多线    ]^C^C_mline 
+
+[对正    ]_j 
+[缩放    ]_s 
+[样式    ]_st 
+
+[放弃    ]_u 
+[闭合    ]_c 
+[@]@\
+
+[多线样式]^C^C_mlstyle 
+[编辑多线]^C^C_mledit 
+
+
+
+
+
+
+
+
+
+
+**MVIEW 3
+[生成视口]^C^C_mview 
+
+[开      ]_on 
+[关      ]_off 
+[消隐出图]_h 
+[布满    ]_f 
+[2 ]2 
+[3 ]3 
+[4 ]4 
+[恢复    ]_r 
+
+
+
+
+
+
+
+
+
+
+
+
+**OFFSET 3
+[偏移    ]^C^C_offset 
+
+[通过    ]_t 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**OSNAP 3
+[追踪    ]_tt 
+[自      ]_from 
+
+[对象捕捉]'_-osnap 
+
+[端点    ]_endp 
+[中点    ]_mid 
+[交点    ]_int 
+[外观交点]_appint 
+[延长    ]_ext 
+[平行    ]_par 
+
+[圆心    ]_cen 
+[象限点  ]_qua 
+[切点    ]_tan 
+[垂足    ]_per 
+[节点    ]_nod 
+[插入点  ]_ins 
+[最近点  ]_nea 
+[无      ]_non 
+
+[对象捕捉]'_+dsettings 2 
+**PEDIT 3
+[编辑多段]^C^C_pedit 
+[打断    ]_b 
+[闭合    ]_c 
+[Down/Dec]_d 
+[编辑顶点]_e 
+[拟合    ]_f 
+[转到    ]_g 
+[插入    ]_i 
+[合并    ]_j 
+[生成线型]_l 
+[移动/开 ]_m 
+[下一/开 ]_n 
+[打开    ]_o 
+[上一点  ]_p 
+[Regen/Rt]_r 
+[REdispla]_re 
+[Spln/Str]_s 
+[正切    ]_t 
+[放弃/上 ]_u 
+[宽度    ]_w 
+[退出    ]_x 
+[多段变量]$I=ACAD.image_poly $I=* 
+**PLAN 3
+[平面图  ]^C^C_plan 
+
+[当前    ]_c 
+[UCS     ]_u 
+[世界    ]_w 
+
+[跟随    ]'_ucsfollow 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**PLINE 3
+[多段线  ]^C^C_pline 
+
+[圆弧    ]_a 
+[闭合    ]_c 
+[半宽    ]_h 
+[长度    ]_l 
+[放弃    ]_u 
+[宽度    ]_w 
+
+[角度    ]_a 
+[圆心    ]_ce 
+[闭合    ]_cl 
+[方向    ]_d \
+[直线    ]_l 
+[半径    ]_r 
+[第二点  ]_s \
+
+[编辑多段]^C^C_pedit 
+
+
+
+
+**POINT 3
+[点      ]*^C^C_point 
+
+[点样式  ]'_ddptype 
+
+[点模式  ]'_pdmode 
+[点大小  ]'_pdsize 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**POLYGON 3
+[正多边形]^C^C_polygon 
+
+[边      ]_e 
+
+[内接    ]_i 
+[外切    ]_c 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**PURGE 3
+[清理    ]^C^C_-purge 
+
+[块      ]_b 
+[标注样式]_d 
+[图层    ]_la 
+[线型    ]_lt 
+[形      ]_sh 
+[样式    ]_st 
+[全部    ]_a 
+
+[是      ]_y 
+[否      ]_n 
+
+
+
+
+
+
+
+
+
+
+**REVOLVE 3
+[旋转    ]^C^C_revolve 
+
+[对象    ]_o 
+[X 轴    ]_x 
+[Y 轴    ]_y 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**ROTATE 3
+[旋转    ]^C^C_rotate 
+
+[参照    ]_r 
+
+[三维旋转]^C^C_rotate3d 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**ROTATE3D 3
+[三维旋转]^C^C_rotate3d 
+
+[图元    ]_e 
+[最后一个]_l 
+[视图    ]_v 
+[X 轴    ]_x 
+[Y 轴    ]_y 
+[Z 轴    ]_z 
+[两点    ]_2p 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**SCALE 3
+[比例    ]^C^C_scale 
+
+[参照    ]_r 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**SECTION 3
+[截面    ]^C^C_section 
+
+[对象    ]_o 
+[Z 轴    ]_z 
+[视图    ]_v 
+[XY      ]_xy 
+[YZ      ]_yz 
+[ZX      ]_zx 
+[三点    ]_3p 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**SETVAR 3
+[设置变量]'_setvar 
+
+[列表    ]? 
+[* ]* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**SHADEMODE 3
+[着色    ]^C^C_shademode 
+
+[2D 线框]_2 
+[3D 线框]_3 
+[消隐   ]_h 
+[平面   ]_f 
+[体     ]_g 
+[Flat+W ]_l 
+[Gour+W ]_o 
+
+[着色漫反]'_shadedif 
+
+[重生成  ]^C^C_regen 
+
+
+
+
+
+
+
+
+
+**SLICE 3
+[剖切    ]^C^C_slice 
+
+[对象    ]_o 
+[Z 轴    ]_z 
+[视图    ]_v 
+[XY      ]_xy 
+[YZ      ]_yz 
+[ZX      ]_zx 
+[三点    ]_3p 
+
+
+
+
+
+
+
+
+
+
+
+
+
+**SPLINE 3
+[样条曲线]^C^C_spline 
+
+[对象    ]_o 
+
+[闭合    ]_c 
+[拟合公差]_f 
+
+[样条框架]'_splframe 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**SPLINEDIT 3
+[样条编辑]^C^C_splinedit 
+
+[拟合    ]_fit 
+[添加    ]_add 
+[删除    ]_delete 
+[移动    ]_move 
+[清理    ]_purge 
+[切点    ]_tangents 
+[公差    ]_tolerance 
+[闭合    ]_c 
+[打开    ]_o 
+[移动顶点]_v 
+[下一个  ]_n 
+[上一个  ]_p 
+[选择    ]_s 
+[精度    ]_r 
+[添加点  ]_a 
+[标高阶数]_e 
+[权值    ]_w 
+[反转    ]_e 
+[放弃     ]_u 
+[退出     ]_x 
+**TABLET 3
+[数字化仪]^C^C_tablet 
+
+[校准    ]_cal 
+[配置    ]_cfg 4 \\\25 9 \\\11 9 \\\9 13 \\\25 7 _y \\_y 
+[重配置  ]_cfg 4 _y \\\;;\\\;;\\\;;\\\;;_y \\
+[另行配置]_cfg 4 _y \\\25 9 \\\11 9 \\\9 13 \\\25 7 _y \\
+
+[开      ]_on 
+[关      ]_off 
+[是      ]_y 
+[否      ]_n 
+
+[正交    ]_o 
+[仿射    ]_a 
+[投影    ]_p 
+
+
+
+
+
+
+
+**TRIM 3
+[修剪    ]^C^C_trim 
+
+[边      ]_e 
+[延伸   ]_e 
+[不延伸 ]_n 
+
+[投影    ]_p 
+[无     ]_n 
+[UCS    ]_u 
+[视图   ]_v 
+
+[放弃    ]_u 
+
+
+
+
+
+
+
+
+
+
+**UCS 3
+[UCS     ]^C^C_ucs 
+
+[原点    ]_o 
+[Z 轴    ]_z 
+[三点    ]_3p 
+[X       ]_x 
+[Y       ]_y 
+[Z       ]_z 
+[图元    ]_e 
+[视图    ]_v 
+[上一个  ]_p 
+[恢复    ]_r 
+[保存    ]_s 
+[删除    ]_d 
+[列表    ]? 
+[世界    ]_w 
+
+[UCS 管理]^C^C_+ucsman 0 
+[预置 UCS]^C^C_+ucsman 1 
+[跟随    ]'_ucsfollow 
+[UCS 图标]^C^C_ucsicon 
+
+**UCSICON 3
+[UCS 图标]^C^C_ucsicon 
+
+[开      ]_on 
+[关      ]_off 
+
+[全部    ]_all 
+[原点    ]_or 
+[非原点  ]_n 
+[特性]_p 
+
+
+
+
+
+
+
+
+
+
+
+
+**VIEW 3
+[视图    ]'_-view 
+
+[列表    ]_? 
+[删除    ]_d 
+[恢复    ]_r 
+[保存    ]_s 
+[窗口    ]_w 
+
+
+[平移    ]'_pan 
+[缩放    ]'_zoom 
+
+[动态视图]^C^C_view 
+[平面图  ]^C^C_plan 
+[动态观察]^C^C_dview 
+
+
+
+
+
+
+
+**VIEWPORTS 3
+[视口    ]^C^C_vports 
+[布局    ]^C^C^P(ai_tiledvp_chk T) ^P
+
+[保存    ]_s 
+[恢复    ]_r 
+[删除    ]_d 
+[合并    ]_j 
+[一个    ]_s 
+[? ]? 
+[2 ]2 
+[3 ]3 
+[4 ]4 
+
+[水平    ]_h 
+[垂直    ]_v 
+[上      ]_a 
+[下      ]_b 
+[左      ]_l 
+[右      ]_r 
+
+
+
+**VPOINT 3
+[视点    ]^C^C_vpoint 
+
+[旋转    ]_r 
+[轴      ];
+
+
+[俯视    ]_non *0,0,1 
+[仰视    ]_non *0,0,-1 
+[左视    ]_non *-1,0,0 
+[右视    ]_non *1,0,0 
+[主视    ]_non *0,-1,0 
+[后视    ]_non *0,1,0 
+
+[西南等轴]_non *-1,-1,1 
+[东南等轴]_non *1,-1,1 
+[东北等轴]_non *1,1,1 
+[西北等轴]_non *-1,1,1 
+
+[动态视点]^C^C_ddvpoint 
+[动态视图]^C^C_view 
+[平面图  ]^C^C_plan 
+[动态观察]^C^C_dview 
+**VPORTS 3
+[视口    ]^C^C_vports 
+[布局    ]^C^C^P(ai_tiledvp_chk T) ^P
+
+[保存    ]_s 
+[恢复    ]_r 
+[删除    ]_d 
+[合并    ]_j 
+[一个    ]_si 
+[? ]? 
+[2 ]2 
+[3 ]3 
+[4 ]4 
+
+[水平    ]_h 
+[垂直    ]_v 
+[上      ]_a 
+[下      ]_b 
+[左      ]_l 
+[右      ]_r 
+
+
+
+**XCLIP 3
+[X 剪裁  ]^C^C_xclip 
+
+[开      ]_on 
+[关      ]_off 
+
+[剪裁深度]_c 
+[删除    ]_d 
+[多段线  ]_p 
+
+
+[选择    ]_s 
+[正多边形]_p 
+[矩形    ];
+
+
+
+
+
+
+
+
+
+**XLINE 3
+[构造线  ]^C^C_xline 
+
+[水平    ]_h 
+[垂直    ]_v 
+[角度    ]_a 
+[二等分  ]_b 
+[偏移    ]_o 
+
+
+[射线    ]^C^C_ray 
+
+
+
+
+
+
+
+
+
+
+
+
+**ZOOM 3
+[缩放    ]'_zoom 
+
+[实时    ];
+
+[上一个  ]_p 
+[窗口    ]_w 
+[动态    ]_d 
+[比例    ]_s 
+[中心    ]_c 
+
+[放大    ]2x 
+[缩小    ].5x 
+
+[全部    ]_a 
+[范围    ]_e 
+
+
+
+
+
+
+
+**ENDSCREEN 3
+
+
+
+***ACCELERATORS
+ID_Hyperlink   [CONTROL+TOOLBAR+"K"]
+[CONTROL+"L"]^O
+[CONTROL+"R"]^V
+ID_SelAll      [CONTROL+"A"]
+ID_Copyclip    [CONTROL+TOOLBAR+"C"]
+ID_New         [CONTROL+TOOLBAR+"N"]
+ID_Open        [CONTROL+TOOLBAR+"O"]
+ID_Print       [CONTROL+TOOLBAR+"P"]
+ID_Save        [CONTROL+TOOLBAR+"S"]
+ID_Pasteclip   [CONTROL+TOOLBAR+"V"]
+ID_Cutclip     [CONTROL+TOOLBAR+"X"]
+ID_Redo        [CONTROL+"Y"]
+ID_U           [CONTROL+"Z"]
+ID_Ai_propch   [CONTROL+TOOLBAR+"1"]
+ID_Content     [CONTROL+TOOLBAR+"2"]
+ID_dbConnect   [CONTROL+"6"]
+ID_VBARun      [ALT+"F8"]
+ID_VBAIDE      [ALT+"F11"]
+[CONTROL+"H"]'_setvar;pickstyle;$M=$(if,$(eq,$(getvar,pickstyle),0),1,$(if,$(eq,$(getvar,pickstyle),1),0,$(if,$(eq,$(getvar,pickstyle),2),3,2))) 
+
+***HELPSTRINGS
+ID_VPORTSJOI   [将两个相邻视口合并为一个大视口:  -VPORTS]
+ID_UCSYAXROT   [绕 Y 轴旋转当前 UCS:  UCS]
+ID_UCSWORLD    [将 UCS 设置为世界坐标系:  UCS]
+ID_UCSICONON   [启用坐标系图标:   UCSICON]
+ID_TODAY       [打开“今日”窗口:  TODAY]
+ID_THICKNESS   [设置当前三维厚度:   THICKNESS]
+ID_TBSURFACE   [曲面工具栏]
+ID_TABLETON    [打开数字化仪模式:  TABLET]
+ID_STRETCH     [移动或拉伸对象:   STRETCH]
+ID_STATS       [显示渲染的统计信息:   STATS]
+ID_SHELL       [以指定的厚度在实体对象上创建中空的薄壁:  SOLIDEDIT]
+ID_PROPS       [设置和显示当前图形的文件属性:  DWGPROPS]
+ID_POINTFIYZ   [指定 .YZ 点过滤器:   .YZ]
+ID_POINTFIXY   [指定 .XY 点过滤器:   .XY]
+ID_PANRIGHT    [向右移动视图:  PAN]
+ID_PANLEFT     [向左移动视图:  PAN]
+ID_MLSTYLE     [管理多线样式:   MLSTYLE]
+ID_HLNKBACK    [定位到上一个超级链接的文档:  HYPERLINKBACK]
+ID_GROUP       [创建对象的命名选择集:   GROUP]
+ID_EXTEND      [将对象延伸到另一对象:   EXTEND]
+ID_DIMTXTMOVE0 [标注文字与尺寸线一起移动]
+ID_DIMRADIUS   [创建圆和圆弧的半径标注:   DIMRADIUS]
+ID_DEVRES      [在默认浏览器中显示 Autodesk 网上资源指南站点:  BROWSER]
+ID_DDRENAME    [修改命名对象的名称:   RENAME]
+ID_CANCEL      [取消命令]
+ID_BREAK       [在两点之间打断选定的对象:   BREAK]
+ID_BACK        [定位到上一个超级链接的文档:  HYPERLINKBACK]
+ID_ARCSTCELE   [用起点、圆心和弦长创建圆弧:   ARC]
+ID_ARCCESTEN   [用圆心、起点和端点创建圆弧:   ARC]
+ID_ARC3POINT   [用三点创建圆弧:   ARC]
+ID_3DORBIT     [控制交互式观察三维对象:  3DORBIT]
+ID_3DDISTANC   [启动 3DORBIT 命令并调整对象的显示距离:  3DDISTANCE]
+ID_VPORT_LOCKOFF [解锁当前视口:  -VPORTS]
+ID_VPOINTFRO   [将视点设置在前面:  VIEW]
+ID_UCSXAXROT   [绕 X 轴旋转当前 UCS:  UCS]
+ID_UCS         [管理用户坐标系:   UCS]
+ID_TBVPCREAT   [视口创建工具栏]
+ID_TBRENDER    [渲染工具栏]
+ID_STYLE       [在图形中创建、修改或设置命名文字样式:  STYLE]
+ID_SOLVIEW     [创建浮动视口来使用正投影法生成三维实体及体对象的多面视图和剖视图:   SOLVIEW]
+ID_SAVEIMG     [将渲染图像保存到文件:   SAVEIMG]
+ID_REFEDITOR   [选择要进行在位编辑的块或外部参照:  REFEDIT]
+ID_QDIM        [快速创建标注:  QDIM]
+ID_POINTFIXZ   [指定 .XZ 点过滤器:   .XZ]
+ID_MENULOAD    [加载部分菜单文件:   MENULOAD]
+ID_IMAGEFRAM   [控制是否在视图中显示图像边框:  IMAGEFRAME]
+ID_FLAT        [将视口设置为平面着色:  SHADEMODE]
+ID_FACECOLOR   [修改实体对象上单个面的颜色:  SOLIDEDIT]
+ID_DRAWORDER   [修改图像和其他对象的显示顺序:   DRAWORDER]
+ID_DRAWORDEA   [强制使选定对象显示在参照对象之前:  DRAWORDER]
+ID_DIMTXTMOVE1 [标注文字与引线一起移动]
+ID_ARCCESTLE   [用圆心、起点和弦长创建圆弧:  ARC]
+ID_ARC         [创建圆弧:   ARC]
+ID_AI_SPHERE   [创建球面多边形网格]
+ID_AI_MOLC     [将选定对象所在的图层置为当前图层]
+ID_3DPOLY      [在三维空间中创建多段线:   3DPOLY]
+ID_ZOOMWINDO   [按指定的矩形窗口缩放显示区域:  ZOOM]
+ID_ZOOMREALT   [放大或缩小显示当前视口中对象的外观尺寸:  ZOOM]
+ID_ZOOMDYNAM   [缩放显示图形的生成部分:  ZOOM]
+ID_VPORTSSAV   [用指定的名称打开新视口:  +VPORTS]
+ID_VPORT_LOCKON [锁定当前视口。类似于图层锁定:  -VPORTS]
+ID_VPOINTTOP   [将视点设置在上面:  VIEW]
+ID_VPOINTSE    [将视点设置为东南等轴测:  VIEW]
+ID_VPOINTBAC   [将视点设置在后面:  VIEW]
+ID_UCSMOVE     [移动已定义的 UCS:  UCS]
+ID_U           [撤消上一次操作:  U]
+ID_TEXTFIND    [查找、替换、选择或缩放到指定的文字:  FIND]
+ID_TBUCSNAME   [UCS II 工具栏]
+ID_TBSOLIDS    [实体工具栏]
+ID_SUBTRACT    [用差集创建组合面域或实体:   SUBTRACT]
+ID_SPLINEDIT   [编辑样条曲线或样条曲线拟合多段线:  SPLINEDIT]
+ID_SLICE       [用平面剖切一组实体:   SLICE]
+ID_SETUV       [将材质映射到对象上:   SETUV]
+ID_SECTION     [用平面和实体的截面创建面域:   SECTION]
+ID_SCRIPT      [执行脚本文件中的命令序列:  SCRIPT]
+ID_PLOTSETUP   [指定每个新布局的布局页面、打印设备、图纸尺寸和设置:  PAGESETUP]
+ID_OSNAPAPPA   [捕捉到两个对象的外观交点:   APPINT]
+ID_MLINE       [创建多条平行线:   MLINE]
+ID_LAYNEW      [创建新的布局选项卡:  -LAYOUT]
+ID_FLATEDGES   [将视口设置为带边框平面着色:  SHADEMODE]
+ID_FACEEXTRU   [按指定高度或沿路径拉伸实体对象的选定面:  SOLIDEDIT]
+ID_EXPLODE     [将复合对象分解为其部件对象:   EXPLODE]
+ID_DRAWORDEB   [强制使选定对象显示在所有对象之后:  DRAWORDER]
+ID_DIMTXTMOVE2 [单独移动标注文字]
+ID_DIMTEDITR   [右对齐标注文字:   DIMTEDIT]
+ID_DIMTEDITA   [将标注文字旋转一定角度:   DIMTEDIT]
+ID_DIMLINEAR   [创建线性标注:  DIMLINEAR]
+ID_DIMCENTER   [创建圆和圆弧的圆心标记或中心线:  DIMCENTER]
+ID_DDUCSP      [管理已定义的用户坐标系:  +UCSMAN]
+ID_BMAKE       [从选定对象创建块定义:   BLOCK]
+ID_BHATCH      [用图案填充封闭区域或选定对象:   BHATCH]
+ID_ARCSTENDI   [用起点、端点和起点方向创建圆弧:   ARC]
+ID_AI_DISH     [创建下半球面多边形网格]
+ID_LASSIST     [启动 Learning Assistance]
+ID_BUPDATEA    [为 AutoCAD 设计中心中显示的块生成预览图像:  BLOCKICON]
+ID_VPORTSSIN   [用活动视口中的视图把图形恢复为单视口视图:   VPORTS]
+ID_VPORTS2     [创建两个相同视口:  -VPORTS]
+ID_VPOINTSW    [将视点设置为西南等轴测:  VIEW]
+ID_UCSICONPR   [控制 UCS 图标的样式、大小和颜色:  UCSICON]
+ID_UCSBOTTOM   [指定仰视 UCS 方向:  UCS]
+ID_TBTEXT      [文字工具栏]
+ID_TBMODIFY    [修改工具栏]
+ID_ROTATE      [绕基点旋转对象:  ROTATE]
+ID_REGENALL    [重生成图形并刷新所有视口:   REGENALL]
+ID_REFDSCRD    [放弃对参照编辑工作集的修改:  REFCLOSE]
+ID_OPEN        [打开现有的图形文件:   OPEN]
+ID_LINETYPE    [加载并设置线型:  LINETYPE]
+ID_HLNKFWD     [定位到下一个超级链接的文档:  HYPERLINKFWD]
+ID_GRIPMOVE    [将对象在指定方向上平移指定的距离:  MOVE]
+ID_GRIPBASE    [设置当前图形的插入基点:   BASE]
+ID_FROM        [在命令中获取某个点相对于参照点的偏移:  FROM]
+ID_DTEXT       [输入文字的同时在屏幕上显示:   DTEXT]
+ID_DONUT       [创建实心的圆和环:  DONUT]
+ID_DIMEDIT     [编辑标注:   DIMEDIT]
+ID_CUTCLIP     [将对象复制到 Windows 剪贴板并从图形删除该对象:   CUTCLIP]
+ID_BACKGROUN   [设置场景的背景:   BACKGROUND]
+ID_ATTEDITSIN  [编辑块的可变属性:  ATTEDIT]
+ID_ARCSTENAG   [用起点、端点和包含角创建圆弧:   ARC]
+ID_ARCSTCEAN   [用起点、圆心和包含角创建圆弧:  ARC]
+ID_AI_TILEDV   [显示命名视口的布局选项:  +VPORTS]
+ID_3DFACE      [创建三维面:   3DFACE]
+ID_ZOOMPREVI   [显示上一个视图:  ZOOM]
+ID_WEDGE       [创建三维实体使其倾斜面沿 X 轴正向:   WEDGE]
+ID_VPORTS3     [创建三个视口:  -VPORTS]
+ID_UCSICONOR   [在用户坐标系的原点显示 UCS 图标:  UCSICON]
+ID_UCS3POINT   [指定新 UCS 的原点及 X 和 Y 轴的方向:  UCS]
+ID_TBINSERT    [插入工具栏]
+ID_SPHERE      [创建三维实心球体:   SPHERE]
+ID_RECTANG     [创建矩形多段线:  RECTANG]
+ID_PLOTMGR     [显示“打印机管理器”，可从其中启动“添加打印机”向导和打印机配置编辑器:  PLOTTERMANAGER]
+ID_PLANWORLD   [显示世界坐标系的平面视图:  PLAN]
+ID_OSNAPPARA   [捕捉到指定直线的平行线:  PAR]
+ID_OSNAPNODE   [捕捉到点对象:   NOD]
+ID_GRIPSTRET   [移动或拉伸对象:  STRETCH]
+ID_GRIPREFER   [设置参照点:  REFERENCE]
+ID_DRAWORDEU   [强制使选定对象显示在参照对象之后:  DRAWORDER]
+ID_DIMTEDITC   [标注文字置中:   DIMTEDIT]
+ID_DIMTEDIT    [移动和旋转标注文字:   DIMTEDIT]
+ID_DIMCONTIN   [从上一个或选定标注的第二条尺寸界线作连续的线性、角度或坐标标注:  DIMCONTINUE]
+ID_DDUCS       [管理已定义的用户坐标系:  +UCSMAN]
+ID_CIRCLEDIA   [用指定直径创建圆:   CIRCLE]
+ID_CHAMFER     [给对象加倒角:   CHAMFER]
+ID_AULPLOAD    [加载 AutoLISP 应用程序:  APPLOAD]
+ID_ARCCESTAN   [用圆心、起点和包含角创建圆弧:   ARC]
+ID_3DVIEWS     [将视图设置为预定义或已命名的视图]
+ID_3DMESH      [创建自由形式的多边形网格:   3DMESH]
+ID_ZOOMOUT     [缩小显示对象的外观尺寸:  ZOOM]
+ID_XREF        [控制图形文件的外部参照:   XREF]
+ID_XBIND       [将外部参照依赖符号绑定到当前图形:  XBIND]
+ID_WMFIN       [输入 Windows 图元文件格式的文件:  WMFIN]
+ID_VPORTS4     [创建四个大小相同的视口:  -VPORTS]
+ID_VPOINTBOT   [将视点设置在下面:  VIEW]
+ID_UCSVIEW     [建立新的坐标系使其 XY 平面平行于屏幕:  UCS]
+ID_TORUS       [创建圆环形实体:   TORUS]
+ID_TBWEB       [Web 工具栏]
+ID_TBUCS       [UCS 工具栏]
+ID_TBOBJECTP   [对象特性工具栏]
+ID_TBMODIFII   [修改 II 工具栏]
+ID_SENDMAIL    [将当前图形文件作为电子邮件附件或传真进行发送:  SENDMAIL]
+ID_RPREF       [设置渲染系统配置:   RPREF]
+ID_REVSURF     [绕选定轴创建旋转曲面:   REVSURF]
+ID_REFADD      [从宿主图形向参照编辑工作集传输对象:  REFSET]
+ID_PLINE       [创建二维多段线:  PLINE]
+ID_MIRROR      [创建对象的镜像图像副本:   MIRROR]
+ID_MASSPROP    [计算并显示面域或实体的质量特性:   MASSPROP]
+ID_HYPERLINK   [向对象附着超级链接或修改现有的超级链接:  HYPERLINK]
+ID_GRIPUNDO    [撤消上一次操作:  U]
+ID_GRIPCOPY    [复制对象:   COPY]
+ID_ELLIPSEAR   [创建椭圆弧:  ELLIPSE]
+ID_DXBIN       [输入特殊编码的二进制文件:  DXBIN]
+ID_DWG_CLOSE   [关闭当前图形:  CLOSE]
+ID_DIMABOVE    [将标注文字移到尺寸线上方]
+ID_DDCOLOR     [设置新对象的颜色:  COLOR]
+ID_COPYLINK    [将当前视图复制到 Windows 剪贴板以便链接到其他 OLE 应用程序:   COPYLINK]
+ID_BUYONLINE   [进行联机购买:  BUYONLINE]
+ID_AULPIDE     [启动 Visual LISP 开发环境:  VLISP]
+ID_ATTDISPOF   [隐藏所有属性:   ATTDISP OFF]
+ID_3DCLIP      [启动 3DORBIT 命令并打开“调整剪裁平面”窗口:  3DCLIP]
+ID_EATTEXT     [从块上将属性提取到单独的文件中:  EATTEXT]
+ID_VPCONVERT   [将对象转换为图纸空间视口:  -VPORTS]
+ID_VBALOAD     [在当前 AutoCAD 任务中加载全局 VBA 工程:  VBALOAD]
+ID_TOLERANCE   [创建形位公差:   TOLERANCE]
+ID_TBOSNAP     [对象捕捉工具栏]
+ID_SOLPROF     [创建三维实体的轮廓图像:   SOLPROF]
+ID_SAVEAS      [以新文件名保存当前图形的副本:  SAVEAS]
+ID_RAY         [创建单向无限长的线:   RAY]
+ID_PRODSUPP    [访问 Point A 上的 Autodesk 产品支持]
+ID_PREVIEW     [模拟图形的打印效果:   PREVIEW]
+ID_PENSETTING  [创建颜色相关打印样式表:  R14PENWIZARD]
+ID_OSNAPPERP   [捕捉到垂直于对象的点:  PER]
+ID_OSNAPEXTE   [捕捉到圆弧或直线的延长线:  EXT]
+ID_OSNAPENDP   [捕捉到对象的最近端点:  ENDP]
+ID_MTEDIT      [打开多行文字编辑器，编辑选定的多行文字对象:  MTEDIT]
+ID_LSEDIT      [编辑配景对象:   LSEDIT]
+ID_LIGHT       [管理光源和光照效果:   LIGHT]
+ID_LENGTHEN    [修改对象的长度和圆弧的包含角:  LENGTHEN]
+ID_LAYTEMP     [显示“选择文件”对话框，可从中选择新布局所基于的现有样板:  -LAYOUT]
+ID_HATCHEDIT   [修改现有的图案填充对象:   HATCHEDIT]
+ID_FACEROTAT   [绕指定的轴旋转实体对象上的一个或多个面:  SOLIDEDIT]
+ID_EXTRUDE     [通过拉伸现有二维对象来创建三维实体:   EXTRUDE]
+ID_DRAWORDEF   [强制使选定对象显示在所有对象之前:  DRAWORDER]
+ID_DIMSTY2     [将选定标注的特性另存为新标注样式]
+ID_DBCONNECT   [提供到外部数据库表的 AutoCAD 接口:  DBCONNECT]
+ID_CTRLLINET   [设置新对象的默认线型，编辑现有对象的线型]
+ID_CTRLLAYER   [设置新对象的默认图层，编辑现有对象的图层，或者切换图层特性]
+ID_ATTEDITGLO  [编辑块的可变属性:   -ATTEDIT]
+ID_AREA        [计算对象或定义区域的面积和周长:   AREA]
+ID_ALIGN       [在二维或三维中使对象与其他对象对齐:   ALIGN]
+ID_ACISIN      [输入 ACIS 文件:   ACISIN]
+ID_3DSWIVEL    [启动 3DORBIT 命令并模拟旋转相机的效果:  3DSWIVEL]
+ID_3DCORBIT    [启动 3DORBIT 命令并在三维视图中激活连续观察:  3DCORBIT]
+ID_LAYERP      [恢复上一个图层设置:  LAYERP]
+ID_ZOOMSCALE   [按指定的比例缩放显示:  ZOOM]
+ID_ZOOMEXTEN   [显示图形范围:  ZOOM]
+ID_XCLIPFRAM   [控制外部参照或块的剪裁边界的可见性:  XCLIPFRAME]
+ID_XCLIP       [定义外部参照或块的剪裁边界，设置前后剪裁平面:   XCLIP]
+ID_VPORTSDEL   [指定闭合的多段线、椭圆、样条曲线、面域或圆，以转换为视口:  -VPORTS]
+ID_VPOINTNE    [将视点设置为东北等轴测:  VIEW]
+ID_VPDIALOG    [显示“视口”对话框:  VPORTS]
+ID_UCSTOP      [指定俯视 UCS 方向:  UCS]
+ID_UCSOBJECT   [基于选定对象定义新坐标系:  UCS]
+ID_UCSLEFT     [指定左视 UCS 方向:  UCS]
+ID_UCSBACK     [指定后视 UCS 方向:  UCS]
+ID_TOOLBAR     [显示、隐藏和自定义工具栏:   TOOLBAR]
+ID_TBDRAW      [绘图工具栏]
+ID_STATUS      [显示图形的统计信息、模式和范围:   STATUS]
+ID_RMAT        [管理渲染材质:   RMAT]
+ID_PLOTSTYLE   [设置新图形的当前打印样式，或向选定对象指定打印样式:  PLOTSTYLE]
+ID_PLANCURRE   [显示指定的用户坐标系的平面视图:  PLAN]
+ID_LAYOUTWIZ   [创建新的布局选项卡并指定页面和打印设置:  LAYOUTWIZARD]
+ID_FILLET      [给对象加圆角:   FILLET]
+ID_ELLIPSECE   [用指定的中心点创建椭圆:  ELLIPSE]
+ID_EDGE        [修改三维面的边的可见性:   EDGE]
+ID_DIMSTY3     [向选定的标注指定样式]
+ID_DEVHELP     [显示联机开发人员帮助]
+ID_CKEYBOARD   [向命令指定键盘快捷键:  CUSTOMIZE]
+ID_CIRCLE      [创建圆:   CIRCLE]
+ID_BODYCLN     [删除实体对象上所有冗余的边和顶点:  SOLIDEDIT]
+ID_3DSURFACE   [用对话框创建三维曲面对象]
+ID_3DCLIPBK    [在三维动态观察器的“调整剪裁平面”窗口中打开或关闭后向剪裁平面:  DVIEW]
+ID_XATTACH     [将外部参照附着到当前图形:   XATTACH]
+ID_VPOINTNW    [将视点设置为西北等轴测:  VIEW]
+ID_UCSFRONT    [指定主视 UCS 方向:  UCS]
+ID_TIME        [显示当前图形的日期和时间统计信息:  TIME]
+ID_TBVIEWPOI   [视点工具栏]
+ID_TBORBIT     [动态观察工具栏]
+ID_TBCADSTD    [CAD 标准工具栏]
+ID_TABSURF     [沿方向矢量和轮廓曲线创建平移曲面:   TABSURF]
+ID_SPLINE      [创建非一致有理 B 样条 (NURBS) 曲线:  SPLINE]
+ID_ROTATE3D    [绕三维轴转动对象:   ROTATE3D]
+ID_REDO        [恢复上一个用 UNDO 或 U 命令放弃的效果:   REDO]
+ID_POINTA      [在默认浏览器中显示 Autodesk Point A:  BROWSER]
+ID_PANUP       [向上移动视图:  PAN]
+ID_OFFSET      [创建同心圆、平行线和等距曲线:   OFFSET]
+ID_LIST        [显示选定对象的数据库信息:   LIST]
+ID_LINEWT      [设置当前线宽、线宽显示选项和线宽单位:   LWEIGHT]
+ID_IMPPLOTSET  [显示向导，以便将 PCP 和 PC2 配置文件打印设置输入到模型选项卡或当前布局:  PCINWIZARD]
+ID_IMAGEADJU   [控制图像的亮度、对比度和褪色度:   IMAGEADJUST]
+ID_GRIPMIRRO   [创建对象的镜像图像副本:  MIRROR]
+ID_FORWARD     [定位到下一个超级链接的文档:  HYPERLINKFWD]
+ID_ENTER       [完成命令、接受命令值以及轮换夹点模式]
+ID_EDGECOPY    [将实体对象上的三维边复制为圆弧、圆、椭圆、直线或样条曲线:  SOLIDEDIT]
+ID_EDGECOLOR   [修改实体对象上单个边的颜色:  SOLIDEDIT]
+ID_DIMUPDATE   [更新标注的样式:  DIMSTYLE]
+ID_DIMSTY4     [向选定的标注指定样式]
+ID_DIMOVERRI   [替代标注系统变量:   DIMOVERRIDE]
+ID_BODYCHK     [检查三维实体对象是否有效的 ACIS 实体:  SOLIDEDIT]
+ID_AI_WEDGE    [创建直角楔形多边形网格，并使其倾斜面沿 X 轴正方向]
+ID_AI_PYRAMI   [创建棱锥面或四面体表面多边形网格]
+ID_3DSIN       [输入 3D Studio 文件:   3DSIN]
+ID_STANDARDS   [为当前图形配置 CAD 标准:  STANDARDS]
+ID_BREAKSELE   [在一点打断选定的对象:  BREAK]
+ID_ZOOMALL     [显示图形范围或栅格界限:  ZOOM]
+ID_VPSINGLE    [创建单个图纸空间视口:  -VPORTS]
+ID_VPOINTTRI   [在模型空间中显示定义观察方向的坐标球和三轴架:   VPOINT]
+ID_TBZOOM      [缩放工具栏]
+ID_TABLETCAL   [用图形的坐标系校准数字化仪:  TABLET]
+ID_SPELL       [检查选定文字的拼写:  SPELL]
+ID_SAVE        [保存当前图形:  QSAVE]
+ID_POLYGON     [创建等边闭合多段线:   POLYGON]
+ID_PLOTSTYMGR  [提供对“添加打印样式表”向导和打印样式表编辑器的访问:  STYLESMANAGER]
+ID_PLANUCS     [显示以前保存的用户坐标系的平面视图:  PLAN]
+ID_OSNAPQUAD   [捕捉到圆弧、圆、椭圆或椭圆弧的象限点:  QUA]
+ID_OSNAPINTE   [捕捉到两个对象的交点:  INT]
+ID_OSNAP       [设置执行对象捕捉模式:  OSNAP]
+ID_NEWLAYOUT   [创建和修改图形的布局选项卡:  LAYOUT]
+ID_LSNEW       [向图形中添加真实的配景，例如树木和灌木:   LSNEW]
+ID_LINKS       [更新、修改和取消现有的 OLE 链接:   OLELINKS]
+ID_IMPRINT     [将几何图形压印到实体对象的面上:  SOLIDEDIT]
+ID_IMAGEQUAL   [控制图像显示质量:   IMAGEQUALITY]
+ID_EXPORT      [以其他文件格式保存对象:   EXPORT]
+ID_ERASE       [从图形删除对象:   ERASE]
+ID_DIMTEDITH   [将标注文字移回默认位置:   DIMTEDIT]
+ID_DIMSTY5     [向选定的标注指定样式]
+ID_DIMPREC0    [将标注值设置为 0 位小数]
+ID_DIMORDINA   [创建坐标点标注:  DIMORDINATE]
+ID_DIMHOME     [将标注文字移回默认位置]
+ID_CYLINDER    [创建三维实心圆柱体:   CYLINDER]
+ID_CTRLLINEW   [设置新对象的默认线宽，修改现有对象的线宽]
+ID_CMSELLAST   [重复上一条命令]
+ID_CIRCLETTR   [用指定半径创建圆使其相切于两个对象:   CIRCLE]
+ID_BOX         [创建三维实体长方体:   BOX]
+ID_ARRAY       [创建按指定方式排列的多个对象副本:   ARRAY]
+ID_APPLOAD     [加载和卸载应用程序，定义要在启动时加载的应用程序:   APPLOAD]
+ID_AI_TORUS    [创建平行于当前 UCS 的 XY 平面的环形多边形网格]
+ID_BLOCKDSC    [修改与块定义关联的文字说明:  BLOCK]
+ID_SPACETRAN   [将距离或高度在模型空间和图纸空间之间转换:  SPACETRANS]
+ID_VPORT_HIDEON [从图纸空间打印时消除视口中的隐藏线:  -VPORTS]
+ID_VPORT_DISPON [打开视口，激活视口并使其对象可见:  -VPORTS]
+ID_UCSRIGHT    [指定右视 UCS 方向:  UCS]
+ID_TABLETOFF   [关闭数字化仪模式:  TABLET]
+ID_PEDIT       [编辑多段线和三维多边形网格:   PEDIT]
+ID_PAN         [在当前视口中移动视图:  PAN]
+ID_OSNAPTANG   [捕捉到圆弧、圆、椭圆、椭圆弧或样条曲线的切点:  TAN]
+ID_OSNAPNEAR   [捕捉到对象的最近点:  NEA]
+ID_OSNAPMIDP   [捕捉到对象的中点:  MID]
+ID_OSNAPINSE   [捕捉到文字、块或属性等对象的插入点:  INS]
+ID_OSNAPCENT   [捕捉到圆弧、圆、椭圆或椭圆弧的中心点:  CEN]
+ID_MIRROR3D    [创建对象相对于某一平面的镜像图像副本:   MIRROR3D]
+ID_IMAGECLIP   [为图像对象创建新剪裁边界:   IMAGECLIP]
+ID_ID          [显示点坐标:   ID]
+ID_DIMTXTCEN   [将标注文字移到中心位置]
+ID_DIMSTY6     [向选定的标注指定样式]
+ID_DIMPREC1    [将标注值设置为 1 位小数]
+ID_DDINSERT    [向当前图形插入块或图形:  INSERT]
+ID_COPYCLIP    [将对象复制到 Windows 剪贴板:   COPYCLIP]
+ID_BROWSER     [启动系统注册表中定义的默认 Web 浏览器:   BROWSER]
+ID_BOUNDARY    [用封闭区域创建面域或多段线:   BOUNDARY]
+ID_ATTDEF      [创建属性定义:  ATTDEF]
+ID_ADDPLOTTER  [添加并配置打印机]
+ID_3DZOOM      [启动 3DORBIT 命令并允许缩放视图:  3DZOOM]
+ID_3DCLIPFR    [在三维动态观察器的“调整剪裁平面”窗口中打开或关闭前向剪裁平面:  DVIEW]
+ID_AI_PROPCH   [控制现有对象的特性:  PROPERTIES]
+ID_CHECKSTAN   [检查当前图形是否符合其 CAD 标准:  CHECKSTANDARDS]
+ID_SCALETEXT   [缩放选定的文字对象:  SCALETEXT]
+ID_ZOOMCENTE   [显示由中心点及比例或高度指定的视图:  ZOOM]
+ID_VPORTSRES   [用指定的点创建不规则形状的视口:  -VPORTS]
+ID_VPORT_HIDEOFF [禁用消隐出图功能:  -VPORTS]
+ID_VPOINTLEF   [将视点设置在左面:  VIEW]
+ID_VBAMAN      [加载、卸载、保存、创建、嵌入和提取 VBA 工程:  VBAMAN]
+ID_TBSTANDAR   [标准工具栏]
+ID_TBREFEREN   [参照工具栏]
+ID_SETVAR      [列出系统变量或修改变量值:   SETVAR]
+ID_SEPARATE    [将不连续的三维实体对象分割为独立的三维实体对象:  SOLIDEDIT]
+ID_SCALE       [在 X、Y 和 Z 方向上同比放大或缩小对象:  SCALE]
+ID_REGION      [将包含封闭区域的对象转换为面域对象:  REGION]
+ID_REFREMOVE   [从参照编辑工作集向宿主图形传输对象:  REFSET]
+ID_QSELECT     [按过滤条件快速创建选择集:  QSELECT]
+ID_POINTFILX   [指定 .X 点过滤器:   .X]
+ID_PANPICK     [将视图移动指定的距离:  -PAN]
+ID_OSNAPNONE   [禁止对当前选择执行对象捕捉:  NON]
+ID_IMPORT      [输入各种格式的文件:  IMPORT]
+ID_IMAGEATTA   [将新的图像附着到当前图形:   IMAGEATTACH]
+ID_HELP        [显示联机帮助:   HELP]
+ID_ELLIPSEAX   [创建椭圆或椭圆弧:  ELLIPSE]
+ID_EDGESURF    [创建三维多边形网格:   EDGESURF]
+ID_DIMSTY7     [向选定的标注指定样式]
+ID_DIMPREC2    [将标注值设置为 2 位小数]
+ID_DDVPOINT    [设置三维观察方向:   DDVPOINT]
+ID_DDVIEW      [按名称保存和恢复视图:  VIEW]
+ID_CTRLCOLOR   [设置新对象的默认颜色，编辑现有对象的颜色]
+ID_CIRCLETTT   [创建相切于三个对象的圆:  CIRCLE]
+ID_ARCCONTIN   [创建圆弧使其相切于上一次绘制的直线或圆弧:   ARC]
+ID_AI_DOME     [创建上半球面多边形网格]
+ID_AI_CONE     [创建圆锥面多边形网格]
+ID_AI_BOX      [创建长方体表面多边形网格]
+ID_BATTMAN     [管理块定义上的属性:  BATTMAN]
+ID_VPSCALE     [设置新视口的视口比例，编辑现有视口的视口比例]
+ID_VPPOLY      [用指定的点创建不规则形状的视口:  -VPORTS]
+ID_VPORT_DISPOFF [关闭视口，使其对象不可见:  -VPORTS]
+ID_VBAIDE      [显示 Visual Basic 编辑器:  VBAIDE]
+ID_TRIM        [用其他对象定义的剪切边修剪对象:   TRIM]
+ID_SUPPORT     [提供技术支持和疑难解答]
+ID_STOP        [取消当前定位选择:  HYPERLINKSTOP]
+ID_SOLID       [创建实心多边形:   SOLID]
+ID_RULESURF    [在两条曲线之间创建直纹曲面:   RULESURF]
+ID_REVOLVE     [绕轴旋转二维对象以创建实体:   REVOLVE]
+ID_PURGE       [从图形中删除未使用的块定义、图层等项目:  PURGE]
+ID_POINTMULT   [创建多个点对象:  POINT]
+ID_POINTFILY   [指定 .Y 点过滤器:   .Y]
+ID_PANDOWN     [向下移动视图:  PAN]
+ID_MTEXT       [创建多行文字对象:  MTEXT]
+ID_MOVE        [将对象在指定方向上平移指定的距离:   MOVE]
+ID_HLNKSTOP    [取消当前定位选择:  HYPERLINKSTOP]
+ID_HIDE        [重生成不显示隐藏线的三维模型:  HIDE]
+ID_FACETAPER   [用指定的角度来倾斜实体对象的面:  SOLIDEDIT]
+ID_DSVIEWER    [打开“鸟瞰视图”窗口:  DSVIEWER]
+ID_DIMSTY8     [向选定的标注指定样式]
+ID_DIMPREC3    [将标注值设置为 3 位小数]
+ID_DDPTYPE     [指定点对象的显示样式和大小:   DDPTYPE]
+ID_CTRLPSTYL   [设置新对象的默认打印样式，编辑现有对象的打印样式]
+ID_CTOOLBAR    [显示、创建、重命名和删除工具栏，控制工具栏提示和按钮尺寸:  CUSTOMIZE]
+ID_CREATELAYOUT [用向导中提供的设置创建布局:  LAYOUTWIZARD]
+ID_CONTENT     [管理和插入块、外部参照和填充图案等内容:  ADCENTER]
+ID_CIRCLERAD   [用指定半径创建圆:   CIRCLE]
+ID_BASE        [设置当前图形的插入基点:   BASE]
+ID_AI_FMS      [切换到浮动模型空间]
+ID_2DOPTIM     [将视口设置为二维线框:  SHADEMODE]
+ID_LAYTRANS    [转换图层的名称和特性:  LAYTRANS]
+ID_JUSTIFYTE   [设置选定文字的对正方式:  JUSTIFYTEXT]
+ID_XREFCLIP    [定义外部参照或块的剪裁边界以及设置前后剪裁平面:  XCLIP]
+ID_XLINE       [创建无限长的线:   XLINE]
+ID_WIREFRAME   [将视口设置为三维线框:  SHADEMODE 3]
+ID_VBARUN      [运行 VBA 宏:  VBARUN]
+ID_UCSZAXVEC   [用拉伸正 Z 轴的方法定义 UCS:  UCS]
+ID_UCSCOMBO    [修改 UCS]
+ID_UCSAPPLY    [向选定的视口应用当前 UCS:  UCS]
+ID_TBLAYOUTS   [布局工具栏]
+ID_SCENE       [管理模型空间场景:   SCENE]
+ID_REPLAY      [显示 BMP、TGA 或 TIFF 图像:   REPLAY]
+ID_RENDER      [创建三维线框或实体模型的照片级真实感着色图像:   RENDER]
+ID_REGEN       [从图形数据库重生成整个图形:  REGEN]
+ID_POINTSING   [创建点对象:  POINT]
+ID_POINTFILZ   [指定 .Z 点过滤器:   .Z]
+ID_PASTEBLOC   [将复制的块粘贴到新图形中:  PASTEBLOCK]
+ID_NEW         [创建新的图形文件:   NEW]
+ID_MATLIB      [从材质库输入材质或向其输出材质:   MATLIB]
+ID_IMAGE       [将多种格式的图像插入 AutoCAD 图形文件:  IMAGE]
+ID_GOTOURL     [加载 Web 浏览器并搜索选定对象中嵌入的网址:   GOTOURL]
+ID_FOG         [指定对象的能见距离:   FOG]
+ID_FILTER      [按过滤条件快速创建选择集:  QSELECT]
+ID_DIMTEDITL   [左对齐标注文字:   DIMTEDIT]
+ID_DIMSTY9     [显示其他可用的标注样式]
+ID_DIMPREC4    [将标注值设置为 4 位小数]
+ID_DIMEDITO    [使线性标注的尺寸界线倾斜:  DIMEDIT]
+ID_DIMDIAMET   [创建圆和圆弧的直径标注:  DIMDIAMETER]
+ID_DESELECTALL [从选择集中删除所有对象]
+ID_COPYBASE    [带指定的基点复制对象:  COPYBASE]
+ID_CONE        [创建三维实心圆锥体:  CONE]
+ID_CAMERA      [允许设置不同的相机和目标位置:  CAMERA]
+ID_AUDIT       [检查图形的完整性:   AUDIT]
+ID_ATTDISPON   [显示所有属性:   ATTDISP ON]
+ID_3DPAN       [启动 3DORBIT 命令并允许水平或垂直拖动视图:  3DPAN]
+ID_EATTEDIT    [编辑块插入上的属性:  EATTEDIT]
+ID_VPORTCLIP   [剪裁视口对象:  VPCLIP]
+ID_VPOINTRIG   [将视点设置在右面:  VIEW]
+ID_UCSORIGIN   [移动原点来定义新的 UCS:  UCS]
+ID_UCSFACE     [基于选定的面定义新坐标系:  UCS]
+ID_TBSHADING   [着色工具栏]
+ID_TBINQUIRY   [查询工具栏]
+ID_TBEXTDB     [外部数据库工具栏]
+ID_PRINT       [将图形打印到绘图仪、打印机或文件:  PLOT]
+ID_PREFERENC   [自定义设置:  OPTIONS]
+ID_PASTESP     [插入 Windows 剪贴板的数据并控制数据格式:  PASTESPEC]
+ID_PASTECLIP   [插入 Windows 剪贴板的数据:  PASTECLIP]
+ID_PARTIALOP   [向局部打开的图形中加载几何图形:  PARTIALOAD]
+ID_MRU         [打开此图形]
+ID_MEETNOW     [通过网络与多个用户共享当前的应用程序任务:  MEETNOW]
+ID_MEASURE     [将点对象或块在对象上指定间隔处放置:   MEASURE]
+ID_INSERTOBJ   [插入链接或嵌入对象:   INSERTOBJ]
+ID_GRIPROTAT   [绕基点移动对象:  ROTATE]
+ID_GRIPEXIT    [取消夹点编辑模式并返回到命令行:   EXIT]
+ID_GOURAUD     [将视口设置为体着色:  SHADEMODE]
+ID_FACEMOVE    [按指定高度或沿路径移动实体对象的选定面:  SOLIDEDIT]
+ID_ETRANSMIT   [创建图形及其相关文件的传递集:  ETRANSMIT]
+ID_DIMPREC5    [将标注值设置为 5 位小数]
+ID_DIMBASELI   [从上一个或选定标注的基线作连续的线性、角度或坐标标注:  DIMBASELINE]
+ID_DIMANGULA   [创建角度标注:   DIMANGULAR]
+ID_DDIM        [创建和修改标注样式:   DIMSTYLE]
+ID_COPY        [复制对象:   COPY]
+ID_ARCSTENRA   [用起点、端点和半径创建圆弧:   ARC]
+ID_ABOUT       [显示关于本产品的信息:  ABOUT]
+ID_WHATSNEW    [描述本产品中的新特性]
+ID_SELALL      [选择解冻图层上的所有对象]
+ID_ATTSYNC     [更新块插入，以反映块定义上新增和更改的属性:  ATTSYNC]
+ID_DIMREASSO   [将选定的标注关联或重新关联到对象或对象上的点:  DIMREASSOCIATE]
+ID_ZOOMIN      [放大显示对象的外观尺寸:  ZOOM]
+ID_TRACKING    [创建对象捕捉所使用的临时点:   TT]
+ID_TBDIMENSI   [标注工具栏]
+ID_SOLDRAW     [在用 SOLVIEW  命令创建的视口中生成轮廓图和剖视图:   SOLDRAW]
+ID_REFSAVE     [保存对参照编辑工作集的修改:  REFCLOSE]
+ID_REDRAWALL   [刷新所有视口的显示:   REDRAWALL]
+ID_PUBLISH     [创建包括选定图形的图像的网页:  PUBLISHTOWEB]
+ID_MODIFY      [控制现有对象的特性:  PROPERTIES]
+ID_MLEDIT      [编辑多条平行线:   MLEDIT]
+ID_LINE        [创建直线段:   LINE]
+ID_LIMITS      [设置和控制当前模型或布局选项卡中栅格的显示范围:  LIMITS]
+ID_LEADER      [创建引线和注释:  QLEADER]
+ID_INTERSECT   [从实体或面域的交集创建组合实体或面域:   INTERSECT]
+ID_INTERFERE   [用两个或多个实体的公共部分创建三维组合实体:  INTERFERE]
+ID_FACEDEL     [删除面，包括实体对象上的圆角或倒角:  SOLIDEDIT]
+ID_DIMSTYLEA   [用当前标注样式更新标注对象:  -DIMSTYLE]
+ID_DIMPREC6    [将标注值设置为 6 位小数]
+ID_DIMALIGNE   [创建对齐线性标注:   DIMALIGNED]
+ID_DDRMODES    [设置栅格和捕捉、极轴追踪和对象捕捉模式:  DSETTINGS]
+ID_CMNONLAST   [重复上一条命令]
+ID_CIRCLE2PT   [用直径的两个端点创建圆:   CIRCLE]
+ID_AUGI        [启动浏览器并显示用户组信息]
+ID_ATTDISPNO   [保持每个属性当前的可见性设置:   ATTDISP]
+ID_ASSIST      [打开“实时助手”窗口，按需自动提供上下文相关的信息: ASSIST]
+ID_3DARRAY     [创建三维阵列:   3DARRAY]
+ID_VPCLIP      [剪裁图纸空间视口:  VPCLIP]
+ID_UNITS       [控制坐标和角度的显示格式和精度:   UNITS]
+ID_UNION       [用并集创建组合面域或实体:   UNION]
+ID_UCSZAXROT   [绕 Z 轴旋转当前 UCS:  UCS]
+ID_UCSPREVIO   [恢复上一个 UCS:  UCS]
+ID_TRANSPARE   [控制图像的背景像素是否透明:   TRANSPARENCY]
+ID_TMPLLAYOU   [插入基于现有布局样板的新布局:  LAYOUT]
+ID_TEXTSCR     [打开文本窗口:  TEXTSCR]
+ID_TBSOLIDS2   [实体编辑工具栏]
+ID_TBREFEDIT   [参照编辑工具栏]
+ID_TABLETCFG   [指定或重排数字化仪菜单区域:  TABLET]
+ID_RECOVER     [修复损坏的图形:   RECOVER]
+ID_PASTEORIG   [用原图形中的坐标将复制的对象粘贴到新图形中:  PASTEORIG]
+ID_PASTEHLNK   [向选定的对象附着超级链接:  PASTEASHYPERLINK]
+ID_MATCHPROP   [将选定对象的特性应用到其他对象:  MATCHPROP]
+ID_MARKUP      [插入 RML 文件中的标记:  RMLIN]
+ID_LSLIB       [管理配景对象库:   LSLIB]
+ID_LAYER       [管理图层和图层特性:   LAYER]
+ID_HIDDEN      [将视口设置为隐藏线:  SHADEMODE]
+ID_GRIPSCALE   [在 X、Y 和 Z 方向上同比放大或缩小对象:  SCALE]
+ID_GOUREDGES   [将视口设置为带边框体着色:  SHADEMODE]
+ID_FACEOFFSE   [按指定的距离或点等距偏移实体对象:  SOLIDEDIT]
+ID_FACECOPY    [将实体对象上的面复制为面域或实体:  SOLIDEDIT]
+ID_ELLIPSE     [创建椭圆或椭圆弧:   ELLIPSE]
+ID_DIVIDE      [将点对象或块沿对象的长度或周长等间隔排列:   DIVIDE]
+ID_DIST        [测量两个点之间的距离和角度:   DIST]
+ID_DDEDIT      [编辑文字、标注文字和属性定义:  DDEDIT]
+ID_CIRCLE3PT   [用圆周上的三个点创建圆:  CIRCLE]
+ID_ARCSTCEEN   [用起点、圆心和端点创建圆弧:   ARC]
+ID_ADDPLSTYLE  [创建打印样式表]
+
+***TABLET1
+**TABLET1STD
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+
+***TABLET2
+**TABLET2STD
+^C^C_regen 
+'_zoom _e 
+'_zoom _a 
+'_zoom _w 
+'_zoom _p 
+\
+^C^C_box 
+^C^C_mtext 
+^C^C_circle 
+^C^C_line 
+^C^C
+^C^C_regenall 
+'_dsviewer 
+'_zoom _c 
+'_zoom .5x 
+'_zoom 2x 
+\
+^C^C_sphere 
+^C^C_dtext 
+^C^C_donut 
+^C^C_ray 
+'_zoom ;
+'_attdisp 
+^C^C_ucsicon 
+^C^C_tilemode 1 
+^C^C^P_mspace ^P
+^C^C^P_pspace ^P
+\
+^C^C_cylinder 
+^C^C_solid 
+^C^C_spline 
+^C^C_xline 
+'_zoom ;
+^C^C_render 
+^C^C_hide 
+^C^C_vports 
+^C^C_vports 
+^C^C_view 
+\
+^C^C_cone 
+^C^C_3dface 
+^C^C_ellipse 
+^C^C_mline 
+'_zoom ;
+^C^C_scene 
+^C^C_shade 
+^C^C_plan 
+^C^C_vpoint 
+^C^C_ddvpoint 
+\
+^C^C_wedge 
+$I=ACAD.image_3dobjects $I=ACAD.* 
+^C^C_block 
+^C^C_pline 
+'_pan 
+^C^C_light 
+^C^C_shademode 
+'_-view _nwiso 
+'_-view _back 
+'_-view _neiso 
+\
+^C^C_torus 
+^C^C_revsurf 
+*^C^C_point 
+^C^C_3dpoly 
+'_pan 
+^C^C_rmat 
+^C^C_fog 
+'_-view _left 
+'_-view _top 
+'_-view _right 
+\
+^C^C_extrude 
+^C^C_tabsurf 
+^C^C_bhatch 
+^C^C_polygon 
+'_pan 
+^C^C_matlib 
+^C^C_background 
+'_-view _swiso 
+'_-view _front 
+'_-view _seiso 
+\
+^C^C_revolve 
+^C^C_rulesurf 
+^C^C_boundary 
+^C^C_rectang 
+'_redrawall 
+^C^C_setuv 
+^C^C_rpref 
+^C^C_toolbar 
+'_-view _bottom 
+'_3dorbit 
+\
+^C^C_qleader 
+^C^C_edgesurf 
+^C^C_region 
+^C^C_arc 
+'_redrawall 
+
+***TABLET3
+**TABLET3STD
+\
+\
+\
+<<135 
+<<135 
+<<90 
+<<90 
+<<45 
+<<45 
+\
+\
+\
+<<180 
+<<180 
+<\
+<\
+<<0 
+<<0 
+\
+\
+\
+<<225 
+<<225 
+<<270 
+<<270 
+<<315 
+<<315 
+\
+\
+\
+^H
+^H
+^H
+^H
+^H
+^H
+\
+\
+\
+7/8\
+7/8\
+/16\
+/16\
+/32\
+/32\
+\
+\
+\
+1/2\
+1/2\
+5/8\
+5/8\
+3/4\
+3/4\
+\
+\
+\
+1/8\
+1/8\
+1/4\
+1/4\
+3/8\
+3/8\
+\
+\
+\
+-\
+-\
+/\
+/\
+X\
+X\
+\
+\
+\
+@\
+@\
+'\
+'\
+"\
+"\
+\
+\
+\
+7\
+7\
+8\
+8\
+9\
+9\
+\
+\
+\
+4\
+4\
+5\
+5\
+6\
+6\
+\
+\
+\
+1\
+1\
+2\
+2\
+3\
+3\
+\
+\
+\
+0\
+0\
+.\
+.\
+,\
+,\
+
+***TABLET4
+**TABLET4STD
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+^C^C_insertobj 
+^C^C_import 
+^C^C_image 
+^C^C_xref 
+^C^C_insert 
+\
+^C^C_area 
+'_dist 
+^C^C_draworder 
+'_spell 
+\
+^C^C_u 
+^C^C_cutclip 
+^C^C_copyclip 
+_parallel 
+_endpoint 
+_midpoint 
+_intersect 
+_appint 
+_center 
+_quadrant 
+_tangent 
+\
+^C^C_new 
+^C^C_open 
+'_ddptype 
+'_style 
+'_linetype 
+'_color 
+'_layer 
+\
+^C^C_massprop 
+^C^C_list 
+'_id 
+'_setvar 
+\
+^C^C_redo 
+^C^C_pasteclip 
+^C^C_erase 
+_from 
+_perpend 
+_insert 
+_node 
+_nearest 
+_extension 
+_none 
+'_+dsettings 2 
+\
+^C^C_qsave 
+^C^C_qsave 
+^C^C_rename 
+'_limits 
+'_thickness 
+'_units 
+^C^C_mlstyle 
+\
+^C^C_saveimg 
+^C^C_replay 
+'_script 
+^C^C_appload 
+\
+^C^C_measure 
+^C^C_divide 
+^C^C_erase 
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_copy,^C^C_copy) 
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_mirror,^C^C_mirror) 
+^C^C_offset 
+^C^C_array 
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_move,^C^C_move) 
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_rotate,^C^C_rotate) 
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_scale,^C^C_scale) 
+$M=$(if,$(eq,$(substr,$(getvar,cmdnames),1,4),GRIP),_stretch,^C^C_stretch) 
+\
+^C^C_saveas 
+^C^C_pagesetup 
+^C^C_qdim 
+^C^C_qleader 
+^C^C_dimordinate 
+^C^C_dimaligned 
+^C^C_dimlinear 
+\
+^C^C_ucs 
+^C^C_+ucsman 0 
+^C^C_+ucsman 1 
+'_dsettings 
+\
+^C^C_dbconnect 
+^C^C_dbconnect 
+^C^C_lengthen 
+^C^C_trim 
+^C^C_extend 
+^C^C_break 
+^C^C_chamfer 
+^C^C_fillet 
+^C^C_3darray 
+^C^C_mirror3d 
+^C^C_rotate3d 
+\
+^C^C_export 
+^C^C_plot 
+^C^C_tolerance 
+^C^C_dimcenter 
+^C^C_dimangular 
+^C^C_dimdiameter 
+^C^C_dimradius 
+\
+^C^C_tablet 
+^C^C_group 
+^C^C_qselect 
+^C^C_find 
+\
+'_adcenter 
+'_adcenter 
+^C^C_align 
+^C^C_union 
+^C^C_subtract 
+^C^C_intersect 
+^C^C_xclip 
+^C^C_xbind 
+^C^C_imageadjust 
+^C^C_transparency 
+^C^C_imageclip 
+\
+^C^C_preview 
+^C^C_purge 
+^C^C_dimedit 
+^C^C_dimtedit 
+^C^C_-dimstyle _apply 
+^C^C_dimoverride 
+'_dimstyle 
+\
+'_help 
+^C^C_browser ;
+^C^C_menuload 
+^C^C_options 
+\
+^C^C_properties 
+^C^C_properties 
+'_matchprop 
+'_matchprop 
+^C^C_hatchedit 
+^C^C_pedit 
+^C^C_splinedit 
+^C^C_mledit 
+^C^C_attedit 
+^C^C_ddedit 
+^C^C_explode 
+\
+^C^C_stylesmanager 
+^C^C_exit 
+
+//
+//      AutoCAD 菜单文件结尾 - C:\Program Files\AutoCAD 2002\SUPPORT\acad.mnu
+//
+

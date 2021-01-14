@@ -1,0 +1,18 @@
+(defun c:distxtw ()
+(setq a (ssget))
+(setq b (sslength a))
+(setq d 0)
+(repeat b
+(setq c (ssname a d))
+(setq ag (entget c))
+(setq a1 (assoc 10 ag) a2 (assoc 11 ag))
+(setq l (distance (cdr a1) (cdr a2)))
+(setq a11 (cadr a1) a12 (caddr a1) a21 (cadr a2) a22 (caddr a2))
+(setq k (rtos l 2 2))
+(if (< a12 a22) (setq p0 (cdr a2)) (setq p0 (cdr a1)))
+(command "text" p0 "" "" k )
+(setq d (+ d 1))
+)
+(princ)
+)
+

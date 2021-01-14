@@ -1,0 +1,16 @@
+(defun c:chlaTXT ()
+(menucmd "s=sel")
+(setq lay "TXT")
+(prompt "Change Layer Name <")(princ lay)(prompt "> :")
+(setq a (ssget))
+(setq b (sslength a))
+(setq d 0)
+(repeat b
+(setq c (ssname a d))
+(setq q (entget c))
+(setq e (assoc 8 (entget c)))
+(setq f (subst (cons 8 lay) e q))
+(entmod f)
+(setq d (+ d 1))
+)(princ))
+

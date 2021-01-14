@@ -1,0 +1,77 @@
+DEFUN C:BASEBOX
+;(IF (= (TYPE F1) 'FILE ) "YES"  (STOP))
+;(IF (= (TYPE F2) 'FILE ) "YES" (STOP))
+
+         (SETQ NY (GETVAR "CLAYER"))
+         (SETVAR "CMDECHO" 0)
+
+         (TEXTSCR)
+
+         (INITGET 1)
+  (SETQ BA (GETINT "\nHOW MANY PLATES DO YOU WANT ?"))
+
+  (SETQ LA (GETSTRING (STRCAT "\nWHICH LAYER DO YOU WANT ? <" NY ">")))
+  (IF (NOT (OR (= LA "") (= LA NIL) ) )
+      (COMMAND "LAYER" "S" LA "")
+  )
+         (INITGET 1 )
+  (SETQ CG (GETREAL"\nCHAMFER VALUE:"))
+
+  (SETQ BALIST '())
+  (SETQ NUM 1)
+  (REPEAT BA
+    (PROMPT "\n")
+    (SETQ LE (GETREAL (STRCAT  (ITOA NUM) "th LENGTH:")))
+    (SETQ WD (GETREAL (STRCAT  (ITOA NUM)  "th WIDTH:" )))
+
+    (SETQ PT (LIST (/ LE 2.0) WD))
+    (SETQ BALIST (CONS PT BALIST))
+    (SETQ NUM (+ NUM 1))
+  )
+
+         (GRAPHSCR)
+
+  (SETQ P1 (GETPOINT"\nWHICH POINT DO YOU PUT ?"))
+; (COMMAND "LAYER" "S" LA "")
+  (SETQ DP3 P1)
+  (SETQ BAA BA)
+
+  (REPEAT BA
+   (SETQ BAA (- BAA 1))
+   (SETQ DR (NTH BAA   BALIST))
+   (SETQ DRF1 (CAR DR))
+   (SETQ DRF2 (CADR DR))
+   (SETQ DR1   (POLAR P1   (* PI 1.0)  DRF1))
+   (SETQ DR2   (POLAR P1   (* PI 0.0)  DRF1))
+   (SETQ DR3   (POLAR DR1  (* PI 0.5)  DRF2))
+   (SETQ DR4   (POLAR DR2  (* PI 0.5)  DRF2))
+
+   (SETQ DR11 (POLAR DR1  (* PI 0.0)  CG  ))
+   (SETQ DR12 (POLAR DR1  (* PI 0.5)  CG  ))
+   (SETQ DR13 (POLAR DR3  (* PI 1.5)  CG  ))
+   (SETQ DR14 (POLAR DR3  (* PI 0.0)  CG  ))
+
+   (SETQ DR21 (POLAR DR2  (* PI 1.0)  CG  ))
+   (SETQ DR22 (POLAR DR2  (* PI 0.5)  CG  ))
+   (SETQ DR23 (POLAR DR4  (* PI 1.5)  CG  ))
+   (SETQ DR24 (POLAR DR4  (* PI 1.0)  CG  ))
+
+   (SETQ DPP3  (DISTANCE P1 DP3))
+   (SETQ DPP1  (DISTANCE P1 DR11))
+
+   (IF (>= DPP1  DPP3)
+       (COMMAND "LINE" DR11 DR21  "")
+       (COMMAND "LINE" DP3 DP4    "")
+   )
+
+   (COMMAND "LINE" DR11 DR12 DR13 DR14 "")
+   (COMMAND "LINE" DR21 DR22 DR23 DR24 "")
+
+   (SETQ DP3 DR14)
+   (SETQ DP4 DR24)
+
+   (SETQ P1 (POLAR P1  (* PI 0.5) DRF2 ))
+   (IF (= BAA 0) (COMMAND "LINE" DR14 DR24 ""))
+  )
+         (COMMAND "LAYER" "S" NY "")
+         (SETVAR "CMDECHO" 1)

@@ -1,0 +1,22 @@
+(defun c:CHIW (/ ts a n num b1 c c1 c3 d b2)
+   (menucmd "p7=number3")
+   (menucmd "p7=*")
+   (setq ts (getreal "\nENTER SCALE:"))
+   (menucmd "p7=metal1")
+   (setq a (ssget))
+   (setq n (sslength a))
+  (setq num 0)
+(repeat n
+  (setq b1 (entget (ssname a num)))
+  (setq num (1+ num))
+  (setq c (assoc 1 b1))
+  (setq c1 (* (atof (cdr c)) ts))
+  (setq c3 (rtos c1 2 2))
+  (setq d (cons (car c) c3))
+  (if (/= c1 0.0)
+   (progn
+  (setq b2 (subst d c b1))
+    (entmod b2)))
+)
+)
+

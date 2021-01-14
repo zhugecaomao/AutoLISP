@@ -1,0 +1,2 @@
+AutoCAD PROTECTED LISP file
+

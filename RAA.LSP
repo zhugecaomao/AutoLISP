@@ -1,0 +1,11 @@
+(defun c:raa()
+   (setq l (getreal "\nEnter lenght:"))
+   (setq w (getreal "\nEnter width:"))
+   (setq p (getpoint "\nEnter center point: "))
+   (setq p1 (list (- (car p) (/ l 2.0)) (- (cadr p) (/ w 2.0))))
+   (setq p2 (list (+ (car p1) l) (cadr p1)))
+   (setq p3 (list (car p2) (+ (cadr p2) w)))
+   (setq p4 (list (car p1) (cadr p3)))
+   (command "line" p1 p2 p3 p4 "c")
+)
+

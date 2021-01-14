@@ -1,0 +1,52 @@
+(defun c:jiagcd()
+(setq ent (ssget "x" '((8 . "gcd")(0 . "TEXT"))))
+(if ent (progn
+(command"zoom" "e")
+(setvar "osmode" 0)
+(write-line "正在给没有点位的高程注记加点位，请稍侯。。。。")
+(command"layer" "m" "gcd" "")
+(setq long-ent (sslength ent))
+(setq num-ent 0)
+(repeat long-ent
+(setq ty (ssname ent num-ent))
+(c:findd)
+(setq num-ent (1+ num-ent))
+)
+(command"layer" "m" "0" "")
+(command"zoom" "p")
+(write-line"　　　　　　　 ok　　　　　　　 欢迎使用另类测绘LISP程序　　　 ")
+(print)
+))
+)
+
+(defun c:findd()
+(setq data (entget ty))
+(SETQ TEX (CDR (ASSOC 1 DATA)))
+(setq p (cdr (assoc 10 data)))
+(setq pl (polar p (* 1.25 pi) 11.0)
+pr (polar p (* 0.18 pi) 17))
+(setq ent-p (ssget "w" pl pr '((0 . "POINT")(8 . "gcd"))))
+(if ent-p (progn ;注记周围有点
+(SETQ Long-p (sslength ent-p))
+(setq num-p 0)
+(setq data-p (entget (ssname ent-p num-p)))
+(setq gcdz (rtos (cadddr (assoc 10 data-p)) 2 2))
+(while (and (/= gcdz tex)(< num-p (1- long-p)))
+(setq num-p (1+ num-p))
+(setq data-p (entget (ssname ent-p num-p)))
+(setq gcdz (rtos (cadddr (assoc 10 data-p)) 2 2))
+)
+(if (/= gcdz tex) (c:jiad))
+) 
+(c:jiad) ;注记周围无点
+)
+)
+
+(defun c:jiad()
+(setq p-point (polar (polar p (* 0.5 pi) 1) pi 1.0))
+(command"point" p-point)
+(command"change" (entlast) "" "p" "e" (atof tex) "t" "1610000" "")
+)
+;;;----------------------------------------------
+;;;-------http://www.othermap.com-----------------
+注：点位的编码是SCS的

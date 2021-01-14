@@ -1,0 +1,37 @@
+;计算程序（推荐）
+;计算cad图中数字的和（求和）并写在图纸中，常用于统计材料表中的总和
+(DEFUN C:jia1()
+ (setq jd (getint "input 精度<0>:"))
+ (if (= jd nil) (setq jd 0))
+ (princ "\nselect object:")
+ (setq s (ssget))
+ (setq n (sslength s))
+ (setq k 0 )(setq mm 0.0)
+ (while (< k n) 
+      (setq name (ssname s k))
+      (setq a (entget name))
+      (setq t1 (assoc '0 a))
+      (setq t1 (cdr t1))
+      (if (= t1 "TEXT") (PROGN
+          (setq tx (assoc '1 a))
+          (setq tx (cdr tx))
+          (setq tx (atof tx))
+          (setq mm (+ tx mm))
+         ))
+      (if (= t1 "DIMENSION") (PROGN
+          (setq tx (assoc '1 a))
+          (setq tx (cdr tx))
+          (if (and (/= tx "")(/= tx "<>"))(setq tx (atof tx)))
+          (if (or (= tx "")(= tx "<>"))(progn
+              (setq tx (assoc '42 a))
+              (setq tx (cdr tx))
+              ))
+          (if (= k 0) (setq MM TX) (setq mm (+ tx mm)))
+         ))
+      (setq k (+ k 1))
+ )
+ (setq mm (rtos mm 2 jd))
+ (setq po (getpoint "input point----:"))
+ (command "text" po ""  "" mm)
+)
+

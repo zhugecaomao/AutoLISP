@@ -1,0 +1,30 @@
+DEFUN C:DARCL
+    (SETQ PII 3.14159)
+    (SETQ TLENG 0)
+    (PROMPT "\n SELECT ARC(s)")
+    (SETQ FIGC (SSGET ) )
+    (SETQ W (SSLENGTH FIGC))
+    (SETQ IND 0)
+    (REPEAT W
+      (SETQ FIGG (ENTGET (SSNAME FIGC IND)))
+      (SETQ PNA (CDR (ASSOC 0 FIGG)))
+
+      (IF (= PNA "ARC")  (PROGN
+        (SETQ CIRP (CDR (ASSOC 10 FIGG)) ) ;CIRCLE POINT
+        (SETQ RADI (CDR (ASSOC 40 FIGG)) ) ;RADUIS
+        (SETQ ANGS (CDR (ASSOC 50 FIGG)) ) ;STAR ANGLE
+        (SETQ ANGE (CDR (ASSOC 51 FIGG)) ) ;END  ANGLE
+        (SETQ TS (- ANGE ANGS )  )
+        (IF (<= TS 0) (SETQ ANGE (+ ANGE (* 2.0 PII))) )
+        (SETQ TANG (- ANGE ANGS))
+        (SETQ ALENG (* RADI TANG))
+        (SETQ TLENG (+ TLENG ALENG))
+      )) ;ENDIF
+
+      (SETQ IND (+ IND 1))
+    );ENDREPEAT
+
+     (PROMPT "\n TOTAL LENGTH OF ARC(s) ARE: RAD ")
+     (PROMPT (RTOS TLENG 2 5))
+     (PROMPT "\n")
+

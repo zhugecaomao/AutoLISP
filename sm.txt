@@ -1,0 +1,1 @@
+下载附件释放到 \XDSoft\Lisp 目录下，加载 plan1.lsp 

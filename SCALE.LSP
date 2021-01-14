@@ -1,0 +1,16 @@
+(defun c:scal1()
+  (setq n (getstring "\nEnter scale text: "))
+  (setq p (getpoint "\nEnter center point: "))
+  (setq n1 (strcat "SCALE= " N ))
+  (COMMAND "TEXT" "M" P (* 3.5 (GETVAR "DIMSCALE")) "" N1)
+  (SETQ L (* 15 (GETVAR "DIMSCALE")))
+  (setq p1 (list (- (car p) L) (- (cadr p) (* 3.5 (GETVAR "DIMSCALE")))))
+  (setq p2 (list (+ (car p) L) (cadr p1)))
+  (setq p3 (list (car p1) (- (cadr p1) (* 1 (GETVAR "DIMSCALE")))))
+  (setq p4 (list (car p2) (- (cadr p2) (* 1 (GETVAR "DIMSCALE")))))
+  (COMMAND "LINE" p1 p2 "")
+  (COMMAND "LINE" p3 p4 "")
+  (SETVAR "TEXTSIZE" (* 2.5 (GETVAR "DIMSCALE")))
+)
+
+

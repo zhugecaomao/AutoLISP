@@ -1,0 +1,15 @@
+(defun c:thick ()
+(menucmd "s=sel")
+(setq l (getdist "Input change after thickness = "))
+(setq a (ssget))
+(setq b (sslength a))
+(setq d 0)
+(repeat b
+(setq c (ssname a d))
+(setq q (entget c))
+(setq e (assoc 39 (entget c)))
+(setq f (subst (cons 39 l) e q))
+(entmod f)
+(setq d (+ d 1))
+)(princ))
+

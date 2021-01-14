@@ -1,0 +1,12 @@
+(DEFUN C:SUPPORT()
+(setq F(getvar "blipmode")) (setvar "blipmode" 0)
+(setq A(getreal "\n Enter support diameter:[12-50]"))
+(setq P(getpoint "\n Enter insert point:"))
+(if (< A 20)
+ (progn (setq A1 6) (setq A2 10))
+ (progn (setq A1 8) (setq A2 13)))
+(command "CIRCLE" P "D" A)
+(command "CIRCLE" P "D" A1)
+(command "CIRCLE" P "D" A2)
+(setvar "blipmode" F))
+

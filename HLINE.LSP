@@ -1,0 +1,16 @@
+;------ HLINE ---------
+(defun c:hline(/ pt2 x2 pt1 y1 p3 p4)
+;(IF (= (TYPE F1) 'FILE ) "YES"  (STOP))
+;(IF (= (TYPE F2) 'FILE ) "YES" (STOP))
+(setvar "cmdecho" 0)
+(setq pt2(getvar"limmax"))
+(setq x2(car pt2))
+(while t
+(setq pt1(getpoint "\nget a point path:"))
+(setq y1(cadr pt1))
+(setq p3(list 0 y1))
+(setq p4(list x2 y1))
+(command"line" p3 p4 "") )
+(setvar "cmdecho" 1)
+(princ)
+)(princ)

@@ -1,0 +1,5 @@
+defun c:test
+(setq P1 (GETPOINT"\nSELECT A POINT:")
+(setq P2 (GETPOINT"\nSELECT B POINT:")
+(SETQ D1 (DISTANCE P1 P2))
+

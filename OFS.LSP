@@ -1,0 +1,23 @@
+DEFUN C:OFS
+(PROMPT"\n<Offset distance>:")
+(IF (= OFT NIL)
+      (SETQ OFT 0.0)
+)
+(PROMPT "\nOffset distance :<") (PRIN1 OFT)(PROMPT">")
+(SETQ OFTL (GETDIST"\nOffset Distance or Throught<Throught>:"))
+(IF (= OFTL NIL)
+    (SETQ OFTL OFT)
+)
+(SETQ OFT OFTL)
+  (SETQ SF2 (ENTSEL "\nSelect object to offset:"))
+  (SETQ SF3 (GETPOINT "\nSide to offset?"))
+  (SETQ HP (CADR SF2))
+  (SETQ AG1 (ANGLE HP SF3))
+(SETQ N (GETINT"\nHow many times to offset:"))
+(REPEAT N
+  (COMMAND "SELECT" HP "")
+  (COMMAND "OFFSET" OFTL HP SF3 "")
+  (SETQ HP (POLAR HP AG1 OFTL) )
+  (SETQ SF3 (POLAR SF3 AG1 OFTL))
+)
+

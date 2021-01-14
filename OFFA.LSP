@@ -1,0 +1,12 @@
+(defun c:offa ()
+(PROMPT "Input width then offset a half width)<")(princ sd)(prompt ">:")
+(setq sd3 sd)
+(setq sd (getstring))
+(if (= sd "")(setq sd sd3))
+(setq sd2 (atof sd))
+(setq sd1 (/ sd2 2.0))
+(prompt "\nSelect object to offset and which side would you want?")
+(command "offset" sd1 pause pause )
+(princ)
+)
+

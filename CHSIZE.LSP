@@ -1,0 +1,22 @@
+(VMON)
+;(IF (= (TYPE F1) 'FILE ) "YES"  (STOP))
+;(IF (= (TYPE F2) 'FILE ) "YES" (STOP))
+;-----------------
+;Change height of string
+;(DEFUN C:CHSIZE (/ AC1 AC2 AC3 AC5 AC6)
+(DEFUN C:CHSIZE ()
+  (PROMPT "\nSelect old text(s)...")
+  (SETQ AC1 (SSGET))
+  (PROMPT "\nOld text height=")
+  (PRINC (RTOS (CDR (ASSOC 40 (ENTGET (SSNAME AC1 0))))))
+  (SETQ AC2 (GETREAL "\nEnter new text height:"))
+  (SETQ AC3 (SSLENGTH AC1))
+  (SETQ AC5 0)
+  (WHILE (< AC5 AC3)
+      (SETQ AC6 (ENTGET (SSNAME AC1 AC5)))
+      (SETQ AC6 (SUBST (CONS 40 AC2) (ASSOC 40 AC6) AC6))
+      (ENTMOD AC6)
+      (SETQ AC5 (1+ AC5))
+  )
+)
+

@@ -1,0 +1,28 @@
+;(IF (= (TYPE F1) 'FILE ) "YES"  (STOP))
+;(IF (= (TYPE F2) 'FILE ) "YES" (STOP))
+(DEFUN C:CHB1 ()
+  (COMMAND "SETVAR" "HIGHLIGHT" "1")
+  (COMMAND "SELECT" "AU" "\\")
+  (SETQ SA (SSGET "P" ))
+  (SETQ N (SSLENGTH SA))
+  (SETQ I 0)                                 ;FIRST ENTITY
+  (REPEAT N
+    (SETQ NA (ENTGET (SSNAME SA I)))
+    (SETQ I (+ 1 I))
+    (SETQ NB (ASSOC 0 NA))
+    (IF  (= "INSERT" (CDR NB))
+        (PROGN
+          (SETQ SW1 (CDR (CAR NA)))
+          (SETQ NEW (SUBSTR (CDR (ASSOC 2 NA)) 6 5))
+          (SETQ SW2 (SUBSTR (CDR (ASSOC 2 NA)) 1 3))
+          (SETQ SW2 (STRCAT SW2 "2"))
+          (SETQ SW3 (CDR (ASSOC 10 NA)))
+          (SETVAR "CMDECHO" 0)
+          (COMMAND "ERASE" SW1 ""
+                     "INSERT" (STRCAT "c:/acad/HON/B/" SW2 "-" NEW) SW3 1 1 0 )
+            (SETVAR "CMDECHO" 1)
+          (PRINC)
+        )
+    )
+  )
+)

@@ -1,0 +1,36 @@
+ DEFUN C:DAREXT
+  (SETQ CL1 (ENTSEL"\n Select area by a CIRCLE:"))
+  (SETQ SLP (CADR CL1))
+  (SETQ C1  (ENTGET (CAR CL1)))
+  (SETQ NAMES (CDR (ASSOC 0  C1)))
+  (IF (= NAMES "ARC") (PROGN
+     (SETQ CP (CDR (ASSOC 10 C1)))
+     (SETQ R1 (CDR (ASSOC 40 C1)))
+     (SETQ ANGS (CDR (ASSOC 50 C1)))
+     (SETQ ANGE (CDR (ASSOC 51 C1)))
+     (SETQ ANGSL (ANGLE CP SLP))
+     (SETQ PSS (POLAR CP  ANGS  R1) )
+     (SETQ PEE (POLAR CP  ANGE  R1) )
+     (SETQ SLP (POLAR CP  ANGSL R1) )
+
+     (SETQ MP (POLAR CP (- (ANGLE PSS PEE) (* 0.5 PI)) R1))
+     (SETQ SLS NIL SLE NIL)
+     (SETQ SLS (INTERS MP PSS CP SLP))
+     (SETQ SLE (INTERS MP PEE CP SLP))
+
+     (IF (= SLE NIL) (PROGN
+                 (INITGET 1)
+        (SETQ PP (GETPOINT CP  "\n NEW START POINT :"))
+        (SETQ ANGNN (ANGLE CP PP))
+        (ENTMOD (SUBST (CONS 50 ANGNN) (ASSOC 50 C1) C1  ))
+     ))
+
+     (IF (= SLS NIL) (PROGN
+                 (INITGET 1)
+        (SETQ PP (GETPOINT CP  "\n NEW END POINT :"))
+        (SETQ ANGNN (ANGLE CP PP))
+        (ENTMOD (SUBST (CONS 51 ANGNN) (ASSOC 51 C1) C1  ))
+     ))
+
+  ))
+

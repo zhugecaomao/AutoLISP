@@ -1,0 +1,17 @@
+(defun c:chgntext ()
+(menucmd "s=sel")
+(setq l (getstring "change new text = "))
+(setq a (ssget))
+(setq b (sslength a))
+(setq d 0)
+(setq c (ssname a d))
+(setq q (entget c))
+(setq e (assoc 1 (entget c)))
+(setq k (cdr (assoc 0 (entget c))))
+(if (= k "TEXT")
+(PROGN
+(setq f (subst (cons 1 l) e q))
+(entmod f))
+)
+(princ))
+

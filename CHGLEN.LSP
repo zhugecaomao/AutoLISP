@@ -1,0 +1,17 @@
+(Defun C:Chglen ()
+(Setvar "Cmdecho" 0)
+(Setq A (Getvar "Gridmode"))
+(Setq B (Getvar "Snapmode"))
+(Setq C (Getvar "Snapang"))
+(Setq E (Getvar "Orthomode"))
+(Setvar "Orthomode" 1)
+(Setq P2 (Osnap (Setq P1 (Osnap (Getpoint
+"Touch line to change: ")"End"))"Mid"))
+(Setvar "Gridmode" 0)
+(Setvar "Snapmode" 0)
+(Setvar "Snapang" (Angle P2 P1))
+(Setq D (Getdist P1 "How far: "))
+(Command "Change" P1 ""(Polar P1 (Angle P2 P1) D))
+(Setvar "Gridmode" A)(Setvar "Snapmode" B)
+(Setvar "Snapang" C))
+

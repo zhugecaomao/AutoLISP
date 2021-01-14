@@ -1,0 +1,16 @@
+;------ VLINE ----------
+(defun c:vline(/ pt2 y2 pt1 x1 p3 p4)
+;(IF (= (TYPE F1) 'FILE ) "YES"  (STOP))
+;(IF (= (TYPE F2) 'FILE ) "YES" (STOP))
+(setvar "cmdecho" 0)
+(setq pt2(getvar"limmax"))
+(setq y2(cdr pt2))
+(while t
+(setq pt1(getpoint"\nget a point path:"))
+(setq x1(car pt1))
+(setq p3(list x1 0))
+(setq p4(list x1 (car y2)))
+(command"line" p3 p4 ""))
+(setvar "cmdecho" 1)
+(princ)
+)(princ)
